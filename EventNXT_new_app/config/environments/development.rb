@@ -67,4 +67,30 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  
+  config.hosts << "da83112a02d5465c8e2119677001f49f.vfs.cloud9.us-east-2.amazonaws.com"
+  
+  
+  # <!--===================-->
+  # <!--to define the google authentication Oauth credentials-->
+  ENV['GOOGLE_OAUTH_CLIENT_ID'] = '142286611338-da6dp21qiuujfdk07nrjs6cpok8nou49.apps.googleusercontent.com'
+  ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
+  # <!--===================-->
+  
+  
+  # <!--===================-->
+  # <!--to configure action_mailer for Gmail-->
+  config.action_mailer.delivery_method = :smtp
+  host = 'da83112a02d5465c8e2119677001f49f.vfs.cloud9.us-east-2.amazonaws.com' #replace with your own url
+  config.action_mailer.default_url_options = { host: host }
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => "eventnxtapp@gmail.com",       # to whatever email you want to send email from
+    :password             => "ubpzqicdatyvbjoi",            # change this to pass-code you get from Gmail
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+  # <!--===================-->
 end

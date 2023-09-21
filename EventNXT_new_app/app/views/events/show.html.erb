@@ -1,0 +1,96 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+<!--===================-->
+<!--to add title to parent's details-->
+==========================================
+<h2>Event Details</h2>
+<%= render @event %>
+
+<div>
+  <%= link_to "Edit this event", edit_event_path(@event) %> |
+  <%= link_to "Back to events", events_path %>
+
+  <%= button_to "Destroy this event", @event, method: :delete %>
+</div>
+========================================== <br></br>
+<!--===================-->
+
+
+
+<!--===================-->
+<!--to display uploaded image-->
+<h2>Event Image</h2>
+<% if @event_avatar.present? %>
+  <%= image_tag @event.event_avatar.url %>
+<% else %>
+  <p>No image is uploaded for this event.</p>
+<% end %>
+========================================== <br></br>
+<!--===================-->
+
+
+
+<!--===================-->
+<!--to display nested children-->
+<h2>Manage Seating Levels</h2>
+
+<!--to add link for the nested children-->
+<%= link_to 'Add Seat', event_seats_path(@event) %> 
+
+<% for seat in @event.seats %>
+  <%= render seat %>
+  <div>
+    <%= link_to "Show this seat", [@event, seat] %>
+  </div>
+<% end %>
+<br></br> ========================================== <br></br>
+<!--===================-->
+
+
+
+<!--===================-->
+<!--to display nested children-->
+<h2>Manage Guests</h2>
+
+<!--to add link for the nested children-->
+<%= link_to 'Add Guest', event_guests_path(@event) %> 
+
+<% for guest in @event.guests %>
+  <%= render guest %>
+  <div>
+    <%= link_to "Show this guest", [@event, guest] %>
+  </div>
+<% end %>
+<br></br> ========================================== <br></br>
+<!--===================-->
+
+
+
+<!--===================-->
+<!--to display uploaded box office data-->
+<h2>Manage Box Office Sales</h2>
+<% if @event_box_office_data.present? %>
+  <table>
+    <% @event_box_office_data.each do |row| %>
+      <tr>
+        <% row.each do |cell| %>
+          <td><%= cell %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No box office spreadsheet uploaded for this event.</p>
+<% end %>
+========================================== <br></br>
+<!--===================-->
+
+
+
+<!--===================-->
+<!--to be added-->
+<h2>Manage Referrals</h2>
+========================================== <br></br>
+<!--===================-->

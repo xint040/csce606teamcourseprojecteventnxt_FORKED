@@ -1,0 +1,46 @@
+<%# following changes are made:
+        - deleted the section that lists the parent_id of the related parent, 
+          since this is not essential information in the view. %>
+
+<div id="<%= dom_id guest %>">
+  <p>
+    <strong>First name:</strong>
+    <%= guest.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= guest.last_name %>
+  </p>
+
+  <p>
+    <strong>Affiliation:</strong>
+    <%= guest.affiliation %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= guest.category %>
+  </p>
+
+  <p>
+    <strong>Alloted seats:</strong>
+    <%= guest.alloted_seats %>
+  </p>
+
+  <p>
+    <strong>Commited seats:</strong>
+    <%= guest.commited_seats %>
+  </p>
+
+  <p>
+    <strong>Guest commited:</strong>
+    <%= guest.guest_commited %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= guest.status %>
+  </p>
+
+</div>

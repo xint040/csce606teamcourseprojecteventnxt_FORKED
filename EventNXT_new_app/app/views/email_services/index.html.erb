@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Email Service</h1>
+
+<%= link_to "Compose New Email", new_email_service_path %>
+
+
+<br></br> ******************************************************************
+<h2>Unsent Emails</h2>
+<div id="email_services">
+  <% @unsent_emails.each do |email| %>
+    <%= render email %>
+    <p>
+      <%= link_to "Show this email", email %>
+    </p>
+  <% end %>
+</div>
+
+
+<br></br> ******************************************************************
+<h2>Sent Emails</h2>
+<div id="email_services">
+  <% @sent_emails.each do |email| %>
+    <%= render email %>
+    <p>
+      <%= link_to "Show this email", email %>
+    </p>
+  <% end %>
+</div>

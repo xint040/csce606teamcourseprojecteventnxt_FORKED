@@ -70,3 +70,24 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# to upload
+gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
+
+# to generate Thumbnails
+gem 'mini_magick'
+
+# to parse spreadsheet data
+gem 'roo', '~> 2.10'
+
+# to authenticate
+gem 'devise', '~> 4.9', '>= 4.9.2'
+
+# Google Login
+gem 'omniauth-google-oauth2', '~> 1.1', '>= 1.1.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
+
+# Code coverage for Ruby
+gem 'simplecov', require: false, group: :test
+gem 'rspec-rails', group: [:development, :test]
+gem 'shoulda-matchers', group: [:development, :test]        # to rovide RSpec-compatible matchers

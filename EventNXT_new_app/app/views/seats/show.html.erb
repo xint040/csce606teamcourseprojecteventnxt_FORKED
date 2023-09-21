@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @seat %>
+
+<div>
+  <%# link_to "Edit this seat", edit_seat_path(@seat) %>
+  <%# link_to "Edit this seat", edit_event_seat_path(@event, seat) %>
+  <%= link_to "Edit this seat", edit_event_seat_path(@event, @seat) %> |
+  <%# link_to "Back to seats", seats_path %>
+  <%= link_to "Back to seats", event_seats_path(@event) %>
+
+  <%# button_to "Destroy this seat", @seat, method: :delete %>
+  <%# button_to "Destroy this seat", [@event, seat], method: :delete %>
+  <%= button_to "Destroy this seat", [@event, @seat], method: :delete %>
+</div>

@@ -1,0 +1,16 @@
+<%# following changes are made:
+        - deleted the section that lists the parent_id of the related parent, 
+          since this is not essential information in the view. %>
+
+<div id="<%= dom_id seat %>">
+  <p>
+    <strong>Category:</strong>
+    <%= seat.category %>
+  </p>
+
+  <p>
+    <strong>Total count:</strong>
+    <%= seat.total_count %>
+  </p>
+
+</div>

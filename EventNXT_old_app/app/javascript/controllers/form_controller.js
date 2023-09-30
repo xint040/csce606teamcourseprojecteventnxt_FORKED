@@ -6,6 +6,10 @@ export default class extends Controller {
 
   submitSaveLocal(e) {
     e.preventDefault();
+    var sts = document.getElementById("test_login_status");
+    console.log(sts.innerHTML);
+    sts.style.color = 'green';
+    sts.innerHTML = "Authorizing Request...";
     this.submit(function(res) {
       for (const [key, value] of Object.entries(res))
         localStorage.setItem(key, value);
@@ -25,6 +29,10 @@ export default class extends Controller {
     req.controller = this;
     req.onload = function() {
       if (this.status >= 200 && this.status < 300) {
+        var sts = document.getElementById("test_login_status");
+        console.log(sts.innerHTML);
+        sts.style.color = 'green';
+        sts.innerHTML = "Login Successful!";
         var res = this.response ? JSON.parse(this.response) : this.response;
         callback(res, this.controller);
 
@@ -33,6 +41,10 @@ export default class extends Controller {
       } else if (this.controller.hasBadTarget) {
         for (const t of this.controller.badTargets)
           t.classList.add('is-invalid');
+        var sts = document.getElementById("test_login_status");
+        console.log(sts.innerHTML);
+        sts.style.color = 'red';
+        sts.innerHTML = "Login Failed!";
       }
     }
     req.send(dat);

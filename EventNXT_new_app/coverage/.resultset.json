@@ -2039,7 +2039,7 @@
   },
   "RSpec": {
     "coverage": {
-      "/home/ec2-user/environment/fashionxt_002/app/models/user.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -2065,58 +2065,50 @@
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/models/application_record.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/helpers/application_helper.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/helpers/email_services_helper.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/email_services_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/helpers/events_helper.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/events_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/helpers/guests_helper.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/guests_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/helpers/home_helper.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/home_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/helpers/seats_helper.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/seats_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/channels/application_cable/channel.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/ec2-user/environment/fashionxt_002/app/channels/application_cable/connection.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/channels/application_cable/channel.rb": {
         "lines": [
           1,
           1,
@@ -2124,7 +2116,33 @@
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/models/email_service.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/channels/application_cable/connection.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/home_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/email_service.rb": {
         "lines": [
           1,
           null,
@@ -2134,7 +2152,7 @@
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/models/guest.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/guest.rb": {
         "lines": [
           1,
           1,
@@ -2154,7 +2172,7 @@
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/models/seat.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/seat.rb": {
         "lines": [
           1,
           1,
@@ -2168,7 +2186,7 @@
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/models/event.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/event.rb": {
         "lines": [
           1,
           1,
@@ -2184,7 +2202,7 @@
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/uploaders/avatar_uploader.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/uploaders/avatar_uploader.rb": {
         "lines": [
           1,
           null,
@@ -2225,57 +2243,6 @@
           null,
           1,
           0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/ec2-user/environment/fashionxt_002/app/uploaders/spreadsheet_uploader.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           null,
@@ -2286,19 +2253,58 @@
           null
         ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/controllers/application_controller.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/uploaders/spreadsheet_uploader.rb": {
         "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
           0,
           null,
           null,
-          0,
           null,
-          0
-        ],
-        "branches": {
-        }
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       },
-      "/home/ec2-user/environment/fashionxt_002/app/controllers/email_services_controller.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/email_services_controller.rb": {
         "lines": [
           0,
           0,
@@ -2394,224 +2400,6 @@
           null,
           null,
           null,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/ec2-user/environment/fashionxt_002/app/controllers/events_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/ec2-user/environment/fashionxt_002/app/controllers/guests_controller.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
           0,
           0,
           0
@@ -2619,17 +2407,110 @@
         "branches": {
         }
       },
-      "/home/ec2-user/environment/fashionxt_002/app/controllers/home_controller.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/events_controller.rb": {
         "lines": [
           0,
           0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
           0,
           0
         ],
         "branches": {
         }
       },
-      "/home/ec2-user/environment/fashionxt_002/app/controllers/seats_controller.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/guests_controller.rb": {
         "lines": [
           0,
           null,
@@ -2744,7 +2625,122 @@
         "branches": {
         }
       },
-      "/home/ec2-user/environment/fashionxt_002/app/controllers/users/omniauth_callbacks_controller.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/seats_controller.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/users/omniauth_callbacks_controller.rb": {
         "lines": [
           null,
           null,
@@ -2784,7 +2780,7 @@
         "branches": {
         }
       },
-      "/home/ec2-user/environment/fashionxt_002/app/jobs/application_job.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -2797,7 +2793,7 @@
         "branches": {
         }
       },
-      "/home/ec2-user/environment/fashionxt_002/app/mailers/application_mailer.rb": {
+      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           null,
@@ -2821,6 +2817,6 @@
         }
       }
     },
-    "timestamp": 1683337026
+    "timestamp": 1697205147
   }
 }

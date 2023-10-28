@@ -9,6 +9,7 @@ class User < ApplicationRecord
          # <!--to add google authentication-->
          :omniauthable, omniauth_providers: [:google_oauth2]
          # <!--===================-->
+  has_many :events
          
   
   

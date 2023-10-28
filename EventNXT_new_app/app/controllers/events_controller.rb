@@ -1,16 +1,17 @@
 class EventsController < ApplicationController
+
   before_action :set_event, only: %i[ show edit update destroy ]
 
   # GET /events or /events.json
   def index
-    @events = Event.all
+    @events = current_user.events
   end
 
   # GET /events/1 or /events/1.json
   def show
     # <!--===================-->
     # <!--to show the uploaded spreadsheet-->
-    @event = Event.find(params[:id])
+    @event = current_user.events.find(params[:id])
     if @event.event_box_office.present?
       @event_box_office_data = []
       # Load the spreadsheet using the SpreadsheetUploader
@@ -31,7 +32,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = current_user.events.new
   end
 
   # GET /events/1/edit
@@ -40,7 +41,7 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.new(event_params)
 
     respond_to do |format|
       if @event.save
@@ -79,7 +80,7 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = current_user.events.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

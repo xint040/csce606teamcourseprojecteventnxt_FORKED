@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_05_045543) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_145932) do
   create_table "email_services", force: :cascade do |t|
     t.string "to"
     t.string "subject"
@@ -35,6 +35,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_045543) do
     t.datetime "updated_at", null: false
     t.string "event_avatar"
     t.string "event_box_office"
+    t.integer "user_id", default: 1
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "guests", force: :cascade do |t|
@@ -71,12 +73,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_045543) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "email_services", "events"
   add_foreign_key "email_services", "guests"
+  add_foreign_key "events", "users"
   add_foreign_key "guests", "events"
   add_foreign_key "seats", "events"
 end

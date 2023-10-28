@@ -2039,272 +2039,39 @@
   },
   "RSpec": {
     "coverage": {
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/user.rb": {
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/channels/application_cable/channel.rb": {
         "lines": [
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/application_record.rb": {
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/channels/application_cable/connection.rb": {
         "lines": [
-          1,
-          1,
-          null
-        ]
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/application_helper.rb": {
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/controllers/application_controller.rb": {
         "lines": [
-          1,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/email_services_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/events_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/guests_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/home_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/helpers/seats_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/channels/application_cable/channel.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/channels/application_cable/connection.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/home_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/email_service.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/guest.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/seat.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/models/event.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/uploaders/avatar_uploader.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
           0,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
           0,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
+          0
+        ],
+        "branches": {
+        }
       },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/uploaders/spreadsheet_uploader.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/email_services_controller.rb": {
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/controllers/email_services_controller.rb": {
         "lines": [
           0,
           0,
@@ -2407,7 +2174,7 @@
         "branches": {
         }
       },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/events_controller.rb": {
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/controllers/events_controller.rb": {
         "lines": [
           0,
           0,
@@ -2510,7 +2277,7 @@
         "branches": {
         }
       },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/guests_controller.rb": {
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/controllers/guests_controller.rb": {
         "lines": [
           0,
           null,
@@ -2625,7 +2392,27 @@
         "branches": {
         }
       },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/seats_controller.rb": {
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/controllers/home_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/controllers/remember_me_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/controllers/seats_controller.rb": {
         "lines": [
           0,
           null,
@@ -2740,7 +2527,7 @@
         "branches": {
         }
       },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/controllers/users/omniauth_callbacks_controller.rb": {
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/controllers/users/omniauth_callbacks_controller.rb": {
         "lines": [
           null,
           null,
@@ -2780,7 +2567,63 @@
         "branches": {
         }
       },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/jobs/application_job.rb": {
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/helpers/application_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/helpers/email_services_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/helpers/events_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/helpers/guests_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/helpers/home_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/helpers/remember_me_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/helpers/seats_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -2793,7 +2636,7 @@
         "branches": {
         }
       },
-      "/mnt/c/Users/aduri/Evntnxt-app-new/EventNXT/EventNXT_new_app/app/mailers/application_mailer.rb": {
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           null,
@@ -2810,6 +2653,218 @@
           0,
           0,
           0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/models/application_record.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/models/email_service.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/models/event.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/models/guest.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/models/seat.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/models/user.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/uploaders/avatar_uploader.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/aduri/my-work-directory-for-se/EventNXT/EventNXT_new_app/app/uploaders/spreadsheet_uploader.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           0
         ],
@@ -2817,6 +2872,6 @@
         }
       }
     },
-    "timestamp": 1697205147
+    "timestamp": 1698160979
   }
 }

@@ -35,12 +35,12 @@
 
         <div class="field", style="margin-top: 10px;">
           <%= f.label :name, class: "form-label"  %><br />
-          <%= f.text_field :name, autofocus: true %>
+          <%= f.text_field :name, autofocus: true, style: "color: black;;font-family: 'Times New Roman',  Times, serif;"  %>
         </div>
 
         <div class="field", style="margin-top: 10px;">
-          <%= f.label :email, class: "form-label"  %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.label :email, class: "form-label"%><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "off", style: "color: black;;font-family: 'Times New Roman',  Times, serif;"  %>
         </div>
 
         <div class="field", style="margin-top: 10px;">
@@ -48,12 +48,12 @@
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password", style: "color: black;;font-family: 'Times New Roman',  Times, serif;"  %>
         </div>
 
         <div class="field", style="margin-top: 10px;">
           <%= f.label :password_confirmation, class: "form-label"  %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" , style: "color: black;;font-family: 'Times New Roman',  Times, serif;" %>
         </div>
 
         <div class="actions", style="margin-top: 10px;" >

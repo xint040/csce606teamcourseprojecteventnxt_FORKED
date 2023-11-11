@@ -24,8 +24,9 @@ class EventsController < ApplicationController
         row.each { |cell| row_data << cell.value }
         @event_box_office_data << row_data
       end
-    # else
-    #   flash[:notice] = "No box office spreadsheet uploaded for this event"
+    else
+      flash[:notice] = "No box office spreadsheet uploaded for this event"
+      @event_box_office_data = []
     end
     # <!--===================-->
   end
@@ -70,7 +71,6 @@ class EventsController < ApplicationController
   # DELETE /events/1 or /events/1.json
   def destroy
     @event.destroy
-
     respond_to do |format|
       format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
       format.json { head :no_content }

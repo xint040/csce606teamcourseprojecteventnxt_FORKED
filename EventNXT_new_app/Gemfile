@@ -95,3 +95,5 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem 'simplecov', require: false, group: :test
 gem 'rspec-rails', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test]        # to rovide RSpec-compatible matchers
+gem 'rails-controller-testing'
+gem 'rspec-support', '3.12.1'

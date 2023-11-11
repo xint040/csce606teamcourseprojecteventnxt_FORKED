@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+EmailService.create(
+  to: 'test@example.com',
+  subject: 'Test Email',
+  body: 'This is a test email'
+)

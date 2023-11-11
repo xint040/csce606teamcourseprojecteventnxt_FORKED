@@ -4,51 +4,43 @@
 
 <!--===================-->
 <!--to add title to parent's details-->
-==========================================
 <h2>Event Details</h2>
-<%= render @event %>
-
-<div>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
-  <%= link_to "Back to events", events_path %>
-
-  <%= button_to "Destroy this event", @event, method: :delete %>
+<div style="margin-left:300px">
+  <h3><%= @event.title %></h3>
+  <p><strong>Date:</strong> <%= @event.datetime %></p>
+  <p><strong>Description:</strong> <%= @event.description %></p>
+  <p><strong>Address:</strong> <%= @event.address %></p>
+  <div>
+    <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary", style: "width: 200px;margin-bottom: 20px" %>
+    <%= button_to "Delete", @event, method: :delete, class: "btn btn-danger", style: "width: 200px;" %>
+  </div>
 </div>
-========================================== <br></br>
-<!--===================-->
 
-
-
-<!--===================-->
-<!--to display uploaded image-->
-<h2>Event Image</h2>
-<% if @event_avatar.present? %>
-  <%= image_tag @event.event_avatar.url %>
-<% else %>
-  <p>No image is uploaded for this event.</p>
-<% end %>
-========================================== <br></br>
-<!--===================-->
 
 
 
 <!--===================-->
 <!--to display nested children-->
-<h2>Manage Seating Levels</h2>
+<h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px">Manage Seating Levels</h2>
 
 <!--to add link for the nested children-->
-<%= link_to 'Add Seat', event_seats_path(@event) %> 
-
-<% for seat in @event.seats %>
-  <%= render seat %>
-  <div>
-    <%= link_to "Show this seat", [@event, seat] %>
-  </div>
-<% end %>
-<br></br> ========================================== <br></br>
-<!--===================-->
-
-
+<%= link_to 'Add New Seat', event_seats_path(@event), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;margin-left:25%;margin-bottom:30px', class: 'button' %>
+<table style="width: 300px; border: 1px solid #ccc;margin-left:22%">
+  <tr style="background-color: #f2f2f2;">
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Category</th>
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Total Count</th>
+  </tr>
+</table>
+<div style="display: flex; flex-wrap: wrap;">
+  <% for seat in @event.seats %>
+    <div style="flex: 0 0 23%; margin-right: 10px; margin-left: 22%">
+      <%= render seat %>
+    </div>
+    <div style="flex: 0 0 40%;margin-right:200px margin-bottom: 100px;">
+      <%= link_to "Show this seat", [@event, seat], style: 'display: inline-block; width: 30%; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;' %>
+    </div>
+  <% end %>
+</div>
 
 <!--===================-->
 <!--to display nested children-->

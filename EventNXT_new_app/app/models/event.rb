@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
     mount_uploader :event_avatar, AvatarUploader
     mount_uploader :event_box_office, SpreadsheetUploader
-    
+    has_one_attached :event_avatar 
     
     belongs_to :user 
     # <!--===================-->

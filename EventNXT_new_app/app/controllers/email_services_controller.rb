@@ -81,6 +81,38 @@ class EmailServicesController < ApplicationController
     end
   end
 
+  def add_template
+    email_template_params = params.require(:email_template).permit(:name, :subject, :body)
+    @email_templates = EmailTemplate.new(email_template_params)
+
+    respond_to do |format|
+      if @email_templates.save
+        puts "success"
+      else
+        puts"fail"
+      end
+    end
+  end
+
+  def render_template
+    """
+    email_template = EmailTemplate.find(params[:id])
+
+    respond_to do |format|
+      format.json { render json: email_template }
+    end
+    """
+    puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    email_template = EmailTemplate.find(params[:id])
+    puts(email_template)
+    puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+
+    respond_to do |format|
+      format.json { render json: { subject: email_template.subject, body: email_template.body } }
+    end
+  
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_email_service
@@ -94,4 +126,6 @@ class EmailServicesController < ApplicationController
       # params.require(:email_service).permit(:to, :subject, :body, :sent_at, :committed_at, :event_id)
       params.require(:email_service).permit(:to, :subject, :body, :sent_at, :committed_at, :event_id, :guest_id)
     end
+
+    
 end

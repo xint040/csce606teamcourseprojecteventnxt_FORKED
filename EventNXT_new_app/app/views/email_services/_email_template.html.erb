@@ -1,0 +1,59 @@
+<style>
+  .details-container {
+    margin-bottom: 10px; 
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+</style>
+
+<% if @errors.present? %>
+  <div class="alert alert-danger">
+    <p><%= @errors %></p>
+  </div>
+<% end %>
+<div class="details-container">
+  <details>
+    <summary>Create New Template</summary>
+    <%= form_with(model: EmailTemplate, url: { controller: "email_services", action: "add_template" }, local: true) do |f| %>
+      <div class="field" style="margin-top: 10px;">
+        <%= f.label :name, class: "form-label" %><br />
+        <%= f.text_field :name, autofocus: true, value: '',style: "color: black; font-family: 'Times New Roman', Times, serif;" %>
+      </div>
+
+      <div class="field" style="margin-top: 10px;">
+        <%= f.label :subject, class: "form-label" %><br />
+        <%= f.text_field :subject, autofocus: true, style: "color: black; font-family: 'Times New Roman', Times, serif;" %>
+      </div>
+
+      <div class="field" style="margin-top: 10px;">
+        <%= f.label :body, class: "form-label" %><br />
+        <%= f.text_field :body, autofocus: true, style: "color: black; font-family: 'Times New Roman', Times, serif;", style: "width: 200px; height: 100px;" %>
+      </div>
+      
+      <div class="details-container">
+        <%= f.submit "Create New template", class: "btn btn-primary rounded-3", style: "background-color: #f0f0f0; color: black; font-family: 'Times New Roman';" %>
+      </div>
+    <% end %>
+  </details>
+</div>
+
+<div class="details-container">
+  <details>
+    <summary>Display Templates</summary>
+    <% if EmailTemplate.any? %>
+      <ul>
+        <% EmailTemplate.all.each do |template| %>
+          <li>
+            <strong>Name:</strong> <%= template.name %><br>
+            <strong>Subject:</strong> <%= template.subject %><br>
+            <strong>Body:</strong> <%= template.body %><br>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No email templates found.</p>
+    <% end %>
+  </details>
+</div>

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :email_services do
     member do
       get 'send_email'
+      #get 'show'
+      #get 'index'
     end
   end
 
@@ -21,5 +23,7 @@ Rails.application.routes.draw do
     resources :seats
     resources :guests
   end
+
+  resources :seats
 
 end

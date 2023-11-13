@@ -1,8 +1,6 @@
 class Event < ApplicationRecord
     mount_uploader :event_avatar, AvatarUploader
     mount_uploader :event_box_office, SpreadsheetUploader
-    
-    
     belongs_to :user 
     # <!--===================-->
     # <!--to add nested scaffold-->

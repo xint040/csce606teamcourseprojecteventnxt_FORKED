@@ -38,7 +38,8 @@ class SeatsController < ApplicationController
   # POST /seats or /seats.json
   def create
     # @seat = Seat.new(seat_params)
-    
+    #puts "=== Creating Seat ==="
+    #Rails.logger.debug(params.inspect)
     # <!--===================-->
     # <!--to post a new child instance-->
     @seat = @event.seats.build(seat_params)
@@ -50,6 +51,8 @@ class SeatsController < ApplicationController
         format.html { redirect_to event_seats_url(@event), notice: "Seat was successfully created." }
         format.json { render :show, status: :created, location: @seat }
       else
+        #Rails.logger.debug(@seat.errors.inspect)
+        #puts "Errors: #{@seat.errors.inspect}"
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @seat.errors, status: :unprocessable_entity }
       end

@@ -16,7 +16,9 @@ class EmailServicesController < ApplicationController
   
   # GET /email_services or /email_services.json
   def index
+    #puts ("------------------------------")
     @email_services = EmailService.all
+    #puts("In index controller");
     
     # <!--===================-->
     # <!--to filter emails based on their sent_at status-->
@@ -27,6 +29,12 @@ class EmailServicesController < ApplicationController
 
   # GET /email_services/1 or /email_services/1.json
   def show
+    #puts("****************")
+    #puts("reached here")
+    @email_service = EmailService.find(params[:id])
+    #puts(@email_service)
+    #puts("****************")
+    render :show 
   end
 
   # GET /email_services/new

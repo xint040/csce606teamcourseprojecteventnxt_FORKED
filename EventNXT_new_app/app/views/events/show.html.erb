@@ -2,17 +2,28 @@
 
 
 
-<!--===================-->
-<!--to add title to parent's details-->
-<h2>Event Details</h2>
-<div style="margin-left:300px">
-  <h3><%= @event.title %></h3>
-  <p><strong>Date:</strong> <%= @event.datetime %></p>
-  <p><strong>Description:</strong> <%= @event.description %></p>
-  <p><strong>Address:</strong> <%= @event.address %></p>
-  <div>
-    <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary", style: "width: 200px;margin-bottom: 20px" %>
-    <%= button_to "Delete", @event, method: :delete, class: "btn btn-danger", style: "width: 200px;" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Event Details -->
+      <h2>Event Details</h2>
+      <h3><%= @event.title %></h3>
+      <p><strong>Date:</strong> <%= @event.datetime %></p>
+      <p><strong>Description:</strong> <%= @event.description %></p>
+      <p><strong>Address:</strong> <%= @event.address %></p>
+      <div>
+        <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary", style: "width: 200px;margin-bottom: 20px" %>
+        <%= button_to "Delete", @event, method: :delete, class: "btn btn-danger", style: "width: 200px;" %>
+      </div>
+    </div>
+
+    <!-- Image Section -->
+    <div class="col-md-6">
+      <% if @event.event_avatar.file.present? %>
+        <img class="d-block mx-lg-auto img-fluid w-100 rounded shadow" src='<%= @event.event_avatar.url %>'
+             alt='Event image' width="400" height="400" loading="lazy">
+      <% end %>
+    </div>
   </div>
 </div>
 

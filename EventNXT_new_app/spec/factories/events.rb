@@ -7,5 +7,6 @@ FactoryBot.define do
     trait :with_box_office do
       event_box_office { "Box Office Data" }
     end
+    association :user, factory: :user
   end
 end

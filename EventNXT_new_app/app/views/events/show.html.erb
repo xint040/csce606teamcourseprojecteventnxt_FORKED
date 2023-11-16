@@ -6,14 +6,14 @@
   <div class="row">
     <div class="col-md-6">
       <!-- Event Details -->
-      <h2>Event Details</h2>
-      <h3><%= @event.title %></h3>
-      <p><strong>Date:</strong> <%= @event.datetime %></p>
-      <p><strong>Description:</strong> <%= @event.description %></p>
-      <p><strong>Address:</strong> <%= @event.address %></p>
+      <h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px; font-size: 56px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Event Details</h2>
+      <h3 style="margin-left:20%;margin-bottom:20px;margin-top:40px; font-size: 36px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);"><%= @event.title %></h3>
+      <p style="margin-left:20%;margin-bottom:20px;margin-top:10px; font-size: 16px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);"><strong>Date:</strong> <%= @event.datetime %></p>
+      <p style="margin-left:20%;margin-bottom:20px;margin-top:10px; font-size: 16px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);"><strong>Description:</strong> <%= @event.description %></p>
+      <p style="margin-left:20%;margin-bottom:20px;margin-top:10px; font-size: 16px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);"><strong>Address:</strong> <%= @event.address %></p>
       <div>
-        <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary", style: "width: 200px;margin-bottom: 20px" %>
-        <%= button_to "Delete", @event, method: :delete, class: "btn btn-danger", style: "width: 200px;" %>
+        <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary", style: "width: 200px;margin-left:20%;margin-bottom:20px;margin-top:10px;" %>
+        <%= button_to "Delete", @event, method: :delete, class: "btn btn-danger", style: "width: 200px;margin-left:20%;margin-bottom:20px;margin-top:10px;" %>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
 
 <!--===================-->
 <!--to display nested children-->
-<h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px">Manage Seating Levels</h2>
+<h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px; font-size: 56px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Manage Seating Levels</h2>
 
 <!--to add link for the nested children-->
 <%= link_to 'Add New Seat', event_seats_path(@event), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;margin-left:25%;margin-bottom:30px', class: 'button' %>
@@ -52,20 +52,31 @@
     </div>
   <% end %>
 </div>
-
 <!--===================-->
 <!--to display nested children-->
-<h2>Manage Guests</h2>
-
+<h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px; font-size: 56px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Manage Guests</h2>
 <!--to add link for the nested children-->
-<%= link_to 'Add Guest', event_guests_path(@event) %> 
-
-<% for guest in @event.guests %>
-  <%= render guest %>
-  <div>
-    <%= link_to "Show this guest", [@event, guest] %>
-  </div>
-<% end %>
+<%= link_to 'Add Guest', event_guests_path(@event), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;margin-left:25%;margin-bottom:30px', class: 'button' %>
+<table style="width: 1000px; border: 1px solid #ccc;margin-left:10%">
+  <tr style="background-color: #f2f2f2;">
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">First name</th>
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Last name</th>
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Affiliation</th>
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Category</th>
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Alloted seats</th>
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Commited seats</th>
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Guest commited</th>
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Status</th>
+    <th style="padding: 10px; border-bottom: 1px solid #ccc;">Show the guest</th>
+  </tr>
+</table>  
+<div style="display: flex; flex-wrap: wrap;">
+  <% for guest in @event.guests %>
+    <div style="flex: 0 0 23%;float: left; margin-right: 10px; margin-left: 10%">
+      <%= render guest %>
+    </div>
+  <% end %>
+</div>
 <br></br> ========================================== <br></br>
 <!--===================-->
 

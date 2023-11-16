@@ -1,7 +1,7 @@
 class GuestsController < ApplicationController
   # <!--===================-->
   # <!--corresponding filter of the defined method for nested scaffold-->
-  before_action :get_event
+  before_action :get_event, except: [:book_seats, :update_commited_seats]
   # <!--===================-->
   
   
@@ -70,6 +70,7 @@ class GuestsController < ApplicationController
     end
   end
 
+
   # DELETE /guests/1 or /guests/1.json
   def destroy
     @guest.destroy
@@ -80,6 +81,48 @@ class GuestsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  skip_before_action :authenticate_user!, only: [:book_seats]
+
+  def book_seats
+    @guest = Guest.find_by(rsvp_link: params[:rsvp_link])
+
+    if @guest
+      # Render the book_seats.html.erb view
+      render 'book_seats'
+    else
+      # Handle the case where the RSVP link is not valid
+      render plain: 'Invalid RSVP link', status: :not_found
+    end
+  end
+
+  def update_commited_seats
+    @guest = Guest.find_by(rsvp_link: params[:rsvp_link])
+  
+    if @guest
+      new_commited_seats = params[:guest][:commited_seats].to_i
+      total_seats = @guest.commited_seats + new_commited_seats
+  
+      if total_seats <= @guest.alloted_seats
+        @guest.commited_seats = total_seats
+  
+        if @guest.save
+          flash[:notice] = 'Committed seats updated successfully.'
+          redirect_to book_seats_path(@guest.rsvp_link)
+        else
+          render 'book_seats'
+        end
+      else
+        flash[:alert] = 'Error: Total seats exceed allocated seats.'
+        render 'book_seats'
+      end
+    else
+      render plain: 'Invalid RSVP link', status: :not_found
+    end
+  end
+  
+  
 
   private
   
@@ -104,6 +147,6 @@ class GuestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guest_params
-      params.require(:guest).permit(:first_name, :last_name, :affiliation, :category, :alloted_seats, :commited_seats, :guest_commited, :status, :event_id)
+      params.require(:guest).permit(:first_name, :last_name, :email, :affiliation, :category, :alloted_seats, :commited_seats, :guest_commited, :status, :event_id)
     end
 end

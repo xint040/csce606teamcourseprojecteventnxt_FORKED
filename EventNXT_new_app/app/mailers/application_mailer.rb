@@ -10,8 +10,17 @@ class ApplicationMailer < ActionMailer::Base
   
   # <!--===================-->
   # <!--to set the default mailer address-->
-  def send_email(to, subject, body)
-    mail(to: to, subject: subject, body: body)
+  def send_email(to, subject, body,event, guest, rsvp_url)
+
+    @event = event
+    @guest = guest
+    @rsvp_url = rsvp_url
+
+    mail(to: to, subject: subject) do |format|
+        format.html { render inline: body.html_safe }
+    end
   end
+
+ 
   # <!--===================-->
 end

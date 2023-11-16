@@ -21,6 +21,11 @@
     <%= form.label :event_id, style: "display: block" %>
     <%= form.select :event_id, options_for_select([[" ", nil]] + Event.all.map{|e| [e.title, e.id]}) %>
   </div>
+
+  <div>
+    <%= form.label :guest_id, style: "display: block" %>
+    <%= form.select :guest_id, options_for_select([[" ", nil]] + Guest.all.map{|g| ["#{g.first_name} #{g.last_name}", g.id]}) %>
+  </div>
   <!--===================-->
   <div class="field" style="margin-top: 10px;">
     <%= form.label :email_template_id, "Select Email Template", class: "form-label"%><br />

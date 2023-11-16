@@ -6,7 +6,14 @@ class EmailServicesController < ApplicationController
   # <!--to add mailing service-->
   def send_email
     @email_service = EmailService.find(params[:id])
-    ApplicationMailer.send_email(@email_service.to, @email_service.subject, @email_service.body).deliver_later
+    @event = Event.find(@email_service.event_id)
+    @guest = Guest.find(@email_service.guest_id)
+
+    # Assuming @guest.rsvp_link already contains something like /book_seats/8fe977ec7a65
+
+    full_url = "http://127.0.0.1:3000" + book_seats_path(@guest.rsvp_link)
+    email_body = "Click the link to book seats: #{full_url}"
+    ApplicationMailer.send_email(@email_service.to, @email_service.subject, @email_service.body,@event,@guest,full_url).deliver_later
     flash[:success] = 'Email sent!'
     @email_service.update(sent_at: Time.current)
     redirect_to email_services_url

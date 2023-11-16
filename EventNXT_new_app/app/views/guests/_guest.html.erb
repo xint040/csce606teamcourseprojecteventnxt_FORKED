@@ -14,6 +14,11 @@
   </p>
 
   <p>
+    <strong>Email Id:</strong>
+    <%= guest.email %>
+  </p>
+
+  <p>
     <strong>Affiliation:</strong>
     <%= guest.affiliation %>
   </p>
@@ -41,6 +46,11 @@
   <p>
     <strong>Status:</strong>
     <%= guest.status %>
+  </p>
+
+  <p>
+    <strong>RSVP_link:</strong>
+    <%= link_to 'Book Seats', book_seats_path(guest.rsvp_link) %>
   </p>
 
 </div>

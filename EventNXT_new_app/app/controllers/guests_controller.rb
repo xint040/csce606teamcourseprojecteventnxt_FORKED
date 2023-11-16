@@ -4,7 +4,6 @@ class GuestsController < ApplicationController
   before_action :get_event, except: [:book_seats, :update_commited_seats]
   # <!--===================-->
   
-  
   before_action :set_guest, only: %i[ show edit update destroy ]
 
   # GET /guests or /guests.json
@@ -58,6 +57,7 @@ class GuestsController < ApplicationController
 
   # PATCH/PUT /guests/1 or /guests/1.json
   def update
+    puts "iuyiuyiuyyiuyiuyiyiyiyiyiyi------------"
     respond_to do |format|
       if @guest.update(guest_params)
         # format.html { redirect_to guest_url(@guest), notice: "Guest was successfully updated." }
@@ -74,6 +74,7 @@ class GuestsController < ApplicationController
   # DELETE /guests/1 or /guests/1.json
   def destroy
     @guest.destroy
+    puts "!!!!!!!!!!!!--------------"
 
     respond_to do |format|
       # format.html { redirect_to guests_url, notice: "Guest was successfully destroyed." }

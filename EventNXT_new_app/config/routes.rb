@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :guests
   end
 
-  resources :seats
+  #resources :seats
+  #resources :guests
 
 end

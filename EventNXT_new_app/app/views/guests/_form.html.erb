@@ -4,6 +4,7 @@
           since this is not essential information in the view. %>
 
 
+<div class="form-box" style="width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
 <%= form_with(model: [@event, guest]) do |form| %>
   <% if guest.errors.any? %>
     <div style="color: red">

@@ -28,7 +28,6 @@ RSpec.describe EmailServicesController, type: :controller do
   describe 'GET #index' do
     it 'returns a success response' do
       get :index
-      #puts ("------------------------------")
       expect(response).to be_successful
       #expect(response).to render_template(:index)
       #expect(response.body).to include("Unsent Email")
@@ -37,9 +36,6 @@ RSpec.describe EmailServicesController, type: :controller do
 
   describe 'GET #show' do
     it 'returns a success response' do
-      #puts ("&&&&&&&&&&&&&&&&&")
-      #puts (@email_service)
-      #puts ("&&&&&&&&&&&&&&&&&")
       get :show, params: { id: @email_service.id }
       expect(response).to be_successful
       

@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   
   resources :email_templates, only: [:show], defaults: { format: 'json' }
 
-  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
-  
+  devise_for :users
+
   resources :events do
     resources :seats
     resources :guests

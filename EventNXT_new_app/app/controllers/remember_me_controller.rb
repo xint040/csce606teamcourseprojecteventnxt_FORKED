@@ -4,7 +4,7 @@ class RememberMeController < ApplicationController
       current_user.forget_me!   # Clears the remember-me token
       redirect_to root_path, notice: 'Remember-me token has been cleared.'
     else
-      redirect_to root_path, alert: 'No user is currently signed in.'
+      redirect_to root_path, alert: 'You need to sign in or sign up before continuing.'
     end
   end
 end

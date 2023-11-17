@@ -96,7 +96,7 @@ RSpec.describe GuestsController, type: :controller do
   describe "PUT #update" do
     #puts "guytuytuyttt-----------"
     let(:event) { Event.create(title: "Test Event") }
-    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
+    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
     #puts event.id
     context "with valid parameters" do
       it "updates the requested guest" do
@@ -137,7 +137,7 @@ RSpec.describe GuestsController, type: :controller do
     #   @guest = @event.guests.create(first_name: "John", last_name: "Doe", affiliation: "Friend", category: "Adult", alloted_seats: 1, commited_seats: 1, guest_commited: true, status: "Confirmed")
     # end
     let(:event) { Event.create(title: "Test Event") }
-    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
+    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
     #let(:guest1) { Guest.create(first_name: "Test1", last_name: "Guest", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
  
     
@@ -160,7 +160,7 @@ RSpec.describe GuestsController, type: :controller do
     #let(:event) { create(:event) }
     #let(:guest) { create(:guest, event: event) }
     let(:event) { Event.create(title: "Test Event") }
-    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
+    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
     
     
     context "when a valid guest id is provided" do

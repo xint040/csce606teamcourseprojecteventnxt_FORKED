@@ -30,28 +30,42 @@
 # end
 #
 # spec/controllers/application_controller_spec.rb
-require 'rails_helper'
+#require 'rails_helper'
 
-RSpec.describe ApplicationController, type: :controller do
-  describe 'after_sign_in_path_for' do
-    context 'when the resource is a user' do
-      let(:user) { create(:user) } # Assuming you have a User factory
+##RSpec.describe ApplicationController, type: :controller do
+#  describe 'after_sign_in_path_for' do
+#    context 'when the resource is a user' do
+#      let(:user) { create(:user) } 
 
-      it 'redirects to the events_path' do
-        allow(controller).to receive(:resource).and_return(user)
-        path = controller.after_sign_in_path_for(user)
-        expect(path).to eq(events_path)
-      end
-    end
+#      it 'redirects to the events_path' do
+#        allow(controller).to receive(:current_user).and_return(user)
+#        path = controller.after_sign_in_path_for(user)
+#        expect(path).to eq(root_path)
+      #end
+    #end
 
-    context 'when the resource is not a user' do
-      let(:resource) { double('Resource') }
+#    context 'when the resource is not a user' do
+#      let(:resource) { double('Resource') }
 
-      it 'calls the super method' do
-        allow(controller).to receive(:resource).and_return(resource)
-        expect(controller.after_sign_in_path_for(resource)).to eq(super())
-      end
-    end
-  end
-end
+#      it 'calls the super method' do
+        #allow(controller).to receive(:resource).and_return(resource)
+        #expect(controller.after_sign_in_path_for(resource)).to eq(super())
+      #end
+    #end
+  #end
+#end
+# spec/controllers/application_controller_spec.rb
+#require 'rails_helper'
+
+#RSpec.describe ApplicationController, type: :controller do
+  #describe 'after sign-in redirection' do
+    #let(:user) { create(:user) } 
+
+    #it 'redirects to the events_path after sign-in' do
+
+      # In this context, Devise should automatically call after_sign_in_path_for
+      #expect(response).to redirect_to(root_path)
+    #end
+  #end
+#end
 

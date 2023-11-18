@@ -75,6 +75,8 @@ RSpec.describe EmailServicesController, type: :controller do
       it 'returns a success response (i.e. to display the "new" template)' do
         post :create, params: { email_service: invalid_attributes }
         expect(response).not_to be_successful
+        #expect(response).to render_template(:new)
+        #expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
@@ -113,4 +115,46 @@ RSpec.describe EmailServicesController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    it 'destroys the email service' do
+      email_service = EmailService.create! valid_attributes
+
+      expect {
+        delete :destroy, params: { id: email_service.to_param }
+      }.to change(EmailService, :count).by(-1)
+
+      #expect(response).to redirect_to(email_service)
+      expect(flash[:notice]).to eq('Email service was successfully destroyed.')
+    end
+  end
+
+  describe 'POST #add_template' do
+    let(:valid_template_params) { attributes_for(:email_template) } # Assuming you have a factory for EmailTemplate
+
+    context 'with valid template parameters' do
+      it 'creates a new email template' do
+        expect {
+          post :add_template, params: { email_template: valid_template_params }
+        }.to change(EmailTemplate, :count).by(1)
+
+        expect(response).to have_http_status(:success) # You might want to adjust this based on your actual response
+        # You can add more expectations based on your application logic for success cases
+      end
+    end
+
+    context 'with invalid template parameters' do
+      let(:invalid_template_params) { { name: '', subject: '', body: '' } }
+
+      it 'does not create a new email template' do
+        expect {
+          post :add_template, params: { email_template: invalid_template_params }
+        }.not_to change(EmailTemplate, :count)
+
+        expect(response).to have_http_status(:unprocessable_entity) # Adjust based on your actual response for invalid cases
+        # You can add more expectations based on your application logic for failure cases
+      end
+    end
+  end
 end
+

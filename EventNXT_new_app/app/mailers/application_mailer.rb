@@ -16,8 +16,9 @@ class ApplicationMailer < ActionMailer::Base
     @guest = guest
     @rsvp_url = rsvp_url
 
+
     mail(to: to, subject: subject) do |format|
-        format.html { render inline: body.html_safe }
+        format.html { render inline:  ERB.new(body).result(binding).html_safe  }
     end
   end
 

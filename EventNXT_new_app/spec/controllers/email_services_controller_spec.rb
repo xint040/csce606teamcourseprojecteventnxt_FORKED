@@ -164,28 +164,18 @@ RSpec.describe EmailServicesController, type: :controller do
       allow(Event).to receive(:find).and_return(event)
       allow(Guest).to receive(:find).and_return(guest)
     end
-
-    # it "sends an email and updates the email service" do
-    #   expect(ApplicationMailer).to receive(:send_email)
-    #     .with(email_service.to, email_service.subject, email_service.body, event, guest, /book_seats/)
-
-    #   expect { post :send_email, params: { id: email_service.id } }.to change { ActionMailer::Base.deliveries.count }.by(1)
-
-    #   expect(flash[:success]).to eq('Email sent!')
-    #   expect(email_service.reload.sent_at).to be_present
-    #   expect(response).to redirect_to(email_services_url)
-    # end
-
-    it "sends an email and updates the email service" do
-      allow(ApplicationMailer).to receive_message_chain(:send_email, :deliver_later)
-
-      initial_count = ActionMailer::Base.deliveries.count
+    
+   it "sends an email and updates the email service" do
+      initial_count = EmailService.where.not(sent_at: nil).count
 
       expect do
         post :send_email, params: { id: email_service.id }
-      end.to change { ActionMailer::Base.deliveries.count }.from(initial_count).to(initial_count + 1)
+        email_service.reload
+      end.to change { EmailService.where.not(sent_at: nil).count }.from(initial_count).to(initial_count + 1)
 
-      # Rest of your expectations...
+      expect(response).to redirect_to(email_services_url)
+      expect(flash[:success]).to eq('Email sent!')
+      expect(email_service.reload.sent_at).to be_present
     end
   end
 

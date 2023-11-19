@@ -13,7 +13,7 @@ class EmailServicesController < ApplicationController
 
     full_url = "http://127.0.0.1:3000" + book_seats_path(@guest.rsvp_link)
     email_body = "Click the link to book seats: #{full_url}"
-    ApplicationMailer.send_email(@email_service.to, @email_service.subject, @email_service.body).deliver_later
+    ApplicationMailer.send_email(@email_service.to, @email_service.subject, @email_service.body,@event,@guest,full_url).deliver_later
     flash[:success] = 'Email sent!'
     @email_service.update(sent_at: Time.current)
     redirect_to email_services_url

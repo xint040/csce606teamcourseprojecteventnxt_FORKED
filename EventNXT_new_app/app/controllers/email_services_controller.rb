@@ -13,7 +13,7 @@ class EmailServicesController < ApplicationController
 
     full_url = "http://127.0.0.1:3000" + book_seats_path(@guest.rsvp_link)
     email_body = "Click the link to book seats: #{full_url}"
-    ApplicationMailer.send_email(@email_service.to, @email_service.subject, @email_service.body,@event,@guest,full_url).deliver_later
+    ApplicationMailer.send_email(@email_service.to, @email_service.subject, @email_service.body).deliver_later
     flash[:success] = 'Email sent!'
     @email_service.update(sent_at: Time.current)
     redirect_to email_services_url
@@ -102,9 +102,9 @@ class EmailServicesController < ApplicationController
 
     respond_to do |format|
       if @email_templates.save
-        puts "success"
+        format.html { redirect_to email_services_url, notice: "Email service was successfully created." }
       else
-        puts"fail"
+        format.html { redirect_to email_services_url, notice: "Email service was not created." }
       end
     end
   end

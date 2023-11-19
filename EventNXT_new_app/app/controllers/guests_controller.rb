@@ -88,10 +88,8 @@ class GuestsController < ApplicationController
     @guest = Guest.find_by(rsvp_link: params[:rsvp_link])
 
     if @guest
-      # Render the book_seats.html.erb view
       render 'book_seats'
     else
-      # Handle the case where the RSVP link is not valid
       render plain: 'Invalid RSVP link', status: :not_found
     end
   end
@@ -140,7 +138,7 @@ class GuestsController < ApplicationController
       
       # <!--===================-->
       # <!--to search for a matching id in the collection of children associated with a particular parent-->
-      @guest = @event.guests.find(params[:id])
+      @guest = Guest.find(params[:id])
       # <!--===================-->
     end
 

@@ -166,8 +166,7 @@ RSpec.describe GuestsController, type: :controller do
       end
 
       it "sets the @guest instance variable" do
-        guest1 = create(:guest, event: event)
-        expect(assigns(:guest1)).to eq(guest1)
+        expect(assigns(:guest)).to eq(guest)
       end
     end
 
@@ -180,4 +179,108 @@ RSpec.describe GuestsController, type: :controller do
       end
     end
   end
+
+  describe "#book_seats" do
+    #let(:guest) { create(:guest, rsvp_link: 'valid_rsvp_link') }
+    let(:guest1) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1,  status: "Confirmed")}
+    
+
+    context "when a valid RSVP link is provided" do
+      before do
+        get :book_seats, params: { rsvp_link: guest1.rsvp_link }
+      end
+      it "sets the @guest instance variable" do
+        expect(assigns(:guest)).to eq(guest1)
+      end
+
+      it "renders the book_seats template" do
+        expect(response).to render_template('book_seats')
+      end
+
+      it "returns a successful response status" do
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context "when an invalid RSVP link is provided" do
+      before do
+        get :book_seats, params: { rsvp_link: 'invalid_rsvp_link' }
+      end
+
+      it "does not set the @guest instance variable" do
+        expect(assigns(:guest)).to be_nil
+      end
+
+      it "renders a plain text message for invalid RSVP link" do
+        expect(response.body).to eq('Invalid RSVP link')
+      end
+
+      it "returns a not_found response status" do
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+  end
+
+  
+  describe "#update_commited_seats" do
+    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 0, guest_commited: 0,  status: "Confirmed")}
+
+    context "when a valid RSVP link is provided" do
+      it "updates committed seats within the allocated limit" do
+        post :update_commited_seats, params: {
+          rsvp_link: guest.rsvp_link,
+          guest: { commited_seats: 2 }
+        }
+
+        expect(assigns(:guest)).to eq(guest)
+        expect(response).to redirect_to(book_seats_path(guest.rsvp_link))
+        expect(flash[:notice]).to eq('Committed seats updated successfully.')
+      end
+    end
+
+    context "when attempting to exceed allocated seats" do
+      it "does not update committed seats and renders 'book_seats'" do
+        post :update_commited_seats, params: {
+          id: guest.id, # Include the guest ID
+          rsvp_link: guest.rsvp_link,
+          guest: { commited_seats: 20 }
+        }
+
+        expect(assigns(:guest)).to eq(guest)
+        expect(response).to render_template('book_seats')
+        expect(flash[:alert]).to eq('Error: Total seats exceed allocated seats.')
+      end
+    end
+
+    context "when updating committed seats and save fails" do
+      before do
+        allow(Guest).to receive(:find_by).and_return(guest)
+        allow(guest).to receive(:save).and_return(false)
+        post :update_commited_seats, params: {
+          id: guest.id, # Include the guest ID
+          rsvp_link: 'valid_rsvp_link',
+          guest: { commited_seats: 2 }
+        }
+      end
+
+      it "renders 'book_seats' template" do
+        expect(response).to render_template('book_seats')
+      end
+    end
+
+    context "when an invalid RSVP link is provided" do
+      it "renders plain text message for invalid RSVP link with not_found status" do
+        post :update_commited_seats, params: {
+          id: guest.id, # Include the guest ID
+          rsvp_link: 'invalid_rsvp_link',
+          guest: { commited_seats: 2 }
+        }
+
+        expect(response).to have_http_status(:not_found)
+        expect(response.body).to eq('Invalid RSVP link')
+      end
+    end
+  end
+  
+
 end

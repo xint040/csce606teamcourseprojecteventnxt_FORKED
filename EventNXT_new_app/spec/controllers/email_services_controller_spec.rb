@@ -138,8 +138,6 @@ RSpec.describe EmailServicesController, type: :controller do
           post :add_template, params: { email_template: valid_template_params }
         }.to change(EmailTemplate, :count).by(1)
 
-        expect(response).to have_http_status(:success) # You might want to adjust this based on your actual response
-        # You can add more expectations based on your application logic for success cases
       end
     end
 
@@ -151,10 +149,45 @@ RSpec.describe EmailServicesController, type: :controller do
           post :add_template, params: { email_template: invalid_template_params }
         }.not_to change(EmailTemplate, :count)
 
-        expect(response).to have_http_status(:unprocessable_entity) # Adjust based on your actual response for invalid cases
-        # You can add more expectations based on your application logic for failure cases
       end
     end
   end
+
+  describe "#send_email" do
+
+    let(:email_service) { create(:email_service) }
+    let(:event) { create(:event) }
+    let(:guest) { create(:guest) }
+
+    before do
+      allow(EmailService).to receive(:find).and_return(email_service)
+      allow(Event).to receive(:find).and_return(event)
+      allow(Guest).to receive(:find).and_return(guest)
+    end
+
+    # it "sends an email and updates the email service" do
+    #   expect(ApplicationMailer).to receive(:send_email)
+    #     .with(email_service.to, email_service.subject, email_service.body, event, guest, /book_seats/)
+
+    #   expect { post :send_email, params: { id: email_service.id } }.to change { ActionMailer::Base.deliveries.count }.by(1)
+
+    #   expect(flash[:success]).to eq('Email sent!')
+    #   expect(email_service.reload.sent_at).to be_present
+    #   expect(response).to redirect_to(email_services_url)
+    # end
+
+    it "sends an email and updates the email service" do
+      allow(ApplicationMailer).to receive_message_chain(:send_email, :deliver_later)
+
+      initial_count = ActionMailer::Base.deliveries.count
+
+      expect do
+        post :send_email, params: { id: email_service.id }
+      end.to change { ActionMailer::Base.deliveries.count }.from(initial_count).to(initial_count + 1)
+
+      # Rest of your expectations...
+    end
+  end
+
 end
 

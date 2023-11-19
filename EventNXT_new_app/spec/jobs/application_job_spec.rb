@@ -31,3 +31,23 @@
 #     end
 #   end
 # end
+#
+#
+require 'rails_helper'
+
+RSpec.describe ApplicationJob, type: :job do
+  describe 'enqueuing the job' do
+    it 'can be enqueued' do
+      expect {
+        ApplicationJob.perform_later
+      }.to have_enqueued_job(ApplicationJob)
+    end
+
+    it 'is in the default queue' do
+      expect(ApplicationJob.new.queue_name).to eq('default')
+    end
+
+    # Add more tests for enqueueing scenarios if needed
+  end
+
+end

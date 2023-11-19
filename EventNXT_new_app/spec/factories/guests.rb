@@ -3,6 +3,7 @@ FactoryBot.define do
     factory :guest do
       first_name { "John" }
       last_name { "Doe" }
+      email {"johndoe@example.com"}
       affiliation { "Friend" }
       category { "Adult" }
       alloted_seats { 10 }

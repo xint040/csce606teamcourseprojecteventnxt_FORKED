@@ -52,31 +52,6 @@ If you don't have the ruby or rails. Please follow the below processes.
 
 ## How to run Test cases
 
-#### Cucumber
-In order to have the cucumber test be able to trigger javascript events, one have to make sure that selenium is installed. Here is the approach of doing it:
-##### Step 1
-We have to manually download the correct version of the chromedriver. Follow this link to download the chromedriver: https://googlechromelabs.github.io/chrome-for-testing/#stable
-
-Under stable, choose the corresponding OS you have:
-<img width="1256" alt="Screenshot 2023-11-20 at 8 43 37 AM" src="https://github.com/CSCE-606-Event360/Fall2023-PlaNXT/assets/32810188/5a32cd03-e603-41ac-bf80-e69331c44cbf">
-
-
-##### Step 2
-Setup the chromedriver
-<b>Mac</b>
-After downloading the chromedriver, unzip the folder and move the chromedriver executable file to the /usr/local/bin folder.
-```
-# assume you are in the unzip folder dir
-mv chromedriver /usr/local/bin
-```
-After moving chromedriver in the **/usr/local/bin** dir, one can start running the cucumber test
-* If you face “Error: “chromedriver” cannot be opened because the developer cannot be verified. Unable to launch the chrome browser“, you need to go to usr/local/bin folder and right-click chromeDriver file and open it. After this step, re-run your tests, chrome driver will work.
-    
-<b>Windows</b>
-1. After the ChromeDriver executable file is extracted and moved to the desired location, copy that location to set its path in System’s environment variables (the path where the chromedriver.exe is put).
-
-2. Add the path in the Environment Variables
-
 *cucumber test cases:
 
 ```console
@@ -88,6 +63,46 @@ RAILS_ENV=test rake cucumber
 ```console
 bundle exec rspec
 ```
+
+If you want to deploy to personal Heroku account:
+ Register a Heroku account
+ Log into Heroku with heroku login -i, enter your email
+ If multi-factor authentication is enabled, login the Heroku webpage and get the API key as password to enter in CLI
+ Create an app with heroku create eventnxt
+ Push code to App repo on Heroku, git push heroku main
+ Migrate database on Heroku, heroku run rake db:migrate
+ App is deployed to Heroku, go to the website and test it out
+
+You can also deploy code to Heroku using GitHub codespaces:
+
+Steps for the same are as follows:
+
+Step 1: Create a github codespace.
+
+![image](https://github.com/CSCE-606-Event360/EventNXT/assets/143128193/fe934f0f-d848-4d5b-b862-c273fae498b2)
+
+Step2: Install heroku CLI:
+
+https://devcenter.heroku.com/articles/heroku-cli
+
+### Create heroku project
+ heroku login -i
+
+ heroku container:login
+
+ heroku create -a eventnxt
+
+### Build repo into container and deploy to heroku
+
+ heroku container:login
+
+ heroku container:push web -a eventnxt
+
+ heroku container:release web -a eventnxt
+
+### Tail the logs:
+ heroku logs --tail -a eventnxt
+
 
 ### Contacts:
  * Email the team if you have any questions:

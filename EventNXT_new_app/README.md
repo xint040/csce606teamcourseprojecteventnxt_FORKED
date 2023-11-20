@@ -57,7 +57,7 @@ bundle exec rspec
 
 ### Contacts:
  * Email the team if you have any questions:
- * Anirith Pampati: anirith@tamu.edu | text/call @9797210622
+ * Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622
  * Pavan Kaushik Adluri: pkavu_1998@tamu.edu
  * Rakesh Kumar Pothineni: rakeshpothineni@tamu.edu
 

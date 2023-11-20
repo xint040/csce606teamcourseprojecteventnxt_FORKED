@@ -1,4 +1,4 @@
-# EventNXT Home Page
+#EventNXT Home Page
 #CSCE 606 Project GitHub EventNXT Group Home Page
 
 This is home page which has 2 apps: Old App & New App.

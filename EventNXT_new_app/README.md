@@ -40,8 +40,42 @@ If you don't have the ruby or rails. Please follow the below processes.
 
 * Start server in local development environment
   * `rails s`
+ 
+### Problems
+1. If Bundler complains that the wrong Ruby version is installed,
+
+    * rvm: verify that rvm is installed (for example, rvm --version) and run rvm list to see which Ruby versions are available and rvm use <version> to make a particular version active. If no versions satisfying the Gemfile dependency are installed, you can run rvm install <version> to install a new version, then rvm use <version> to use it.
+    
+    * rbenv: verify that rbenv is installed (for example, rbenv --version) and run rbenv versions to see which Ruby versions are available and rbenv local <version> to make a particular version active. If no versions satisfying the Gemfile dependency are installed, you can run rbenv install <version> to install a new version, then rbenv local <version> to use it.
+    
+    Then you can try bundle install again.
 
 ## How to run Test cases
+
+#### Cucumber
+In order to have the cucumber test be able to trigger javascript events, one have to make sure that selenium is installed. Here is the approach of doing it:
+##### Step 1
+We have to manually download the correct version of the chromedriver. Follow this link to download the chromedriver: https://googlechromelabs.github.io/chrome-for-testing/#stable
+
+Under stable, choose the corresponding OS you have:
+<img width="1256" alt="Screenshot 2023-11-20 at 8 43 37 AM" src="https://github.com/CSCE-606-Event360/Fall2023-PlaNXT/assets/32810188/5a32cd03-e603-41ac-bf80-e69331c44cbf">
+
+
+##### Step 2
+Setup the chromedriver
+<b>Mac</b>
+After downloading the chromedriver, unzip the folder and move the chromedriver executable file to the /usr/local/bin folder.
+```
+# assume you are in the unzip folder dir
+mv chromedriver /usr/local/bin
+```
+After moving chromedriver in the **/usr/local/bin** dir, one can start running the cucumber test
+* If you face “Error: “chromedriver” cannot be opened because the developer cannot be verified. Unable to launch the chrome browser“, you need to go to usr/local/bin folder and right-click chromeDriver file and open it. After this step, re-run your tests, chrome driver will work.
+    
+<b>Windows</b>
+1. After the ChromeDriver executable file is extracted and moved to the desired location, copy that location to set its path in System’s environment variables (the path where the chromedriver.exe is put).
+
+2. Add the path in the Environment Variables
 
 *cucumber test cases:
 

@@ -1,5 +1,71 @@
 # README
 
+TEAM FALL 2023
+
+### Install ruby and rails
+
+Please check whether you have the ruby and rails installed. 
+```
+ruby -v
+```
+Ruby version is 3.2.2
+```
+rails -v
+```
+The rails version is 7.0.4
+
+If you don't have the ruby or rails. Please follow the below processes.
+
+* Install ruby-3.2.0 using Ruby version manager
+  * `rvm get stable`
+  * `rvm install "ruby-3.2.0"`
+  * `rvm use 3.2.0`
+
+* Install PostgreSQL
+  * `sudo apt-get update`
+  * `sudo apt-get install postgresql postgresql-contrib libpq-dev`
+  * PostgreSQL may require to create a role to allow rails to connect to the Postgre database. In AWS cloud9 ubuntu system, we executed `sudo -u postgres createuser --interactive ubuntu`
+
+* Clone the latest git repo
+  * `git clone https://github.com/CSCE-606-Event360/EventNXT.git`
+
+* Change directory to the new app
+  * `cd EventNXT/EventNXT_new_app` 
+
+* Bundle install
+  * `bundle install`
+
+* Migrate Database
+  * `rails db:migrate`
+
+* Start server in local development environment
+  * `rails s`
+
+## How to run Test cases
+
+*cucumber test cases:
+
+```console
+RAILS_ENV=test rake cucumber
+```
+
+*rspec test cases:
+
+```console
+bundle exec rspec
+```
+
+### Contacts:
+ * Email the team if you have any questions:
+ * Anirith Pampati: anirith@tamu.edu | text/call @9797210622
+ * Pavan Kaushik Adluri: pkavu_1998@tamu.edu
+ * Rakesh Kumar Pothineni: rakeshpothineni@tamu.edu
+
+
+
+
+The content below is by - TEAM SPRING 2023
+
 ## Introduction
 
 The major fault of this legacy app has been faulty authentication, which allowed every user to visit the event dashboard regardless of being logged in, i.e., lack of security. In addition, it was not possible to connect the app to the central authentication developed by the CRM team. After several attempts and meetings with the instructor, we decided to redesign and build a new Ruby-on-Rails app from scratch, which not only imitates all the existing features of the old app, but all also provides the following benefits:

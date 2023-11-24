@@ -130,30 +130,32 @@
 
 <h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px; font-size: 56px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Manage Box Office Sales</h2>
 <% if @event_box_office_data.present? %>
-  <div class="container">
-  <table class="table table-striped table-hover">
-    <thead>
-      <tr class="highlight-heading">
-        <% @event_box_office_data.first.each do |cell| %>
-          <th><%= cell %></th>
+<div class="container">
+<table class="table table-striped table-hover">
+  <thead>
+    <tr class="highlight-heading">
+      <% @event_box_office_data.first.each do |cell| %>
+        <th><%= cell %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @event_box_office_data.drop(1).each do |row| %>
+      <tr>
+        <% row.each do |cell| %>
+          <td><%= cell %></td>
         <% end %>
       </tr>
-    </thead>
-    <tbody>
-      <% @event_box_office_data.drop(1).each do |row| %>
-        <tr>
-          <% row.each do |cell| %>
-            <td><%= cell %></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </div>
-  <% else %>
-    <p>No box office spreadsheet uploaded for this event.</p>
-  <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
 
+<% else %>
+  <p>No box office spreadsheet uploaded for this event.</p>
+<% end %>
+
+<!--to be added-->
 <h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px; font-size: 56px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Manage Referrals</h2>
 <div class="container">
   <table class="table table-striped table-hover">

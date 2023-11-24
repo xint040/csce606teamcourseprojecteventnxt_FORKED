@@ -6,5 +6,6 @@ class Event < ApplicationRecord
     # <!--to add nested scaffold-->
     has_many :seats , dependent: :destroy
     has_many :guests , dependent: :destroy
+    has_many :email_services, dependent: :destroy
     # <!--===================-->
 end

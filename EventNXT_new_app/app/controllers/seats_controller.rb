@@ -48,7 +48,7 @@ class SeatsController < ApplicationController
     respond_to do |format|
       if @seat.save
         # format.html { redirect_to seat_url(@seat), notice: "Seat was successfully created." }
-        format.html { redirect_to event_seats_url(@event), notice: "Seat was successfully created." }
+        format.html { redirect_to event_url(@event), notice: "Seat was successfully created." }
         format.json { render :show, status: :created, location: @seat }
       else
         #Rails.logger.debug(@seat.errors.inspect)

@@ -9,9 +9,8 @@ class EmailServicesController < ApplicationController
     @event = Event.find(@email_service.event_id)
     @guest = Guest.find(@email_service.guest_id)
 
-    # Assuming @guest.rsvp_link already contains something like /book_seats/8fe977ec7a65
-
     full_url = "http://127.0.0.1:3000" + book_seats_path(@guest.rsvp_link)
+    #full_url = ENV['mydomainname'] + book_seats_path(@guest.rsvp_link)
     email_body = "Click the link to book seats: #{full_url}"
     ApplicationMailer.send_email(@email_service.to, @email_service.subject, @email_service.body,@event,@guest,full_url).deliver_later
     flash[:success] = 'Email sent!'
@@ -31,6 +30,7 @@ class EmailServicesController < ApplicationController
     # <!--to filter emails based on their sent_at status-->
     @sent_emails = EmailService.where.not(sent_at: nil) # Get all sent emails
     @unsent_emails = EmailService.where(sent_at: nil) # Get all unsent emails
+    @email_templates = EmailTemplate.all
     # <!--===================-->
   end
 
@@ -61,10 +61,11 @@ class EmailServicesController < ApplicationController
   # POST /email_services or /email_services.json
   def create
     @email_service = EmailService.new(email_service_params)
+    puts email_service_params
 
     respond_to do |format|
       if @email_service.save
-        format.html { redirect_to email_service_url(@email_service), notice: "Email service was successfully created." }
+        format.html { redirect_to email_services_url, notice: "Email service was successfully created." }
         format.json { render :show, status: :created, location: @email_service }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -77,7 +78,7 @@ class EmailServicesController < ApplicationController
   def update
     respond_to do |format|
       if @email_service.update(email_service_params)
-        format.html { redirect_to email_service_url(@email_service), notice: "Email service was successfully updated." }
+        format.html { redirect_to email_service_url, notice: "Email service was successfully updated." }
         format.json { render :show, status: :ok, location: @email_service }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -96,38 +97,63 @@ class EmailServicesController < ApplicationController
     end
   end
 
-  def add_template
-    email_template_params = params.require(:email_template).permit(:name, :subject, :body)
-    @email_templates = EmailTemplate.new(email_template_params)
+  def new_email_template
+    render '_form_email_template'
+  end
+  
+  def add_email_template
 
+    email_template_params = params.permit(:name, :subject, :body)
+    @email_templates = EmailTemplate.new(email_template_params)
+  
     respond_to do |format|
       if @email_templates.save
-        format.html { redirect_to email_services_url, notice: "Email service was successfully created." }
+        format.html { redirect_to email_services_url, notice: 'Email template was successfully created.' }
       else
-        format.html { redirect_to email_services_url, notice: "Email service was not created." }
+        format.html { render '_form_email_template', alert: 'Error: Email template could not be saved.' }
       end
     end
   end
 
-  def render_template
-    """
-    email_template = EmailTemplate.find(params[:id])
+  def edit_email_template
+    @email_template = EmailTemplate.find(params[:id])
+    render '_edit_email_template'
+  end 
 
-    respond_to do |format|
-      format.json { render json: email_template }
-    end
-    """
-    puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    email_template = EmailTemplate.find(params[:id])
-    puts(email_template)
-    puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-
-    respond_to do |format|
-      format.json { render json: { subject: email_template.subject, body: email_template.body } }
-    end
+  def update_email_template
+    @email_template = EmailTemplate.find(params[:id])
+    email_template_params = params.require(:email_template).permit(:name, :subject, :body)
   
+    puts "I'm here"
+  
+    if @email_template.update(email_template_params)
+      redirect_to email_services_url, notice: 'Email template was successfully updated.'
+    else
+      render '_edit_email_template', alert: 'Error: Email template could not be saved.'
+    end
+  end
+  
+
+  def render_template
+    email_template = EmailTemplate.find(params[:id])
+
+    respond_to do |format|
+      format.json do
+        render json: { subject: email_template.subject, body: email_template.body }
+      end
+    end
   end
 
+  def destroy_email_template
+    @email_template = EmailTemplate.find(params[:id])
+    @email_template.destroy
+
+    respond_to do |format|
+      format.html { redirect_to email_services_url, notice: 'Email template was successfully deleted.' }
+      format.json { head :no_content }
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_email_service

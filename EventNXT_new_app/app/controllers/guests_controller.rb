@@ -46,7 +46,7 @@ class GuestsController < ApplicationController
     respond_to do |format|
       if @guest.save
         # format.html { redirect_to guest_url(@guest), notice: "Guest was successfully created." }
-        format.html { redirect_to event_guests_url(@event), notice: "Guest was successfully created." }
+        format.html { redirect_to event_url(@event), notice: "Guest was successfully created." }
         format.json { render :show, status: :created, location: @guest }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class GuestsController < ApplicationController
     respond_to do |format|
       if @guest.update(guest_params)
         # format.html { redirect_to guest_url(@guest), notice: "Guest was successfully updated." }
-        format.html { redirect_to event_guest_path(@event), notice: "Guest was successfully updated." }
+        format.html { redirect_to event_path(@event), notice: "Guest was successfully updated." }
         format.json { render :show, status: :ok, location: @guest }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -82,7 +82,7 @@ class GuestsController < ApplicationController
   end
 
 
-  skip_before_action :authenticate_user!, only: [:book_seats]
+  skip_before_action :authenticate_user!, only: [:book_seats, :update_commited_seats]
 
   def book_seats
     @guest = Guest.find_by(rsvp_link: params[:rsvp_link])

@@ -28,19 +28,20 @@ class Guest < ApplicationRecord
           total_allocated_seats = event.guests.where(category: category).sum(:alloted_seats)
           total_commited_seats = event.guests.where(category: category).sum(:commited_seats)
         end
-        remaining_seats = [0, seat.total_count - total_allocated_seats].max
-
+        remaining_allocated_seats = [0, seat.total_count - total_allocated_seats].max
+        remaining_committed_seats = [0, total_allocated_seats + alloted_seats.to_i - total_commited_seats].max
 
         puts event.guests.where(category: category).sum(:alloted_seats)
         puts total_allocated_seats
         puts alloted_seats.to_i
+        puts total_commited_seats
     
         if (total_allocated_seats + alloted_seats.to_i) > seat.total_count
-          errors.add(:alloted_seats, "cannot exceed the total allocated seats (#{remaining_seats} remaining) for the category #{category}")
+          errors.add(:alloted_seats, "cannot exceed the total allocated seats (#{remaining_allocated_seats} remaining) for the category #{category}")
         end
     
-        if (total_commited_seats + commited_seats.to_i) > total_allocated_seats
-          errors.add(:commited_seats, "cannot exceed the total allocated seats (#{remaining_seats} remaining) for the category #{category}")
+        if (total_commited_seats + commited_seats.to_i) > total_allocated_seats + alloted_seats.to_i
+          errors.add(:commited_seats, "cannot exceed the total allocated seats (#{remaining_committed_seats} remaining) for the category #{category}")
         end
       end
     end

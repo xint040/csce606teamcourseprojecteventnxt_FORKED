@@ -1,3 +1,12 @@
+<style>
+  .input-field {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+</style>
+
 <%# following changes are made:
         - Changed the first line to reflect the relationship between parent and child resources:
         - deleted the section that lists the parent_id of the related parent, 
@@ -39,8 +48,8 @@
   </div>
 
   <div>
-    <%= form.label :category, style: "display: block" %>
-    <%= form.text_field :category %>
+      <%= form.label :category, style: "display: block" %>
+      <%= form.collection_select :category, @event.seats, :category, :category, prompt: "Select a category" %>
   </div>
 
   <div>

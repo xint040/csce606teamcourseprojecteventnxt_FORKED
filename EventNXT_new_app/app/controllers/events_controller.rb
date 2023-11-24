@@ -23,11 +23,16 @@ class EventsController < ApplicationController
         row_data = []
         row.each { |cell| row_data << cell.value }
         @event_box_office_data << row_data
-      end
+    end
     else
       flash[:notice] = "No box office spreadsheet uploaded for this event"
       @event_box_office_data = []
     end
+
+    @guests = @event.guests
+    @seats = Seat.all
+    @seating_summary = calculate_seating_summary
+    @guest_details = Guest.all
     # <!--===================-->
   end
 
@@ -78,6 +83,29 @@ class EventsController < ApplicationController
   end
 
   private
+    def calculate_seating_summary
+      seating_summary = []
+
+      seating_summary = []
+
+      Seat.all.each do |seat|
+        guests_in_category = @guests.where(category: seat.category)
+        committed_seats = guests_in_category.sum(:commited_seats)
+        allocated_seats = guests_in_category.sum(:alloted_seats)
+        total_seats = seat.total_count
+
+        seating_summary << {
+          category: seat.category,
+          guests_count: guests_in_category.count,
+          committed_seats: committed_seats,
+          allocated_seats: allocated_seats,
+          total_seats: total_seats
+        }
+    end
+
+
+      seating_summary
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = current_user.events.find(params[:id])

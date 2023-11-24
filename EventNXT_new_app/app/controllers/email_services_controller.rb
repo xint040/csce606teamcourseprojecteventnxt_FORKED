@@ -139,7 +139,7 @@ class EmailServicesController < ApplicationController
       # params.require(:email_service).permit(:to, :subject, :body)
       # params.require(:email_service).permit(:to, :subject, :body, :sent_at, :committed_at)
       # params.require(:email_service).permit(:to, :subject, :body, :sent_at, :committed_at, :event_id)
-      params.require(:email_service).permit(:to, :subject, :body, :sent_at, :committed_at, :event_id, :guest_id)
+      params.require(:email_service).permit(:email_template_id,:to, :subject, :body, :sent_at, :committed_at, :event_id, :guest_id)
     end
 
     

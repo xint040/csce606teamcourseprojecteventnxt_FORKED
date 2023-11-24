@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_14_210425) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_24_015935) do
   create_table "email_services", force: :cascade do |t|
     t.string "to"
     t.string "subject"
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_14_210425) do
     t.datetime "committed_at"
     t.integer "event_id"
     t.integer "guest_id"
+    t.integer "email_template_id"
     t.index ["event_id"], name: "index_email_services_on_event_id"
     t.index ["guest_id"], name: "index_email_services_on_guest_id"
   end

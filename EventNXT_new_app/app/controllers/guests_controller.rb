@@ -81,7 +81,7 @@ class GuestsController < ApplicationController
     end
   end
 
-
+  before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:book_seats, :update_commited_seats]
 
   def book_seats

@@ -1,71 +1,24 @@
 # require 'rails_helper'
 
 # RSpec.describe ApplicationController, type: :controller do
-#   describe 'authentication' do
-#     controller do
-#       def index
-#         render plain: 'Hello, world!'
-#       end
+#   describe '#after_sign_in_path_for' do
+#     let(:user) { create(:user) } # Assuming you have a User factory set up
+
+#     it 'redirects to events_path for a signed-in user' do
+#       sign_in user
+#       expect(controller.after_sign_in_path_for(user)).to eq(events_path)
 #     end
 
-#     context 'when user is not signed in' do
-#       it 'redirects to the sign-in page' do
-#         get :index
-#         expect(response).to redirect_to(new_user_session_path)
-#       end
+#     it 'falls back to super for other resources' do
+#       resource = double('SomeOtherResource')
+#       expect(controller.after_sign_in_path_for(resource)).to eq(super())
 #     end
 
-#     context 'when user is signed in' do
-#       let(:user) { create(:user) }
+#     it 'logs an error and falls back to super when an exception occurs' do
+#       allow(controller).to receive(:events_path).and_raise(RuntimeError, 'Some error message')
 
-#       before { sign_in user }
-
-#       it 'renders the page' do
-#         get :index
-#         expect(response).to be_successful
-#         expect(response.body).to eq('Hello, world!')
-#       end
+#       expect(Rails.logger).to receive(:error).with(/Error in after_sign_in_path_for: Some error message/)
+#       expect(controller.after_sign_in_path_for(user)).to eq(super())
 #     end
 #   end
 # end
-#
-# spec/controllers/application_controller_spec.rb
-#require 'rails_helper'
-
-##RSpec.describe ApplicationController, type: :controller do
-#  describe 'after_sign_in_path_for' do
-#    context 'when the resource is a user' do
-#      let(:user) { create(:user) } 
-
-#      it 'redirects to the events_path' do
-#        allow(controller).to receive(:current_user).and_return(user)
-#        path = controller.after_sign_in_path_for(user)
-#        expect(path).to eq(root_path)
-      #end
-    #end
-
-#    context 'when the resource is not a user' do
-#      let(:resource) { double('Resource') }
-
-#      it 'calls the super method' do
-        #allow(controller).to receive(:resource).and_return(resource)
-        #expect(controller.after_sign_in_path_for(resource)).to eq(super())
-      #end
-    #end
-  #end
-#end
-# spec/controllers/application_controller_spec.rb
-#require 'rails_helper'
-
-#RSpec.describe ApplicationController, type: :controller do
-  #describe 'after sign-in redirection' do
-    #let(:user) { create(:user) } 
-
-    #it 'redirects to the events_path after sign-in' do
-
-      # In this context, Devise should automatically call after_sign_in_path_for
-      #expect(response).to redirect_to(root_path)
-    #end
-  #end
-#end
-

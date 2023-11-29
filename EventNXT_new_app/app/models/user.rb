@@ -16,10 +16,10 @@ class User < ApplicationRecord
   
   # <!--===================-->
   # <!--to use google user info to create an account-->
-  #def self.from_google(info)
-    #create_with(uid: info[:uid], provider: 'google',
-                #password: Devise.friendly_token[0, 20]).find_or_create_by!(email: info[:email])
-  #end
+  def self.from_google(info)
+    create_with(uid: info[:uid], provider: 'google',
+                password: Devise.friendly_token[0, 20]).find_or_create_by!(email: info[:email])
+  end
   # <!--===================-->
   def self.from_omniauth(access_token)
     #puts access_token.inspect

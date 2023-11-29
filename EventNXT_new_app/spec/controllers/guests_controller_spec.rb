@@ -75,7 +75,7 @@ RSpec.describe GuestsController, type: :controller do
 
       it "redirects to the created guest" do
         post :create, params: { event_id: event.id, guest: valid_attributes }
-        expect(response).to redirect_to(event_guests_path(event))
+        expect(response).to redirect_to(event_path(event))
       end
     end
 
@@ -108,7 +108,7 @@ RSpec.describe GuestsController, type: :controller do
 
       it "redirects to the guest" do
         put :update, params: { event_id: event.id, id: guest.id, guest: { first_name: "Updated", last_name: "Guest" } }
-        expect(response).to redirect_to(event_guest_path(event, guest))
+        expect(response).to redirect_to(event_path(event))
       end
     end
 

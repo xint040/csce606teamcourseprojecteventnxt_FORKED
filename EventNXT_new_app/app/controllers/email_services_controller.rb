@@ -118,6 +118,8 @@ class EmailServicesController < ApplicationController
   def edit_email_template
     @email_template = EmailTemplate.find(params[:id])
     render '_edit_email_template'
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: 'Email template not found' }, status: :not_found
   end 
 
   def update_email_template
@@ -142,6 +144,8 @@ class EmailServicesController < ApplicationController
         render json: { subject: email_template.subject, body: email_template.body }
       end
     end
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: 'Email template not found' }, status: :not_found
   end
 
   def destroy_email_template
@@ -152,6 +156,8 @@ class EmailServicesController < ApplicationController
       format.html { redirect_to email_services_url, notice: 'Email template was successfully deleted.' }
       format.json { head :no_content }
     end
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Email template not found' }, status: :not_found
   end
   
   private

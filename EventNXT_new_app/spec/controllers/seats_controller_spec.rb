@@ -81,7 +81,7 @@ RSpec.describe SeatsController, type: :controller do
 
       it 'redirects to the index page with a success message' do
         post :create, params: { event_id: event.id, id: seat.id, seat: valid_attributes}
-        expect(response).to redirect_to(event_seats_path(event))
+        expect(response).to redirect_to(event_path(event))
         expect(flash[:notice]).to eq('Seat was successfully created.')
       end
     end

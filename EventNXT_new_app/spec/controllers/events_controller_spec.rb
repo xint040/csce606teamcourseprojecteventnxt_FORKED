@@ -165,4 +165,35 @@ RSpec.describe EventsController, type: :controller do
       end
     end
   end
+  describe '#calculate_seating_summary' do
+    let(:event) { create(:event) }
+
+    it 'calculates seating summary for each seat category' do
+      seat1 = create(:seat, event: event, category: 'VIP', total_count: 50)
+      seat2 = create(:seat, event: event, category: 'Regular', total_count: 100)
+
+      guest1 = create(:guest, event: event, category: 'VIP', commited_seats: 5, alloted_seats: 10)
+      guest2 = create(:guest, event: event, category: 'Regular', commited_seats: 15, alloted_seats: 20)
+      guest3 = create(:guest, event: event, category: 'Regular', commited_seats: 3, alloted_seats: 5)
+
+      seating_summary = event.calculate_seating_summary(event.id)
+
+      expect(seating_summary).to match_array([
+        {
+          category: 'VIP',
+          guests_count: 1,
+          committed_seats: 5,
+          allocated_seats: 10,
+          total_seats: 50
+        },
+        {
+          category: 'Regular',
+          guests_count: 2,
+          committed_seats: 18,
+          allocated_seats: 25,
+          total_seats: 100
+        }
+      ])
+    end
+  end
 end

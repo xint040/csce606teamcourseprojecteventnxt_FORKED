@@ -9,8 +9,9 @@ class EmailServicesController < ApplicationController
     @event = Event.find(@email_service.event_id)
     @guest = Guest.find(@email_service.guest_id)
 
-    full_url = "http://127.0.0.1:3000" + book_seats_path(@guest.rsvp_link)
-    #full_url = ENV['mydomainname'] + book_seats_path(@guest.rsvp_link)
+    full_url = ENV['EVENT_NXT_APP_URL'].to_s + book_seats_path(@guest.rsvp_link)
+    print full_url
+   
     email_body = "Click the link to book seats: #{full_url}"
     ApplicationMailer.send_email(@email_service.to, @email_service.subject, @email_service.body,@event,@guest,full_url).deliver_later
     flash[:success] = 'Email sent!'
@@ -110,7 +111,7 @@ class EmailServicesController < ApplicationController
       if @email_templates.save
         format.html { redirect_to email_services_url, notice: 'Email template was successfully created.' }
       else
-        format.html { render '_form_email_template', alert: 'Error: Email template could not be saved.' }
+        format.html { render '_form_email_template', alert:  'Error: Email template could not be saved.'}
       end
     end
   end

@@ -13,6 +13,14 @@ RSpec.describe EmailServicesController, type: :controller do
     }
   end
 
+  let(:valid_template_attributes) do
+    {
+      name: 'Sample Template',
+      subject: 'Test Email',
+      body: 'This is a test email'
+    }
+  end
+
   before do
     @email_service = EmailService.create!(valid_attributes) # Create a valid EmailService record
   end
@@ -20,6 +28,14 @@ RSpec.describe EmailServicesController, type: :controller do
   let(:invalid_attributes) do
     {
       to: '',
+      subject: '',
+      body: ''
+    }
+  end
+
+  let(:invalid_template_attributes) do
+    {
+      name: '',
       subject: '',
       body: ''
     }
@@ -164,17 +180,17 @@ RSpec.describe EmailServicesController, type: :controller do
     context 'with valid parameters' do
       it 'creates a new email template' do
         expect {
-          post :add_email_template, params: valid_attributes
+          post :add_email_template, params: valid_template_attributes
         }.to change(EmailTemplate, :count).by(1)
       end
 
       it 'redirects to the email services URL' do
-        post :add_email_template, params: valid_attributes
+        post :add_email_template, params: valid_template_attributes
         expect(response).to redirect_to(email_services_url)
       end
 
       it 'sets a flash notice message' do
-        post :add_email_template, params: valid_attributes
+        post :add_email_template, params: valid_template_attributes
         expect(flash[:notice]).to eq('Email template was successfully created.')
       end
     end
@@ -182,18 +198,18 @@ RSpec.describe EmailServicesController, type: :controller do
     context 'with invalid parameters' do
       it 'does not create a new email template' do
         expect {
-          post :add_email_template, params: invalid_attributes
+          post :add_email_template, params: invalid_template_attributes
         }.not_to change(EmailTemplate, :count)
       end
 
       it 'renders the _form_email_template partial' do
-        post :add_email_template, params: invalid_attributes
+        post :add_email_template, params: invalid_template_attributes
         expect(response).to render_template(partial: '_form_email_template')
       end
 
       it 'sets a flash alert message' do
-        post :add_email_template, params: invalid_attributes
-        expect(flash[:alert]).to eq('Error: Email template could not be saved.')
+        post :add_email_template, params: invalid_template_attributes
+        expect(flash[:notice]).to eq('Error: Email template could not be saved.')
       end
     end
   end
@@ -226,7 +242,7 @@ RSpec.describe EmailServicesController, type: :controller do
 
     context 'with valid parameters' do
       it 'updates the requested email template' do
-        put :update_email_template, params: { id: email_template.to_param, email_template: valid_attributes }
+        put :update_email_template, params: { id: email_template.to_param, email_template: valid_template_attributes }
         email_template.reload
         expect(email_template.name).to eq('Sample Template')
         expect(email_template.subject).to eq('Test Email')

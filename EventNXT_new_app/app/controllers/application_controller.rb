@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     # <!--===================-->
     # <!--Devise helper to avoid unauthorized access-->
   #before_action :sign_out_all_users, only: [:force_sign_out]
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   #skip_before_action :authenticate_user!, only: [:home]
   
   protected

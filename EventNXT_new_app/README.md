@@ -34,7 +34,19 @@ If you don't have the ruby or rails. Please follow the below processes.
 
 * Bundle install
   * `bundle install`
-
+    
+* Set ENVIRONMENT VARIABLES
+    * NXT_APP_URL -> events360 website link
+    * NXT_APP_ID -> client ID (registered with events360)
+    * NXT_APP_SECRET -> client secret (registered with events360)
+    * EVENT_NXT_APP_URL -> eventNXT WEBSITE LINK.
+      
+* To set environment variables, please follow below procedure:
+      * command:
+           * export NXT_APP_URL="http://events360.herokuapp.com/"
+           * export NXT_APP_ID="aCgXCUDxHSvkp12ZaLweRSVq0pmznGpFasldrE3EZpQ"
+           * export NXT_APP_SECRET="iN9O2qGyA9n3nauMXOl6x5SDh08i27Nb1gs-fIjI6g0"
+           * export EVENT_NXT_APP_URL="https://eventnxtprodfall2023-a37dec4f8dd9.herokuapp.com/"
 * Migrate Database
   * `rails db:migrate`
 

@@ -19,5 +19,8 @@ Demo video for EVENTNXT_NEW_APP : https://www.youtube.com/watch?v=9ChadQl6Fc8
 Presentation of EVENTNXT_OLD_APP : https://github.com/CSCE-606-Event360/EventNXT/blob/main/EventNXT_old_app/documentation/Spring2023/Presentation.pptx
 Presentation of EVENTNXT_NEW_APP : https://github.com/CSCE-606-Event360/documentation/blob/main/Fall2023/EventNXT_presentation.pptx
 
+Heroku APP LINK EventNXT (Customer Production) : https://eventnxt.herokuapp.com/
+Heroku APP LINK Event360 (Customer Production) : http://events360.herokuapp.com/
+
 
 

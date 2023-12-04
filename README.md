@@ -10,7 +10,16 @@ https://github.com/CSCE-606-Event360/EventNXT/tree/main/EventNXT_new_app
 
 ---------------------------------------------------------------------------IMPORTANT-----------------------------------------------------------------------------------------------
 
-We strongly suggest the Team to go through the DOCUMENTATION and DEMO videos to understand the application:
+We strongly suggest the Team to go through the DOCUMENTATION and DEMO videos to understand the old and new application:
+
+Documentation is common for PlanNXT, CastNXT and EventNXT:
+
+We would suggest you to go through following sections (very important) in documentation:
+
+        - Section 1: Summary (EventNXT)
+        
+        - Section 15: Recommendations to Next Group (EventNXT)
+        
 
 Final Documentation for EVENTNXT_OLD_APP : https://github.com/CSCE-606-Event360/EventNXT/blob/main/EventNXT_old_app/documentation/Spring2023/Final%20Report.pdf
 

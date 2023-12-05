@@ -33,7 +33,9 @@ Presentation of EVENTNXT_OLD_APP : https://github.com/CSCE-606-Event360/EventNXT
 
 Presentation of EVENTNXT_NEW_APP : https://github.com/CSCE-606-Event360/documentation/blob/main/Fall2023/EventNXT_presentation.pptx
 
-Heroku APP LINK EventNXT (Customer Production) : https://eventnxt.herokuapp.com/
+Heroku APP LINK EventNXT NEW APP (Customer Production) : https://eventnxt-0fcb166cb5ae.herokuapp.com/
+
+Heroku APP LINK EventNXT OLD APP (Customer Production) : https://eventnxt-spring-2023-098cc6e3c34b.herokuapp.com/
 
 Heroku APP LINK Event360 (Customer Production) : http://events360.herokuapp.com/
 

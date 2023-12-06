@@ -40,6 +40,7 @@ If you don't have the ruby or rails. Please follow the below processes.
     * NXT_APP_ID -> client ID (registered with events360)
     * NXT_APP_SECRET -> client secret (registered with events360)
     * EVENT_NXT_APP_URL -> eventNXT WEBSITE LINK.
+    * ALLOWED_HOST -> eventnxt url in heroku or local url
       
 * To set environment variables, please follow below procedure:
       * command:

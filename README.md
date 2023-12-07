@@ -14,7 +14,7 @@ We strongly suggest the Team to go through the DOCUMENTATION and DEMO videos to 
 
 Documentation is common for PlanNXT, CastNXT and EventNXT:
 
-We would suggest you to go through following sections (very important) in documentation:
+We would suggest you to go through following sections (very important) in documentation of NEW APP:
 
         - Section 1: Summary (EventNXT)
         

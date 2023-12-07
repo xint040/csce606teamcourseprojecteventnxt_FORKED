@@ -39,11 +39,13 @@ Heroku APP LINK EventNXT OLD APP (Customer Production) : https://eventnxt-spring
 
 Heroku APP LINK Event360 (Customer Production) : http://events360.herokuapp.com/
 
-- Contacts:
 Email the team if you have any questions:
-Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622
-Pavan Kaushik Adluri: pkavu_1998@tamu.edu
-Rakesh Kumar Pothineni: rakeshpothineni@tamu.edu
+
+- Contacts:
+                
+                        Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622
+                        Pavan Kaushik Adluri: pkavu_1998@tamu.edu
+                        Rakesh Kumar Pothineni: rakeshpothineni@tamu.edu
 
 
 

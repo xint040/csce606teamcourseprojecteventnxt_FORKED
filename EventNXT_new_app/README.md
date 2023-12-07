@@ -43,12 +43,19 @@ If you don't have the ruby or rails. Please follow the below processes.
     * ALLOWED_HOST -> eventnxt url in heroku or local url
       
 * To set environment variables, please follow below procedure:
-`command:
+command: 
    - export NXT_APP_URL="http://events360.herokuapp.com/"
    - export NXT_APP_ID="aCgXCUDxHSvkp12ZaLweRSVq0pmznGpFasldrE3EZpQ"
    - export NXT_APP_SECRET="iN9O2qGyA9n3nauMXOl6x5SDh08i27Nb1gs-fIjI6g0"
    - export EVENT_NXT_APP_URL="https://eventnxtprodfall2023-a37dec4f8dd9.herokuapp.com/" #your eventnxt app urk in development heroku
-   - export ALLOWED_HOST="your eventnxt app url in development heroku"`
+   - export ALLOWED_HOST="your eventnxt app url in development heroku"
+
+NOTE: NXT_APP_URL, NXT_APP_ID, NXT_APP_SECRET are env variables used for oauth client registration with CRM event360 server.
+http://events360.herokuapp.com/ is customer production CRM server.
+You should not use this for development. For development you need to clone Event360 repo and run the app.
+Login with Test@example.com as username and "password" as password for logging in as Test user (ADMIN).
+This admin login details are present in db/seeds.rb file of Event360 repo.
+
 * Migrate Database
   * `rails db:migrate`
 

@@ -8,7 +8,7 @@ Please check whether you have the ruby and rails installed.
 ```
 ruby -v
 ```
-Ruby version is 3.2.2
+Ruby version is 3.2.2 as mentioned in Gemfile
 ```
 rails -v
 ```
@@ -18,8 +18,8 @@ If you don't have the ruby or rails. Please follow the below processes.
 
 * Install ruby-3.2.0 using Ruby version manager
   * `rvm get stable`
-  * `rvm install "ruby-3.2.0"`
-  * `rvm use 3.2.0`
+  * `rvm install "ruby-3.2.0"` or try `rvm install "ruby-3.2.2"`
+  * `rvm use 3.2.0` or try `rvm use 3.2.2`
 
 * Install PostgreSQL
   * `sudo apt-get update`
@@ -43,12 +43,12 @@ If you don't have the ruby or rails. Please follow the below processes.
     * ALLOWED_HOST -> eventnxt url in heroku or local url
       
 * To set environment variables, please follow below procedure:
-      * command:
-           * export NXT_APP_URL="http://events360.herokuapp.com/"
-           * export NXT_APP_ID="aCgXCUDxHSvkp12ZaLweRSVq0pmznGpFasldrE3EZpQ"
-           * export NXT_APP_SECRET="iN9O2qGyA9n3nauMXOl6x5SDh08i27Nb1gs-fIjI6g0"
-           * export EVENT_NXT_APP_URL="https://eventnxtprodfall2023-a37dec4f8dd9.herokuapp.com/" #your eventnxt app urk in development heroku
-           * export ALLOWED_HOST="your eventnxt app url in development heroku"
+`command:
+   - export NXT_APP_URL="http://events360.herokuapp.com/"
+   - export NXT_APP_ID="aCgXCUDxHSvkp12ZaLweRSVq0pmznGpFasldrE3EZpQ"
+   - export NXT_APP_SECRET="iN9O2qGyA9n3nauMXOl6x5SDh08i27Nb1gs-fIjI6g0"
+   - export EVENT_NXT_APP_URL="https://eventnxtprodfall2023-a37dec4f8dd9.herokuapp.com/" #your eventnxt app urk in development heroku
+   - export ALLOWED_HOST="your eventnxt app url in development heroku"`
 * Migrate Database
   * `rails db:migrate`
 

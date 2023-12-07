@@ -53,8 +53,13 @@ command:
 NOTE: NXT_APP_URL, NXT_APP_ID, NXT_APP_SECRET are env variables used for oauth client registration with CRM event360 server.
 http://events360.herokuapp.com/ is customer production CRM server.
 You should not use this for development. For development you need to clone Event360 repo and run the app.
-Login with Test@example.com as username and "password" as password for logging in as Test user (ADMIN).
 This admin login details are present in db/seeds.rb file of Event360 repo.
+Then you can go to application management and create a new test client. once the new client is registered
+you can get NXT_APP_ID and NXT_APP_SECRET from the UI and set it in your development env as shown above.
+you need to save client callback in this new test client in event360 app.
+To get an Idea:
+ - go to http://events360.herokuapp.com/, login as admin user, use same login details as mentioned above from seeds.rb file in Event360 repo.
+ - go to EventNXT and look for the fields to get idea.
 
 * Migrate Database
   * `rails db:migrate`

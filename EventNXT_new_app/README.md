@@ -87,6 +87,10 @@ If you want to deploy to personal Heroku account:
  Migrate database on Heroku, heroku run rake db:migrate
  App is deployed to Heroku, go to the website and test it out
 
+ Make sure, use have heroku postgress plugin addon configured for the container as ruby needs this to create schema migration table, Go to resources of the app in heroku UI and search for heroku postgress in add-on search:
+ ![image](https://github.com/CSCE-606-Event360/EventNXT/assets/143028516/0ebc8e90-141c-4fbe-8aa8-699b2d547642)
+
+
 You can also deploy code to Heroku using GitHub codespaces:
 
 Steps for the same are as follows:
@@ -121,7 +125,7 @@ https://devcenter.heroku.com/articles/heroku-cli
 ### Contacts:
  * Email the team if you have any questions:
   * Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622
-  * Pavan Kaushik Adluri: pkavu_1998@tamu.edu
+  * Pavan Kaushik Aduri: pkavu_1998@tamu.edu
   * Rakesh Kumar Pothineni: rakeshpothineni@tamu.edu
 
 

@@ -44,7 +44,7 @@ Email the team if you have any questions:
 - Contacts:
                 
                         Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622
-                        Pavan Kaushik Adluri: pkavu_1998@tamu.edu
+                        Pavan Kaushik Aduri: pkavu_1998@tamu.edu
                         Rakesh Kumar Pothineni: rakeshpothineni@tamu.edu
 
 

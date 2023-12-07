@@ -8,7 +8,7 @@ New App Link:
 
 https://github.com/CSCE-606-Event360/EventNXT/tree/main/EventNXT_new_app
 
----------------------------------------------------------------------------IMPORTANT-----------------------------------------------------------------------------------------------
+-----------------------------IMPORTANT----------------------------
 
 We strongly suggest the Team to go through the DOCUMENTATION and DEMO videos to understand the old and new application:
 

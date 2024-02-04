@@ -6,7 +6,7 @@ We students of Fall 2023 worked on EventNXT_new_app. For all the verification pu
 
 New App Link:
 
-https://github.com/CSCE-606-Event360/EventNXT/tree/main/EventNXT_new_app
+https://github.com/CSCE-606-Event360/Spring2024EventNXT/tree/main/EventNXT_new_app
 
 -----------------------------IMPORTANT----------------------------
 

@@ -1,14 +1,14 @@
 #EventNXT Home Page
-#CSCE 606 Project GitHub EventNXT Group Home Page - FALL 2023
+#CSCE 606 Project GitHub EventNXT Group Home Page - SPRING 2024
 
 This is home page which has 2 apps: Old App & New App.
-We students of Fall 2023 worked on EventNXT_new_app. For all the verification purposes please use the new app.
+We students of Spring 2024 worked on EventNXT_new_app. For all the verification purposes please use the new app.
 
 New App Link:
 
 https://github.com/CSCE-606-Event360/Spring2024EventNXT/tree/main/EventNXT_new_app
 
------------------------------IMPORTANT----------------------------
+------------------------------------------------------IMPORTANT------------------------------------------------------
 
 We strongly suggest the Team to go through the DOCUMENTATION and DEMO videos to understand the old and new application:
 

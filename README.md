@@ -68,7 +68,7 @@ If you don't have the ruby or rails. Please follow the below processes.
         sudo -u postgres createuser --interactive ubuntu
 
     Clone the latest git repo
-        git clone https://github.com/CSCE-606-Event360/EventNXT.git
+        git clone https://github.com/CSCE-606-Event360/Spring2024EventNXT.git
 
     Change directory to the new app
         cd EventNXT/EventNXT_new_app

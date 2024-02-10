@@ -6,6 +6,7 @@ We students of Spring 2024 continued to worked on the EventNXT_new_app. For all 
 
 New App Link:
 
+https://eventnxt24-3eb21df1cc32.herokuapp.com/
 https://github.com/CSCE-606-Event360/Spring2024EventNXT/tree/main/EventNXT_new_app
 
 ------------------------------------------------------IMPORTANT------------------------------------------------------

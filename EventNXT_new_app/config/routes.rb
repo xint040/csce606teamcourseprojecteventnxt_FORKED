@@ -32,7 +32,11 @@ Rails.application.routes.draw do
   patch '/email_services/email_template/:id/update', to: 'email_services#update_email_template', as: 'update_email_template'
   patch '/update_commited_seats/:rsvp_link', to: 'guests#update_commited_seats', as: 'update_commited_seats'
   
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions'}
+
+
+  get '/redirect_after_signout', to: 'redirect#after_signout'
+
 
   devise_scope :user do
     post 'oauth/authorize', to: 'users/authorizelogin#authorize_event360'

@@ -3,4 +3,4 @@ class RedirectController < ApplicationController
       redirect_to "https://events360.herokuapp.com/signout", allow_other_host: true
     end
   end
-  
+  # all new code

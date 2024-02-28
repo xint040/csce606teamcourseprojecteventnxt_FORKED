@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions'}
 
 
-  get '/redirect_after_signout', to: 'redirect#after_signout'
+  get '/redirect_after_signout', to: 'redirect#after_signout' # new code
 
 
   devise_scope :user do

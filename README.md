@@ -11,6 +11,9 @@ https://eventnxt-0fcb166cb5ae.herokuapp.com/
 
 https://github.com/CSCE-606-Event360/Spring2024EventNXT/tree/main/EventNXT_new_app
 
+
+Spring 2024 EventNXT code climate report: https://codeclimate.com/github/CSCE-606-Event360/Spring2024EventNXT
+
 ------------------------------------------------------IMPORTANT------------------------------------------------------
 
 We strongly suggest the Team to go through the DOCUMENTATION and DEMO videos to understand the old and new application:

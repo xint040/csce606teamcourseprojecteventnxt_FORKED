@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-  # <!--===================-->
+  #<!--===================-->
   # <!--corresponding filter of the defined method for nested scaffold-->
   before_action :get_event, except: [:book_seats, :update_commited_seats]
   # <!--===================-->
@@ -120,13 +120,24 @@ class GuestsController < ApplicationController
   end
   
   def import_guests_csv
-    event_id = params[:event_id]
-    event = Event.find(event_id)
-    Guest.import_guests_csv(params[:file], event)
-    redirect_to event_path(event), notice: "Guests imported"
+    event = Event.find(params[:event_id]) # Assuming you have an event_id parameter
+
+    if params[:file].present?
+      # Call the import method from the Guest model
+      Guest.import_guests_csv(params[:file], event)
+
+      # Redirect to a valid path, e.g., event_path(event)
+      redirect_to event_path(event), notice: 'Guests imported successfully'
+    else
+      # Redirect to a valid path with an error message
+      redirect_to event_path(event), alert: 'No file provided'
+    end
+  rescue StandardError => e
+    # Handle exceptions and errors
+    redirect_to event_path(event), alert: "Failed to import guests: #{e.message}"
   end
   
-
+  
   private
   
     # <!--===================-->

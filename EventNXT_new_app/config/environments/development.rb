@@ -86,7 +86,8 @@ Rails.application.configure do
   # <!--to configure action_mailer for Gmail-->
   config.action_mailer.delivery_method = :smtp
   host = 'da83112a02d5465c8e2119677001f49f.vfs.cloud9.us-east-2.amazonaws.com' #replace with your own url
-  config.action_mailer.default_url_options = { host: host }
+  #config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",

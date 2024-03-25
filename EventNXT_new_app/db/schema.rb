@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_24_165312) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_24_054147) do
   create_table "email_services", force: :cascade do |t|
     t.string "to"
     t.string "subject"

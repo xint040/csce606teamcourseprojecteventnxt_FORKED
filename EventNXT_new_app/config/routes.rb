@@ -6,7 +6,14 @@ Rails.application.routes.draw do
   get '/email_services/email_template/:id', to: 'email_services#edit_email_template', as: 'edit_email_template'
   get '/email_services/render_email_template', to: 'email_services#render_template', as: 'render_email_template'
   get 'destroy_email_template/:id', to: 'email_services#destroy_email_template', as: 'destroy_email_template'
-  
+
+  get '/referral/:ref_code', to: 'referrals#refer', as: 'referral'
+
+  get '/refer_a_friend', to: 'referrals#new', as: 'new_referral'
+  post '/refer_a_friend', to: 'referrals#create', as: 'create_referral'
+
+  get '/buy_tickets', to: 'tickets#new', as: 'new_ticket_purchase'
+
   resources :email_services do
     member do
       get 'send_email'
@@ -14,6 +21,8 @@ Rails.application.routes.draw do
       #get 'index'
     end
   end
+
+  resources :tickets, only: [:new, :create]
 
   
   

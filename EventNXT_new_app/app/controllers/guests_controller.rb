@@ -1,4 +1,5 @@
 class GuestsController < ApplicationController
+  require 'csv'
   #<!--===================-->
   # <!--corresponding filter of the defined method for nested scaffold-->
   before_action :get_event, except: [:book_seats, :update_commited_seats]
@@ -8,14 +9,9 @@ class GuestsController < ApplicationController
 
   # GET /guests or /guests.json
   def index
-    # @guests = Guest.all
-    
-    # <!--===================-->
-    # <!--to return all children instances associated with a particular parent instance-->
     @guests = @event.guests
-    # <!--===================-->
   end
-
+  
   # GET /guests/1 or /guests/1.json
   def show
   end
@@ -120,22 +116,44 @@ class GuestsController < ApplicationController
   end
   
   def import_guests_csv
-    event = Event.find(params[:event_id]) # Assuming you have an event_id parameter
-
-    if params[:file].present?
-      # Call the import method from the Guest model
-      Guest.import_guests_csv(params[:file], event)
-
-      # Redirect to a valid path, e.g., event_path(event)
-      redirect_to event_path(event), notice: 'Guests imported successfully'
-    else
-      # Redirect to a valid path with an error message
-      redirect_to event_path(event), alert: 'No file provided'
+    event_id = params[:event_id]
+  
+    begin
+      if params[:file].present?
+        CSV.foreach(params[:file].path, headers: true, col_sep: "\t") do |row|
+          guest_attributes = row.to_hash
+          guest_attributes.transform_keys! { |key| key.underscore.gsub(' ', '_') }
+  
+          # Convert empty strings to nil
+          guest_attributes.each do |key, value|
+            guest_attributes[key] = value.presence
+          end
+  
+          guest_attributes['event_id'] = event_id
+  
+          guest = Guest.find_or_initialize_by(
+            first_name: guest_attributes['first_name'],
+            last_name: guest_attributes['last_name'],
+            email: guest_attributes['email'],
+            event_id: event_id
+          )
+          guest.update(guest_attributes)
+        end
+  
+        redirect_to event_guests_path(event_id), notice: 'Guests imported successfully'
+      else
+        redirect_to event_guests_path(event_id), alert: 'Please upload a CSV file.'
+      end
+    rescue => e
+      redirect_to event_guests_path(event_id), alert: "Failed to import guests: #{e.message}"
     end
-  rescue StandardError => e
-    # Handle exceptions and errors
-    redirect_to event_path(event), alert: "Failed to import guests: #{e.message}"
   end
+  
+  
+  
+  
+  
+  
   
   
   private
@@ -145,6 +163,8 @@ class GuestsController < ApplicationController
     def get_event
       @event = Event.find(params[:event_id])
     end
+    
+    
     # <!--===================-->
     
     
@@ -157,6 +177,15 @@ class GuestsController < ApplicationController
       # <!--to search for a matching id in the collection of children associated with a particular parent-->
       @guest = Guest.find(params[:id])
       # <!--===================-->
+    end
+
+    def model_attribute(header)
+      case header.downcase
+      when 'first name' then 'first_name'
+      when 'last name' then 'last_name'
+      # Add other mappings as needed
+      else header
+      end
     end
 
     # Only allow a list of trusted parameters through.

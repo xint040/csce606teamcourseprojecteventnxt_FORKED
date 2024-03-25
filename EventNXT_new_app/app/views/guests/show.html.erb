@@ -1,13 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @guest %>
+<% @guests.each do |guest| %>
+  <div>
+    <%= guest.first_name %> <%= guest.last_name %> - <%= guest.email %>
+    <!-- Add other guest attributes you want to display -->
+
+    <%= link_to "Edit this guest", edit_event_guest_path(@event, guest), class: "btn btn-primary" %> |
+    <%= button_to "Destroy this guest", event_guest_path(@event, guest), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  </div>
+<% end %>
 
 <div>
-  <%# link_to "Edit this guest", edit_guest_path(@guest) %>
-  <%= link_to "Edit this guest", edit_event_guest_path(@event, @guest) %> |
-  <%# link_to "Back to guests", guests_path %>
-  <%= link_to "Back to guests", event_guests_path(@event) %>
-
-  <%# button_to "Destroy this guest", @guest, method: :delete %>
-  <%= button_to "Destroy this guest", [@event, @guest], method: :delete %>
+  <%= link_to "Back to event", event_path(@event), class: "btn btn-link" %>
+  <%= link_to "Add New Guest", new_event_guest_path(@event), class: "btn btn-success" %>
 </div>

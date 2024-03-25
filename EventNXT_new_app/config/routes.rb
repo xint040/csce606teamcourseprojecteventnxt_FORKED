@@ -21,17 +21,10 @@ Rails.application.routes.draw do
       #get 'index'
     end
   end
-<<<<<<< HEAD
-  
+
   resources :tickets, only: [:new, :create]
 
   post '/import_guests_csv', to: 'guests#import_guests_csv'# Defines a route for the upload_existing_plan action on guests controller.
-=======
-
-<<<<<<< HEAD
-  #resources :guests
-  #post '/import_guests_csv', to: 'guests#import_guests_csv'
->>>>>>> 5bf0df4 (upload)
 
   resources :guests do
     collection do
@@ -41,12 +34,15 @@ Rails.application.routes.draw do
       get :new_guest, to: 'guests#new_guest'
     end
   end
-
-
   
-=======
-  resources :tickets, only: [:new, :create]
->>>>>>> 6ac0f0c (upload manage guest feature done)
+  resources :events do
+    resources :guests do
+      collection do
+        post 'import_csv', to: 'guests#import_guests_csv', as: 'import_csv'
+      end
+    end
+  end
+
   
   root 'home#index'
 
@@ -54,11 +50,7 @@ Rails.application.routes.draw do
   patch '/email_services/email_template/:id/update', to: 'email_services#update_email_template', as: 'update_email_template'
   patch '/update_commited_seats/:rsvp_link', to: 'guests#update_commited_seats', as: 'update_commited_seats'
   
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions'}
-
-
-  get '/redirect_after_signout', to: 'redirect#after_signout' # new code
-
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   devise_scope :user do
     post 'oauth/authorize', to: 'users/authorizelogin#authorize_event360'
@@ -69,14 +61,9 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :seats
-    resources :guests do 
-      collection do
-        #get 'new_guest', to: 'guests#new_guest'
-        post 'import_csv', to: 'guests#import_guests_csv'
-      end
-    end
+    resources :guests
   end
 
- #resources :seats
+  #resources :seats
   #resources :guests
 end

@@ -14,6 +14,7 @@ class GuestsController < ApplicationController
   
   # GET /guests/1 or /guests/1.json
   def show
+    @guests = Guest.all # or another appropriate query to get the guests
   end
 
   # GET /guests/new
@@ -117,44 +118,44 @@ class GuestsController < ApplicationController
   
   def import_guests_csv
     event_id = params[:event_id]
+    event = Event.find(event_id)
   
-    begin
-      if params[:file].present?
-        CSV.foreach(params[:file].path, headers: true, col_sep: "\t") do |row|
-          guest_attributes = row.to_hash
-          guest_attributes.transform_keys! { |key| key.underscore.gsub(' ', '_') }
+    # Roo setup to open the Excel file
+    file = params[:file]
+    spreadsheet = Roo::Spreadsheet.open(file.path)
+    header = spreadsheet.row(1) # Assuming first row is the header
   
-          # Convert empty strings to nil
-          guest_attributes.each do |key, value|
-            guest_attributes[key] = value.presence
-          end
+    # Iterate over each row
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
   
-          guest_attributes['event_id'] = event_id
+      first_name = row["First Name"]
+      last_name = row["Last Name"]
+      affiliation = row["Affiliation"] # Ensure this column exists in your Excel file
+      category = row["Category"] # Ensure this column exists in your Excel file
+      alloted_seats = row["Alloted Seats"].to_i # Adjust the key as per your Excel file
+      commited_seats = row["Commited Seats"].to_i # Adjust the key as per your Excel file
+      guest_commited = row["Guest Commited"].to_i # Adjust the key as per your Excel file
   
-          guest = Guest.find_or_initialize_by(
-            first_name: guest_attributes['first_name'],
-            last_name: guest_attributes['last_name'],
-            email: guest_attributes['email'],
-            event_id: event_id
-          )
-          guest.update(guest_attributes)
-        end
-  
-        redirect_to event_guests_path(event_id), notice: 'Guests imported successfully'
-      else
-        redirect_to event_guests_path(event_id), alert: 'Please upload a CSV file.'
+      # Since email is removed, you might want to use a different field to find or initialize guests
+      # For example, using first_name and last_name (but ensure these combinations are unique per event)
+      guest = Guest.find_or_initialize_by(first_name: first_name, last_name: last_name, event_id: event_id)
+      if guest.new_record?
+        guest.assign_attributes({
+          first_name: first_name,
+          last_name: last_name,
+          affiliation: affiliation,
+          category: category,
+          alloted_seats: alloted_seats,
+          commited_seats: commited_seats,
+          guest_commited: guest_commited
+        })
+        guest.save!
       end
-    rescue => e
-      redirect_to event_guests_path(event_id), alert: "Failed to import guests: #{e.message}"
     end
+  
+    redirect_to event_path(event), notice: "Guests imported"
   end
-  
-  
-  
-  
-  
-  
-  
   
   private
   

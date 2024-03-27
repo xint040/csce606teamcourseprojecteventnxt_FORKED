@@ -1,5 +1,6 @@
 class GuestsController < ApplicationController
-  # <!--===================-->
+  require 'csv'
+  #<!--===================-->
   # <!--corresponding filter of the defined method for nested scaffold-->
   before_action :get_event, except: [:book_seats, :update_commited_seats]
   # <!--===================-->
@@ -8,16 +9,12 @@ class GuestsController < ApplicationController
 
   # GET /guests or /guests.json
   def index
-    # @guests = Guest.all
-    
-    # <!--===================-->
-    # <!--to return all children instances associated with a particular parent instance-->
     @guests = @event.guests
-    # <!--===================-->
   end
-
+  
   # GET /guests/1 or /guests/1.json
   def show
+    @guests = Guest.all # or another appropriate query to get the guests
   end
 
   # GET /guests/new
@@ -119,8 +116,50 @@ class GuestsController < ApplicationController
     end
   end
   
-  
+  def import_guests_csv
+    event_id = params[:event_id]
+    event = Event.find(event_id)
 
+    return redirect_to event_path(@event), alert: "No file uploaded." if params[:file].blank?
+
+  
+    # Roo setup to open the Excel file
+    file = params[:file]
+    spreadsheet = Roo::Spreadsheet.open(file.path)
+    header = spreadsheet.row(1) # Assuming first row is the header
+  
+    # Iterate over each row
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+  
+      first_name = row["First Name"]
+      last_name = row["Last Name"]
+      affiliation = row["Affiliation"] # Ensure this column exists in your Excel file
+      category = row["Category"] # Ensure this column exists in your Excel file
+      alloted_seats = row["Alloted Seats"].to_i # Adjust the key as per your Excel file
+      commited_seats = row["Commited Seats"].to_i # Adjust the key as per your Excel file
+      guest_commited = row["Guest Commited"].to_i # Adjust the key as per your Excel file
+  
+      # Since email is removed, you might want to use a different field to find or initialize guests
+      # For example, using first_name and last_name (but ensure these combinations are unique per event)
+      guest = Guest.find_or_initialize_by(first_name: first_name, last_name: last_name, event_id: event_id)
+      if guest.new_record?
+        guest.assign_attributes({
+          first_name: first_name,
+          last_name: last_name,
+          affiliation: affiliation,
+          category: category,
+          alloted_seats: alloted_seats,
+          commited_seats: commited_seats,
+          guest_commited: guest_commited
+        })
+        guest.save!
+      end
+    end
+  
+    redirect_to event_path(event), notice: "Guests imported"
+  end
+  
   private
   
     # <!--===================-->
@@ -128,6 +167,8 @@ class GuestsController < ApplicationController
     def get_event
       @event = Event.find(params[:event_id])
     end
+    
+    
     # <!--===================-->
     
     
@@ -140,6 +181,15 @@ class GuestsController < ApplicationController
       # <!--to search for a matching id in the collection of children associated with a particular parent-->
       @guest = Guest.find(params[:id])
       # <!--===================-->
+    end
+
+    def model_attribute(header)
+      case header.downcase
+      when 'first name' then 'first_name'
+      when 'last name' then 'last_name'
+      # Add other mappings as needed
+      else header
+      end
     end
 
     # Only allow a list of trusted parameters through.

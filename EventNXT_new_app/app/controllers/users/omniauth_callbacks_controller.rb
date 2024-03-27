@@ -13,8 +13,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # Exchange authorization code for an access token
       access_token = exchange_code_for_token(params[:code])
     end
-
-
+    
+    
     private
 
   def exchange_code_for_token(code)

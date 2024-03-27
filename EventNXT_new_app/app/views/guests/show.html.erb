@@ -1,13 +1,24 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @guest %>
+<div style="margin-bottom: 20px;">
+  <p style="color: green; font-size: 16px; font-weight: bold;"><%= notice %></p>
+</div>
 
 <div>
-  <%# link_to "Edit this guest", edit_guest_path(@guest) %>
-  <%= link_to "Edit this guest", edit_event_guest_path(@event, @guest) %> |
-  <%# link_to "Back to guests", guests_path %>
-  <%= link_to "Back to guests", event_guests_path(@event) %>
+  <% @guests.each do |guest| %>
+    <div style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      <h3 style="margin-top: 0; color: #333;">
+        <%= guest.first_name %> <%= guest.last_name %> - <%= guest.email %>
+        <!-- Add other guest attributes you want to display -->
+      </h3>
+      
+      <div style="margin-top: 10px;">
+        <%= link_to "Edit this guest", edit_event_guest_path(@event, guest), class: "btn", style: "background-color: green; color: white; margin-right: 10px;" %>
+        <%= button_to "Destroy this guest", event_guest_path(@event, guest), method: :delete, data: { confirm: "Are you sure?" }, class: "btn", style: "background-color: green; color: white;" %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-  <%# button_to "Destroy this guest", @guest, method: :delete %>
-  <%= button_to "Destroy this guest", [@event, @guest], method: :delete %>
+<div style="margin-top: 20px;">
+  <%= link_to "Back to event", event_path(@event), class: "btn btn-link", style: "margin-right: 15px;" %>
+  <%= link_to "Add New Guest", new_event_guest_path(@event), class: "btn", style: "background-color: green; color: white;" %>
 </div>

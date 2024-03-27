@@ -1,4 +1,6 @@
 class Guest < ApplicationRecord
+  require 'roo'
+
   belongs_to :event
   
   before_create :generate_rsvp_link
@@ -7,7 +9,7 @@ class Guest < ApplicationRecord
   # required to have to pass Rspec tests
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, presence: true
+  # Removed the email validation
   validates :affiliation, presence: true
   validates :category, presence: true
   validates :event_id, presence: true
@@ -16,6 +18,22 @@ class Guest < ApplicationRecord
   validates :guest_commited, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validate :allocated_seats_not_exceed_total
 
+  def self.new_guest(attributes = {})
+    puts "Creating guest with data: first_name=#{attributes[:first_name]}, last_name=#{attributes[:last_name]}, event_id=#{attributes[:event_id]}"
+    guest = Guest.new(attributes) #creates new guest
+    guest#return guest
+  end
+  
+  def checked_only_if_booked
+    return if (booked || !checked)
+    errors.add(:checked, "can't be true if guest hasn't booked")
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end 
+  
+  
   def allocated_seats_not_exceed_total
     if category.present? && event.present?
       seat = event.seats.find_by(category: category)
@@ -47,6 +65,8 @@ class Guest < ApplicationRecord
     end
     
   end
+
+
   # ===================================
 
   private

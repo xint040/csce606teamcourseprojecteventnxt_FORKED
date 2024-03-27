@@ -282,5 +282,31 @@ RSpec.describe GuestsController, type: :controller do
     end
   end
   
+  describe 'POST #import_guests_csv' do
+  let(:event) { create(:event) }
+
+  context 'when file is uploaded' do
+    let(:file) { fixture_file_upload('example.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }
+
+    it 'imports guests and redirects to the event page' do
+      post :import_guests_csv, params: { event_id: event.id, file: file }
+      expect(response).to redirect_to(event_path(event))
+      expect(flash[:notice]).to eq 'Guests imported'
+      # Assert that guests are imported
+    end
+  end
+
+  context 'when no file is uploaded' do
+    it 'redirects with an alert' do
+      post :import_guests_csv, params: { event_id: event.id }
+      expect(response).to redirect_to(event_path(event))
+      expect(flash[:alert]).to eq 'No file uploaded.'
+    end
+  end
+
+  # Add more tests for error handling or edge cases
+end
+
+require 'rails_helper'
 
 end

@@ -11,7 +11,7 @@
     <%= link_to 'Event Dashboard', events_path, style: 'color: #fff; text-decoration: none; margin-right: 10px; display: inline-block;' %> |
     <%= link_to 'Email Service', email_services_path, style: 'color: #fff; text-decoration: none; margin-right: 10px; display: inline-block;' %> |
     <%= link_to 'Edit Profile', edit_user_registration_path, style: 'color: #fff; text-decoration: none; margin-right: 10px; display: inline-block;' %> |
-    <%= button_to("Sign Out", destroy_user_session_path, method: :delete, style: 'background-color: #ff5733; color: #fff; border: none; padding: 5px 10px; cursor: pointer; display: inline-block;') %>
-  </div>
+    <%= link_to("Sign Out", "https://events360.herokuapp.com/logout", style: 'background-color: #ff5733; color: #fff; border: none; padding: 5px 10px; cursor: pointer; display: inline-block;') %>
+    </div>
 </div>
 <% end %>

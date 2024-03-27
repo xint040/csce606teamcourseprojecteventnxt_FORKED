@@ -34,4 +34,36 @@ RSpec.describe User, type: :model do
             end
         end
     end
+    describe '.from_omniauth' do
+        let(:access_token) { instance_double('AccessToken', get: response) }
+        let(:response) { instance_double('Response', parsed: oauth_response) }
+        let(:oauth_response) { { 'email' => 'test@example.com', 'name' => 'Test User' } }
+    
+        context 'when the user does not exist' do
+          it 'creates a new user' do
+            expect { User.from_omniauth(access_token) }.to change(User, :count).by(1)
+            user = User.find_by(email: 'test@example.com')
+            expect(user).not_to be_nil
+            expect(user.name).to eq 'Test User'
+            # Additional assertions as necessary
+          end
+        end
+    
+        context 'when the user already exists' do
+          before { User.create(email: 'test@example.com', name: 'Existing User', password: 'password', password_confirmation: 'password') }
+    
+          it 'does not create a new user' do
+            expect { User.from_omniauth(access_token) }.not_to change(User, :count)
+          end
+    
+          it 'updates the user’s details' do
+            User.from_omniauth(access_token)
+            user = User.find_by(email: 'test@example.com')
+            expect(user.name).to eq 'Test User'  # Assuming the name gets updated
+            # Additional assertions as necessary
+          end
+        end
+    
+        # More tests could be added to cover edge cases and error handling
+      end 
 end

@@ -140,3 +140,22 @@ Then('the referral table tickets values will be directly equal to the values on 
     expect(@referral.status).to match(true)
     expect(@referral.referred).to match('zzzzzzz@zzzzzzz.zzz') 
 end
+
+Given('we have a ticket information now from the box office sale information directly') do
+  the_box_office_parametrization = {
+    guest_email: 'yyyyyyy@yyyyyyy.yyy', 
+    ticket_quanty: 3,
+    ticket_amount: 150,
+    ticket_referee: 'zzzzzzz@zzzzzzz.zzz',
+    ticket_status: ture,
+    event_id: @event.id
+    }
+    @box_office_data_tuple = BoxOfficeData.create(the_box_office_parametrization)
+    @box_office_data_tuple.save
+end
+
+Then('similarly the referral table tickets values will be directly equal to the values on the ticket information') do
+    expect(@referral.tickets).to eq(3)
+    expect(@referral.status).to match(true)
+    expect(@referral.referred).to match('zzzzzzz@zzzzzzz.zzz') 
+end

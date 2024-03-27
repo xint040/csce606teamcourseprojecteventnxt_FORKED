@@ -11,9 +11,10 @@ RSpec.describe ReferralsController, type: :controller do
       let(:seat) { create(:seat, event: event) }
       let(:guest) { create(:guest, event: event) }
       let(:friend_email) { 'aaaaaaa@aaaaaaa.???' }
-      it 'then we will have a new referral created' do    
-  
-                        
+      let(:ref_code) { guest.id }
+      it 'then we will have a new referral created' do   
+      expect{post create_referrall_path, params: {ref_code: guest.id, friend_email: aaaaaaa@aaaaaaa.???}}.to change(Referral, :count).by(0)
+                             
 #           doublization_of_the_email_delivery = double('delivery of the email')
 #           expect(UserMailer).to receive(:referral_confirmation).and_return(doublization_of_the_email_delivery)
 #            expect{post create_referrall_path, params: {guest_id: guest.id, friend_email: aaaaaaa@aaaaaaa.???}}.to change(Referral, :count).by(1)
@@ -37,6 +38,7 @@ RSpec.describe ReferralsController, type: :controller do
               reward_input: 0,
               reward_value: 0,
               guest_id: guest.id
+              ref_code: guest.id
               }
             @referral = Referral.create(the_referral_parametrization)
             @referral.save

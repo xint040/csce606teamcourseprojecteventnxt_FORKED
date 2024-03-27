@@ -15,6 +15,8 @@ class EmailServicesController < ApplicationController
     print full_url
     
     
+    params[:ref_code] = guest.id
+
     referral_url = Rails.application.routes.url_helpers.new_referral_url(host: 'localhost:3000')
     
 
@@ -24,8 +26,7 @@ class EmailServicesController < ApplicationController
 
     ApplicationMailer.send_email(email_service.to, email_service.subject, updated_body, event, guest, full_url).deliver_later
     
-    @referral = Referral.create(guest_id: guest.id, email: guest.email, name: '#{guest.first_name} #{guest.first_name}', ref_code: guest.id)
-    @referral.save
+    
 
     flash[:success] = 'Email sent!'
     email_service.update(sent_at: Time.current)

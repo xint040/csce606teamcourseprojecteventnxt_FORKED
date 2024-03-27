@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   get '/referral/:ref_code', to: 'referrals#refer', as: 'referral'
 
-  get '/refer_a_friend', to: 'referrals#new', as: 'new_referral'
-  post '/refer_a_friend', to: 'referrals#create', as: 'create_referral'
+  get '/refer_a_friend?:ref_code', to: 'referrals#new', as: 'new_referral'
+  post '/refer_a_friend?:ref_code', to: 'referrals#create', as: 'create_referral'
 
   get '/buy_tickets', to: 'tickets#new', as: 'new_ticket_purchase'
 

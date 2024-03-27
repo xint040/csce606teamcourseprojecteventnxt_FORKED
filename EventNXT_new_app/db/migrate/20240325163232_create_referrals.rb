@@ -1,0 +1,22 @@
+class CreateReferrals < ActiveRecord::Migration[7.0]
+  def change
+    create_table :referrals do |t|
+      t.belongs_to :guest
+      t.string :email, null: false
+      t.string :name, null: false 
+      t.string :referred, null: false
+
+      t.string :status, default: false
+      t.integer :tickets, default: 0 
+      t.integer :amount, default: 0
+
+      t.string :reward_method, default: 'reward/ticket'
+      t.integer :reward_input, default: 0
+      t.float :reward_value, default: 0
+
+      t.integer :referral_token, null: false
+
+      t.timestamps
+    end
+  end
+end

@@ -22,6 +22,7 @@ RSpec.describe TicketsController, type: :controller do
               reward_input: 0,
               reward_value: 0,
               guest_id: guest.id
+              ref_code: guest.id
               }
             @referral = Referral.create(the_referral_parametrization)
             @referral.save

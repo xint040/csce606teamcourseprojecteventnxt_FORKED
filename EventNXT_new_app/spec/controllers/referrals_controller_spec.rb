@@ -13,7 +13,7 @@ RSpec.describe ReferralsController, type: :controller do
       let(:friend_email) { 'aaaaaaa@aaaaaaa.???' }
       let(:ref_code) { guest.id }
       it 'then we will have a new referral created' do   
-      expect{post create_referrall_path, params: {ref_code: guest.id, friend_email: aaaaaaa@aaaaaaa.???}}.to change(Referral, :count).by(0)
+      expect{post create_referral_path, params: {ref_code: guest.id, friend_email: 'aaaaaaa@aaaaaaa.???'}}.to change(Referral, :count).by(0)
                              
 #           doublization_of_the_email_delivery = double('delivery of the email')
 #           expect(UserMailer).to receive(:referral_confirmation).and_return(doublization_of_the_email_delivery)

@@ -9,7 +9,8 @@ class EmailServicesController < ApplicationController
     event = Event.find(email_service.event_id)
     guest = Guest.find(email_service.guest_id)
 
-    full_url = ENV['localhost:3000'].to_s + book_seats_path(guest.rsvp_link)
+    #full_url = ENV['localhost:3000'].to_s + book_seats_path(guest.rsvp_link)
+    full_url = "http://localhost:3000" + book_seats_path(guest.rsvp_link)
     print full_url
     
     #the referral link takes the form of '/refer_a_friend?:ref_code'.

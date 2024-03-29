@@ -44,7 +44,7 @@ RSpec.describe ReferralsController, type: :controller do
             @referral.save
            
             put modify_the_referral_path, params: {guest_id: guest.id, id: @referral.id, reward_input: 10}
-            expect(@referral.reward_value).to eq(30)           
+            expect(@referral.reward_value).to eq(30)             
       end
     end
 end

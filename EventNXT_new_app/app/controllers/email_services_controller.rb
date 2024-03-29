@@ -9,25 +9,20 @@ class EmailServicesController < ApplicationController
     event = Event.find(email_service.event_id)
     guest = Guest.find(email_service.guest_id)
 
-
-  
     full_url = ENV['localhost:3000'].to_s + book_seats_path(guest.rsvp_link)
     print full_url
     
+    #the referral link takes the form of '/refer_a_friend?:ref_code'.
+    #params[:ref_code] = guest.id will be the parameter value to be used.
+    #we have the referral link takes the form of '/refer_a_friend?guest.id' to transfer the parameters.
+    #referral_url = Rails.application.routes.url_helpers.new_referral_url(host: 'localhost:3000')
     
-    params[:ref_code] = guest.id
-
-    referral_url = Rails.application.routes.url_helpers.new_referral_url(host: 'localhost:3000')
-    
+    referral_url = ENV['localhost:3000'].to_s + new_referral_path(guest.id)
 
     updated_body = email_service.body.gsub("PLACEHOLDER_LINK", referral_url)
     
-    
-
     ApplicationMailer.send_email(email_service.to, email_service.subject, updated_body, event, guest, full_url).deliver_later
     
-    
-
     flash[:success] = 'Email sent!'
     email_service.update(sent_at: Time.current)
     redirect_to email_services_url

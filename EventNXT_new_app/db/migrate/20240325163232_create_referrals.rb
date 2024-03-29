@@ -14,7 +14,7 @@ class CreateReferrals < ActiveRecord::Migration[7.0]
       t.integer :reward_input, default: 0
       t.float :reward_value, default: 0
 
-      t.integer :referral_token, null: false
+      t.integer :ref_code, null: false
 
       t.timestamps
     end

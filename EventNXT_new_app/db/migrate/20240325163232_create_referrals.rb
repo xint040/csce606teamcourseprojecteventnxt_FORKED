@@ -1,6 +1,7 @@
 class CreateReferrals < ActiveRecord::Migration[7.0]
   def change
     create_table :referrals do |t|
+      t.belongs_to :event
       t.belongs_to :guest
       t.string :email, null: false
       t.string :name, null: false 

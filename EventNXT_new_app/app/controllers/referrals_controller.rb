@@ -2,6 +2,7 @@ class ReferralsController < ApplicationController
   #before_action :set_guest
   #before_action :set_referral, only: %i[ edit update ]
   
+  
     def new
 
     end
@@ -9,7 +10,9 @@ class ReferralsController < ApplicationController
     def create
       friend_email = params[:friend_email]
       ref_code = params[:ref_code]
-      @guest = Guest.find_by(id: ref_code)
+      event_id = params[:event_id]
+      @event = Event.find_by(id: event_id)
+      @guest = Event.guests.find_by(id: ref_code)
       @referral = Referral.create(guest_id: ref_code, email: @guest.email, name: '#{@guest.first_name} #{@guest.last_name}', referred: friend_email, ref_code: ref_code)          
       if @referral.save
          UserMailer.referral_confirmation(friend_email).deliver_now

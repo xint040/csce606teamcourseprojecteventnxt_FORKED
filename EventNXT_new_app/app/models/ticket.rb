@@ -1,3 +1,3 @@
-class Ticket < ApplicationRecord
-    belongs_to :referral
-end
+#class Ticket < ApplicationRecord
+#    belongs_to :referral
+#end

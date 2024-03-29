@@ -23,7 +23,7 @@ class ReferralsController < ApplicationController
       end
     end
 
-    before_action :authenticate_user!
+  #  before_action :authenticate_user!
 
   # GET /referrals/1/edit
   # def edit

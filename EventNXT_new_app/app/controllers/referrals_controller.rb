@@ -12,7 +12,7 @@ class ReferralsController < ApplicationController
 
       UserMailer.referral_confirmation(friend_email).deliver_now
 
-      @referral = Referral.create(guest_id: guest.id, email: guest.email, name: '#{guest.first_name} #{guest.last_name}', referred: friend_email, ref_code: ref_code)
+      @referral = Referral.create(guest_id: @guest.id, email: @guest.email, name: '#{@guest.first_name} #{@guest.last_name}', referred: friend_email, ref_code: @guest.id)
       @referral.save
 
       respond_to do |format|

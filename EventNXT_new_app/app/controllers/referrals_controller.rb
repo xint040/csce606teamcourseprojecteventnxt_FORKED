@@ -9,20 +9,18 @@ class ReferralsController < ApplicationController
     def create
       friend_email = params[:friend_email]
       ref_code = params[:ref_code]
-
-      UserMailer.referral_confirmation(friend_email).deliver_now
-
-      @guest = Guest.find(id: ref_code)
-      @referral = Referral.create(guest_id: ref_code, email: @guest.email, name: '#{@guest.first_name} #{@guest.last_name}', referred: friend_email, ref_code: ref_code)
-      @referral.save
-
+      @guest = Guest.find_by(id: ref_code)
+      @referral = Referral.create(guest_id: ref_code, email: @guest.email, name: '#{@guest.first_name} #{@guest.last_name}', referred: friend_email, ref_code: ref_code)          
+      if @referral.save
+         UserMailer.referral_confirmation(friend_email).deliver_now
+      end
       respond_to do |format|
         format.html { head :no_content }
         format.js 
       end
     end
 
-  before_action :authenticate_user!
+    before_action :authenticate_user!
 
   # GET /referrals/1/edit
     def edit
@@ -46,7 +44,7 @@ class ReferralsController < ApplicationController
         #   guest_id: @guest.id,
         #   ref_code: @guest.id
         #  }
-        @referral.update(:reward_value => (params[:reward_input] * tickets))
+        @referral.update(:reward_value => (params[:reward_input] * @referral.tickets))
       elsif @referral.reward_method == 'reward percentage %'
         #the_referral_parametrization = {
         #   email: @referral.email, 

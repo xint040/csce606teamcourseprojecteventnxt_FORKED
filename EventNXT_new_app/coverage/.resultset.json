@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/lib/omniauth/strategies/events360.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/lib/omniauth/strategies/events360.rb": {
         "lines": [
           1,
           null,
@@ -33,7 +33,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/models/user.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -78,80 +78,80 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/models/application_record.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/application_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/email_services_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/email_services_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/events_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/events_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/guests_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/guests_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/home_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/home_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/referrals_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/referrals_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/remember_me_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/remember_me_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/seats_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/seats_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/token_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/token_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/users/authorizelogin_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/users/authorizelogin_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/helpers/users/omniauth_callbacks_helper.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/helpers/users/omniauth_callbacks_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/channels/application_cable/channel.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/channels/application_cable/channel.rb": {
         "lines": [
           1,
           1,
@@ -159,7 +159,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/channels/application_cable/connection.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/channels/application_cable/connection.rb": {
         "lines": [
           1,
           1,
@@ -167,7 +167,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/email_services_controller.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/email_services_controller.rb": {
         "lines": [
           1,
           1,
@@ -179,7 +179,6 @@
           1,
           1,
           1,
-          null,
           null,
           null,
           1,
@@ -360,7 +359,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/application_controller.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -417,7 +416,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/events_controller.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/events_controller.rb": {
         "lines": [
           1,
           null,
@@ -546,7 +545,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/guests_controller.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/guests_controller.rb": {
         "lines": [
           1,
           1,
@@ -676,38 +675,38 @@
           null,
           1,
           1,
-          0,
+          1,
           null,
           null,
-          0,
-          0,
+          1,
+          2,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          0,
-          0,
-          0,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
           null,
           null,
           null,
+          2,
+          2,
+          2,
           null,
           null,
           null,
           null,
           null,
-          0,
           null,
           null,
           null,
-          0,
+          2,
+          null,
+          null,
+          null,
+          1,
           null,
           null,
           1,
@@ -749,7 +748,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/home_controller.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/home_controller.rb": {
         "lines": [
           1,
           null,
@@ -758,29 +757,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/referrals_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          2,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/remember_me_controller.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/remember_me_controller.rb": {
         "lines": [
           1,
           1,
@@ -794,7 +771,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/seats_controller.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/seats_controller.rb": {
         "lines": [
           1,
           null,
@@ -910,23 +887,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/tickets_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          2,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/token_controller.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/token_controller.rb": {
         "lines": [
           1,
           1,
@@ -951,7 +912,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/jobs/application_job.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/jobs/application_job.rb": {
         "lines": [
           1,
           null,
@@ -962,7 +923,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/mailers/application_mailer.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/mailers/application_mailer.rb": {
         "lines": [
           1,
           null,
@@ -992,29 +953,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/mailers/user_mailer.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          null,
-          1,
-          2,
-          null,
-          2,
-          null,
-          null,
-          null,
-          2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/models/email_service.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/models/email_service.rb": {
         "lines": [
           1,
           null,
@@ -1024,7 +963,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/models/email_template.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/models/email_template.rb": {
         "lines": [
           1,
           null,
@@ -1033,7 +972,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/models/event.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/models/event.rb": {
         "lines": [
           1,
           1,
@@ -1068,7 +1007,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/uploaders/avatar_uploader.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/uploaders/avatar_uploader.rb": {
         "lines": [
           1,
           null,
@@ -1119,7 +1058,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/uploaders/spreadsheet_uploader.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/uploaders/spreadsheet_uploader.rb": {
         "lines": [
           1,
           null,
@@ -1170,7 +1109,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/models/guest.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/models/guest.rb": {
         "lines": [
           1,
           1,
@@ -1209,9 +1148,9 @@
           null,
           null,
           1,
-          59,
-          35,
-          35,
+          61,
+          37,
+          37,
           3,
           3,
           0,
@@ -1246,12 +1185,12 @@
           1,
           null,
           1,
-          28,
+          30,
           null,
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/models/guests_import.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/models/guests_import.rb": {
         "lines": [
           1,
           1,
@@ -1285,7 +1224,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/models/seat.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/models/seat.rb": {
         "lines": [
           1,
           1,
@@ -1299,7 +1238,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/users/authorizelogin_controller.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/users/authorizelogin_controller.rb": {
         "lines": [
           1,
           1,
@@ -1321,7 +1260,7 @@
           null
         ]
       },
-      "C:/Users/Admin/Spring2024EventNXT/EventNXT_new_app/app/controllers/users/omniauth_callbacks_controller.rb": {
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/users/omniauth_callbacks_controller.rb": {
         "lines": [
           1,
           1,
@@ -1375,8 +1314,74 @@
           null,
           null
         ]
+      },
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/referrals_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/controllers/tickets_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/alexwise/Documents/project/Spring2024EventNXT/EventNXT_new_app/app/mailers/user_mailer.rb": {
+        "lines": [
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1711736595
+    "timestamp": 1711546342
   }
 }

@@ -12,11 +12,11 @@ class ReferralsController < ApplicationController
       ref_code = params[:ref_code]
       event_id = params[:event_id]
       @event = Event.find_by(id: event_id)
-      @guest = Event.guests.find_by(id: ref_code)
-      @referral = Referral.create(guest_id: ref_code, email: @guest.email, name: '#{@guest.first_name} #{@guest.last_name}', referred: friend_email, ref_code: ref_code)          
-      if @referral.save
-         UserMailer.referral_confirmation(friend_email).deliver_now
-      end
+      @guest = @event.guests.find_by(id: ref_code)
+      @referral = Referral.create(event_id: @event.id, guest_id: ref_code, email: @guest.email, name: '#{@guest.first_name} #{@guest.last_name}', referred: friend_email, ref_code: ref_code)          
+      @referral.save
+      UserMailer.referral_confirmation(friend_email).deliver_now
+      
       respond_to do |format|
         format.html { head :no_content }
         format.js 

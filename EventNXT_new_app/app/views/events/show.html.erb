@@ -104,8 +104,8 @@
         <th>Affiliation</th>
         <th>Category</th>
         <th>Allocated seat</th>
-        <th>Commited seats</th>
-        <th>Guest commited</th>
+        <th>Committed seats</th>
+        <th>Guest committed</th>
         <th>Status</th>
         <th>Edit guest</th>
         <th>Destroy guest</th>
@@ -124,20 +124,21 @@
           <td><%= guest[:commited_seats] %></td>
           <td><%= guest[:status] %></td>
           <td><%= link_to 'Edit', edit_event_guest_path(@event, guest), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer', class: 'button' %></td>
-          <td><%= button_to "Destroy", event_guest_path(@event, guest), method: :delete, data: { confirm: "Are you sure?" }, class: "btn", style: "background-color: #4caf50; color: white;" %></td>
+          <td><%= button_to "Destroy", event_guest_path(@event, guest), method: :delete, data: { confirm: "Are you sure?" }, class: "btn", style: "display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
 <div style="margin-left: 0%;">
-  <%= link_to 'Add Guest', new_event_guest_path(@event), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;margin-left:25%;margin-bottom:30px', class: 'button' %>
+<div style="margin-left: 25%; margin-bottom: 30px;">
+  <%= link_to 'Add Guest', new_event_guest_path(@event), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer', class: 'button' %>
 
   <%= form_tag import_csv_event_guests_path(@event), multipart: true, style: 'display: inline-block;' do %>
     <%= file_field_tag 'file', id: "file-upload", style: "display: none;", onchange: "submitForm()" %>
     <%= hidden_field_tag :event_id, @event.id %>
   
-    <button type="button" onclick="document.getElementById('file-upload').click()" class="btn btn-primary" style="background-color: #4caf50; height: 38px; color: white; border-radius: 5px; padding: 5px 10px; font-size: 14px; margin-left: 10px;">
+    <button type="button" onclick="document.getElementById('file-upload').click()" class="btn btn-primary" style="display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer">
       Upload File
     </button>
   <% end %>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/referral/:ref_code', to: 'referrals#refer', as: 'referral'
 
   get '/events/:event_id/refer_a_friend/:ref_code', to: 'referrals#new', as: 'new_referral'
-  post '/events/:event_id/refer_a_friend/:ref_code', to: 'referrals#create', as: 'create_referral'
+  post '/events/:event_id/refer_a_friend/:ref_code', to: 'referrals#referral_creation', as: 'referral_creation'
 
   get '/buy_tickets', to: 'tickets#new', as: 'new_ticket_purchase'
 
@@ -20,6 +20,10 @@ Rails.application.routes.draw do
       #get 'show'
       #get 'index'
     end
+  end
+
+  resources :events do
+    resources :referrals
   end
 
   resources :tickets, only: [:new, :create]

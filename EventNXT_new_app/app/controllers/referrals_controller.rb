@@ -1,5 +1,5 @@
 class ReferralsController < ApplicationController
-  #before_action :set_guest
+  before_action :set_event
   #before_action :set_referral, only: %i[ edit update ]
   
   
@@ -7,11 +7,9 @@ class ReferralsController < ApplicationController
 
     end
 
-    def create
+    def referral_creation
       friend_email = params[:friend_email]
       ref_code = params[:ref_code]
-      event_id = params[:event_id]
-      @event = Event.find_by(id: event_id)
       @guest = @event.guests.find_by(id: ref_code)
       @referral = Referral.create(event_id: @event.id, guest_id: ref_code, email: @guest.email, name: '#{@guest.first_name} #{@guest.last_name}', referred: friend_email, ref_code: ref_code)          
       @referral.save
@@ -66,11 +64,11 @@ class ReferralsController < ApplicationController
   #    @referral.update(:reward_value => ((@referral.amount) * params[:reward_input]) / 100)
   #  end
 
-  #  private
+    private
      
-    #def set_guest
-    #  @guest = Guest.find(params[:guest_id])
-    #end
+    def set_event
+      @event = Event.find(params[:event_id])
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     #def set_referral
@@ -78,9 +76,9 @@ class ReferralsController < ApplicationController
     #end
 
     # Only allow a list of trusted parameters through.
-    #def referral_params
-    #  params.require(:referral).permit(:guest_id, :email, :name, :referred, :status, :tickets, :amount, :reward_method, :reward_input, :ref_code)
-    #end
+    def referral_params
+      params.require(:referral).permit(:event_id, :guest_id, :email, :name, :referred, :status, :tickets, :amount, :reward_method, :reward_input, :ref_code)
+    end
 end
 
   

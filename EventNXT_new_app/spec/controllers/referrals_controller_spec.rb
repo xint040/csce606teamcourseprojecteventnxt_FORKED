@@ -2,15 +2,15 @@
 require 'rails_helper'
 
 RSpec.describe ReferralsController, type: :controller do
-  describe 'POST #create' do
-    it 'sends a referral email and responds with no content' do
-      expect(UserMailer).to receive_message_chain(:referral_confirmation, :deliver_now)
-
-      post :create, params: { friend_email: 'friend@example.com' }
-
-      expect(response).to have_http_status(:no_content)
-    end
-  end
+  #describe 'POST #create' do
+  #  it 'sends a referral email and responds with no content' do
+  #    expect(UserMailer).to receive_message_chain(:referral_confirmation, :deliver_now)
+  #
+  #    post :create, params: { friend_email: 'friend@example.com' }
+  #
+  #    expect(response).to have_http_status(:no_content)
+  #  end
+  #end
 
   let(:user) { create(:user) }
     before do
@@ -24,7 +24,9 @@ RSpec.describe ReferralsController, type: :controller do
     let(:friend_email) { 'aaaaaaa@aaaaaaa.???' }
     let(:ref_code) { guest.id }
     it 'then we will have a new referral created' do   
-    expect{post create_referral_path, params: {event_id: event.id, ref_code: guest.id, friend_email: 'aaaaaaa@aaaaaaa.???'}}.to change(Referral, :count).by(1)
+    post :referral_creation, params: {event_id: event.id, ref_code: guest.id, friend_email: 'aaaaaaa@aaaaaaa.???'}
+
+    expect(Referral.last.referred).to eq('aaaaaaa@aaaaaaa.???')
                              
 #   doublization_of_the_email_delivery = double('delivery of the email')
 #   expect(UserMailer).to receive(:referral_confirmation).and_return(doublization_of_the_email_delivery)

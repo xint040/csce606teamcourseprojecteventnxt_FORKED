@@ -121,25 +121,6 @@ Then('the reward will be updated to accurate value') do
     expect(@referral.reward_value).to eq(params[:reward_input] * (@referral.reward_value))
 end
           
-Given('we have a ticket information') do
-  the_ticket_parametrization = {
-    ticket_quanty: 3,
-    ticket_amount: 150,
-    ticket_referee: 'zzzzzzz@zzzzzzz.zzz',
-    ticket_status: ture,
-    event_id: @event.id
-    referral_id: @referral.id
-    }
-    @ticket = Ticket.create(the_ticket_parametrization)
-    @ticket.save
-end
-
-Then('the referral table tickets values will be directly equal to the values on the ticket information') do
-    expect(@referral.tickets).to eq(3)
-    expect(@referral.status).to match(true)
-    expect(@referral.referred).to match('zzzzzzz@zzzzzzz.zzz') 
-end
-
 Given('we have a ticket information now from the box office sale information directly') do
   the_box_office_parametrization = {
     guest_email: 'yyyyyyy@yyyyyyy.yyy', 

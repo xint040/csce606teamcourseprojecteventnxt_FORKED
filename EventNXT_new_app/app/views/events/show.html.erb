@@ -194,6 +194,16 @@
         <th>Input Reward</th>
         <th>Rewards</th>
       </tr>
+      <% @referral_data.each do |referraldatum| %>
+        <td><%= referraldatum.email %></td>
+        <td><%= referraldatum.name %></td>
+        <td><%= referraldatum.referred %></td>
+        <td><%= referraldatum.status %></td>
+        <td><%= referraldatum.tickets %></td>
+        <td><%= referraldatum.amount %></td>
+        <td><%= referraldatum.reward_input %></td>
+        <td><%= referraldatum.reward_value %></td>
+      <% end %>
     </thead>
     <tbody>
     </tbody>

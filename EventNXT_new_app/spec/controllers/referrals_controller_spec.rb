@@ -27,6 +27,9 @@ RSpec.describe ReferralsController, type: :controller do
     post :referral_creation, params: {event_id: event.id, ref_code: guest.id, random_code: 'bbbbbbbbbbbbbb11111111', friend_email: 'aaaaaaa@aaaaaaa.???'}
 
     expect(Referral.last.referred).to eq('aaaaaaa@aaaaaaa.???')
+   
+
+
                              
 #   doublization_of_the_email_delivery = double('delivery of the email')
 #   expect(UserMailer).to receive(:referral_confirmation).and_return(doublization_of_the_email_delivery)

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   resources :events do
-    resources :referrals
+    resources :referrals, only: [:new, :referral_creation]
   end
 
   resources :tickets, only: [:new, :create]

@@ -16,7 +16,9 @@ class EmailServicesController < ApplicationController
     #the referral link takes the form of '/refer_a_friend?:ref_code'.
     #params[:ref_code] = guest.id will be the parameter value to be used.
     #we have the referral link takes the form of '/refer_a_friend?guest.id' to transfer the parameters.
-    referral_url = Rails.application.routes.url_helpers.new_referral_url(host: 'localhost:3000', event_id: event.id, ref_code: guest.id)
+    random_code_generated = SecureRandom.hex(20)
+
+    referral_url = Rails.application.routes.url_helpers.new_referral_url(host: 'localhost:3000', event_id: event.id, ref_code: guest.id, random_code: random_code_generated)
     
     #referral_url = ENV['localhost:3000'].to_s + new_referral_path(guest.id)
 

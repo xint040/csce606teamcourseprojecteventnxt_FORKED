@@ -1,7 +1,11 @@
 Feature: Update the referral table with created referral data
 
 Scenario:
-          Given login
+          Given we have a user
+          Given we visit the login page
+          Given we enter 'aaaaaaa@aaaaaaa.aaa' into 'Email'
+          Given we enter 'aaaaaaaa' into 'Password'
+          Given we click the 'Log in' button
           Given we have an event
           Given we have seats
           Given we have guests

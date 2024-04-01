@@ -39,9 +39,24 @@ end
 
 #Below are the referral table feature deexamplifications.
 
-Given('login') do
+Given("we have a user") do
   @user = User.create(email: 'aaaaaaa@aaaaaaa.aaa', password: 'aaaaaaaa')
-  sign_in @user
+end
+
+Given("we visit the login page") do
+   visit new_user_session_path
+end
+
+Given("we enter {string} into 'Email'") do |string|
+   fill_in 'Email', with: string
+end
+
+Given("we enter {string} into 'Password'") do |string|
+   fill_in 'Password', with: string
+end
+
+Given("we click the 'Log in' button") do
+   click_button 'Log in'
 end
 
 Given('we have an event') do
@@ -85,11 +100,11 @@ When('we visit the new page for the referral') do
   visit new_referral_path(event_id: @event.id, ref_code: @guest.id, random_code: @guest.rsvp_link)
 end
 
-When('we enter {string} into {string}') do |string, string2|
-   fill_in(string2, with: string)
+When("we enter {string} into 'Friend's Email Address'") do |string|
+   fill_in "Friend's Email Address", with: string
 end
 
-When('we click the {string}') do
+When('we click the {string}') do |string|
    click_button(string)
 end
           

@@ -74,6 +74,7 @@
         <th>Total Seats</th>
         <th>Allocated Seats</th>
         <th>Committed Seats</th>
+        <th>Remaining Seats</th>
       </tr>
     </thead>
     <tbody>
@@ -84,6 +85,7 @@
           <td><%= category[:total_seats] %></td>
           <td><%= category[:allocated_seats] %></td>
           <td><%= category[:committed_seats] %></td>
+          <td><%= category[:total_seats] - (category[:committed_seats]) %></td> 
         </tr>
       <% end %>
     </tbody>
@@ -98,11 +100,12 @@
       <tr class="highlight-heading">
         <th>First name</th>
         <th>Last name</th>
+        <th>Email</th>
         <th>Affiliation</th>
         <th>Category</th>
         <th>Allocated seat</th>
-        <th>Commited seats</th>
-        <th>Guest commited</th>
+        <th>Committed seats</th>
+        <th>Guest committed</th>
         <th>Status</th>
         <th>Edit guest</th>
         <th>Destroy guest</th>
@@ -113,27 +116,29 @@
         <tr>
           <td><%= guest[:first_name] %></td>
           <td><%= guest[:last_name] %></td>
+          <td><%= guest[:email] %></td>
           <td><%= guest[:affiliation] %></td>
           <td><%= guest[:category] %></td>
           <td><%= guest[:alloted_seats] %></td>
           <td><%= guest[:commited_seats] %></td>
-          <td><%= guest[:guest_commited] %></td>
+          <td><%= guest[:commited_seats] %></td>
           <td><%= guest[:status] %></td>
           <td><%= link_to 'Edit', edit_event_guest_path(@event, guest), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer', class: 'button' %></td>
-          <td><%= button_to "Destroy", event_guest_path(@event, guest), method: :delete, data: { confirm: "Are you sure?" }, class: "btn", style: "background-color: #4caf50; color: white;" %></td>
+          <td><%= button_to "Destroy", event_guest_path(@event, guest), method: :delete, data: { confirm: "Are you sure?" }, class: "btn", style: "display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
 <div style="margin-left: 0%;">
-  <%= link_to 'Add Guest', new_event_guest_path(@event), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;margin-left:25%;margin-bottom:30px', class: 'button' %>
+<div style="margin-left: 25%; margin-bottom: 30px;">
+  <%= link_to 'Add Guest', new_event_guest_path(@event), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer', class: 'button' %>
 
   <%= form_tag import_csv_event_guests_path(@event), multipart: true, style: 'display: inline-block;' do %>
     <%= file_field_tag 'file', id: "file-upload", style: "display: none;", onchange: "submitForm()" %>
     <%= hidden_field_tag :event_id, @event.id %>
   
-    <button type="button" onclick="document.getElementById('file-upload').click()" class="btn btn-primary" style="background-color: #4caf50; height: 38px; color: white; border-radius: 5px; padding: 5px 10px; font-size: 14px; margin-left: 10px;">
+    <button type="button" onclick="document.getElementById('file-upload').click()" class="btn btn-primary" style="display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer">
       Upload File
     </button>
   <% end %>
@@ -150,9 +155,36 @@
   
 
 </div>
-
-
 <h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px; font-size: 56px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Box Office Sales</h2>
+<div class="container">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr class="highlight-heading">
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Affiliation</th>
+      <th>Category</th>
+      <th>Seats #</th>
+      <th>Price</th>
+    </tr>
+</thead>
+<tbody>
+  <% @guest_details.each do |guest| %>
+    <tr>
+      <td><%= guest[:first_name] %></td>
+      <td><%= guest[:last_name] %></td>
+      <td><%= guest[:email] %></td>
+      <td><%= guest[:affiliation] %></td>
+      <td><%= guest[:category] %></td>
+      <td><%= guest[:commited_seats] %></td>
+      <td>120</td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+</div>
+<h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px; font-size: 56px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Old Box Office Sales</h2>
 <% if @event_box_office_data.present? %>
 <div class="container">
 <table class="table table-striped table-hover">

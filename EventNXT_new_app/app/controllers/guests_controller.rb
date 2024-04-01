@@ -134,11 +134,12 @@ class GuestsController < ApplicationController
   
       first_name = row["First Name"]
       last_name = row["Last Name"]
+      email = row["Email"]
       affiliation = row["Affiliation"] # Ensure this column exists in your Excel file
       category = row["Category"] # Ensure this column exists in your Excel file
-      alloted_seats = row["Alloted Seats"].to_i # Adjust the key as per your Excel file
-      commited_seats = row["Commited Seats"].to_i # Adjust the key as per your Excel file
-      guest_commited = row["Guest Commited"].to_i # Adjust the key as per your Excel file
+      alloted_seats = row["Allotted Seats"].to_i # Adjust the key as per your Excel file
+      commited_seats = row["Committed Seats"].to_i # Adjust the key as per your Excel file
+      guest_commited = row["Guest Committed"].to_i # Adjust the key as per your Excel file
   
       # Since email is removed, you might want to use a different field to find or initialize guests
       # For example, using first_name and last_name (but ensure these combinations are unique per event)
@@ -147,6 +148,7 @@ class GuestsController < ApplicationController
         guest.assign_attributes({
           first_name: first_name,
           last_name: last_name,
+          email: email,
           affiliation: affiliation,
           category: category,
           alloted_seats: alloted_seats,

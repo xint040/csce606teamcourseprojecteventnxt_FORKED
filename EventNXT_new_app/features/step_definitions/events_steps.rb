@@ -97,7 +97,7 @@ Given('we have guests') do
 end
 
 When('we visit the new page for the referral') do
-  visit new_referral_path(event_id: @event.id, ref_code: @guest.id, random_code: @guest.rsvp_link)
+  visit new_referral_path(random_code: @guest.rsvp_link)
 end
 
 When("we enter {string} into 'Friend's Email Address'") do |string|

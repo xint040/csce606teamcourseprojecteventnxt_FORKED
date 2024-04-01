@@ -1,5 +1,5 @@
 class ReferralsController < ApplicationController
-  before_action :set_event
+  #before_action :set_event
   #before_action :set_referral, only: %i[ edit update ]
   
   
@@ -9,11 +9,11 @@ class ReferralsController < ApplicationController
 
     def referral_creation
       friend_email = params[:friend_email]
-      ref_code = params[:ref_code]
+      #ref_code = params[:ref_code]
       random_code = params[:random_code]
-      @guest = @event.guests.find_by(id: ref_code, rsvp_link: random_code)
+      @guest = Guest.find_by(rsvp_link: random_code)
       if @guest
-        @referral = Referral.create(event_id: @event.id, guest_id: ref_code, email: @guest.email, name: @guest.first_name + ' ' + @guest.last_name, referred: friend_email, ref_code: ref_code)          
+        @referral = Referral.create(event_id: @guest.event_id, guest_id: @guest.id, email: @guest.email, name: @guest.first_name + ' ' + @guest.last_name, referred: friend_email, ref_code: @guest.id)          
         @referral.save
         UserMailer.referral_confirmation(friend_email).deliver_now
       
@@ -71,9 +71,9 @@ class ReferralsController < ApplicationController
 
     private
      
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
+    #def set_event
+    #  @event = Event.find(params[:event_id])
+    #end
 
     # Use callbacks to share common setup or constraints between actions.
     #def set_referral

@@ -1,4 +1,5 @@
 class EmailServicesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_email_service, only: %i[ show edit update destroy ]
 
   

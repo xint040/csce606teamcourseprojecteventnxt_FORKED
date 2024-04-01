@@ -36,6 +36,9 @@ Then('I should be on the Sign in page') do
   visit new_user_session_path
 end
 
+
+#Below are the referral table feature deexamplifications.
+
 Given('login') do
   @user = User.create(email: 'aaaaaaa@aaaaaaa.aaa', password: 'aaaaaaaa')
   sign_in @user
@@ -78,64 +81,18 @@ Given('we have guests') do
     @guest.save
 end
 
-Given('we have a referral') do
-  the_referral_parametrization = {
-    email: 'yyyyyyy@yyyyyyy.yyy',
-    name: 'xx xx', 
-    referred: 'zzzzzzz@zzzzzzz.zzz', 
-    status: true,
-    tickets: 3,
-    amount: 150,
-    reward_method: 'reward/ticket',
-    reward_input: 0,
-    reward_value: 0,
-    ref_code: 1,
-    event_id: 1,
-    guest_id: 1
-    }
-    @referral = Referral.create(the_referral_parametrization)
-    @referral.save
+When('we visit the new page for the referral') do
+  visit new_referral_path(event_id: @event.id, ref_code: @guest.id, random_code: @guest.rsvp_link)
+end
+
+When('we enter {string} into {string}') do |string, string2|
+   fill_in(string2, with: string)
+end
+
+When('we click the {string}') do
+   click_button(string)
 end
           
-When('we go to the event show page') do
-    visit event_path(@event)
-end
-
-When('we click the {string} link for the referral we see there') do
-    click_link(string) 
-end  
-
-Then('we are on the edit referral page') do
-    visit modify_the_referral_path(event_id: @event.id, id: @referral.id)
-end
-
-When('we enter the {string} into {string}') do |string, string2|
-    fill_in(string2, with: string)
-end
-
-When('we click the {string} button')
-    click_button(string)
-end
-
-Then('the reward will be updated to accurate value') do
-    expect(@referral.reward_value).to eq(params[:reward_input] * (@referral.reward_value))
-end
-          
-Given('we have a ticket information now from the box office sale information directly') do
-  the_box_office_parametrization = {
-    guest_email: 'yyyyyyy@yyyyyyy.yyy', 
-    ticket_quanty: 3,
-    ticket_amount: 150,
-    ticket_referee: 'zzzzzzz@zzzzzzz.zzz',
-    ticket_status: ture,
-    event_id: @event.id
-    }
-    @box_office_data_tuple = BoxOfficeData.create(the_box_office_parametrization)
-    @box_office_data_tuple.save
-end
-
-Then('similarly the referral table tickets values will be directly equal to the values on the ticket information') do
-    expect(@referral.tickets).to eq(3)
-    expect(@referral.status).to match(true)
-    expect(@referral.referred).to match('zzzzzzz@zzzzzzz.zzz') 
+Then('there will be one additional referral tuple generated with expected attibute on the referee email with {string}') do |string|
+   expect(Referral.last.referred).to match(string)
 end

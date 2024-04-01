@@ -10,7 +10,8 @@ class ReferralsController < ApplicationController
     def referral_creation
       friend_email = params[:friend_email]
       ref_code = params[:ref_code]
-      @guest = @event.guests.find_by(id: ref_code)
+      random_code = params[:random_code]
+      @guest = @event.guests.find_by(id: ref_code, rsvp_link: random_code)
       @referral = Referral.create(event_id: @event.id, guest_id: ref_code, email: @guest.email, name: @guest.first_name + ' ' + @guest.last_name, referred: friend_email, ref_code: ref_code)          
       @referral.save
       UserMailer.referral_confirmation(friend_email).deliver_now

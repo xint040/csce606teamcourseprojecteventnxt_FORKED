@@ -2,6 +2,7 @@ class Guest < ApplicationRecord
   require 'roo'
 
   belongs_to :event
+  has_many :referrals, dependent: :destroy
   
   before_create :generate_rsvp_link
   

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/email_services/render_email_template', to: 'email_services#render_template', as: 'render_email_template'
   get 'destroy_email_template/:id', to: 'email_services#destroy_email_template', as: 'destroy_email_template'
 
-  get '/referral/:ref_code', to: 'referrals#refer', as: 'referral'
+  #get '/referral/:ref_code', to: 'referrals#refer', as: 'referral'
 
   get '/refer_a_friend/:random_code', to: 'referrals#new', as: 'new_referral'
   post '/refer_a_friend/:random_code', to: 'referrals#referral_creation', as: 'referral_creation'

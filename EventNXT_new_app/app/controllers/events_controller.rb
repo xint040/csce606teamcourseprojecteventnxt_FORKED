@@ -34,6 +34,7 @@ class EventsController < ApplicationController
     @seats = Seat.where(event_id: @event.id)
     @seating_summary = calculate_seating_summary(@event.id)
     @guest_details = Guest.where(event_id: @event.id)
+    @referral_data = Referral.where(event_id: @event.id)
     # <!--===================-->
   end
 

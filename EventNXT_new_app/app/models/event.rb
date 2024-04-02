@@ -7,6 +7,7 @@ class Event < ApplicationRecord
     has_many :seats , dependent: :destroy
     has_many :guests , dependent: :destroy
     has_many :email_services, dependent: :destroy
+    has_many :referrals, dependent: :destroy
     # <!--===================-->
     def calculate_seating_summary(event_id)
         seating_summary = []

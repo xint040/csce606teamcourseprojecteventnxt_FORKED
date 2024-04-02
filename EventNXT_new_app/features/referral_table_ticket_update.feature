@@ -6,7 +6,5 @@ Scenario:
           Given we have seats
           Given we have guests
           Given we have a referral
-          Given we have a ticket information 
-          Then the referral table tickets values will be directly equal to the values on the ticket information
           Given we have a ticket information now from the box office sale information directly
           Then similarly the referral table tickets values will be directly equal to the values on the ticket information

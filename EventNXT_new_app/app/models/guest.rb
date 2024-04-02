@@ -2,6 +2,7 @@ class Guest < ApplicationRecord
   require 'roo'
 
   belongs_to :event
+  has_many :referrals, dependent: :destroy
   
   before_create :generate_rsvp_link
   
@@ -72,6 +73,6 @@ class Guest < ApplicationRecord
   private
 
   def generate_rsvp_link
-    self.rsvp_link = SecureRandom.hex(6) # You can adjust the length as needed
+    self.rsvp_link = SecureRandom.hex(20) # You can adjust the length as needed
   end
 end

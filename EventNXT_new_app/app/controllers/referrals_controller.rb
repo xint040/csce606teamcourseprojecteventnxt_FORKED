@@ -4,7 +4,11 @@ class ReferralsController < ApplicationController
   
   
     def new
-
+      random_code = params[:random_code]
+      @guest = Guest.find_by(rsvp_link: random_code)
+      if !@guest
+         render plain: "link not working"
+      end
     end
 
     def referral_creation

@@ -1,6 +1,6 @@
 <h1>Editing referral</h1>
 
-<%= form_with(model: [@event, @referral], event_referral_path(@event, @referral), method: :put) do |form| %>
+<%= form_with(model: [@event, @referral], url: event_referral_path(@event, @referral), method: :put) do |form| %>
 
   <div>
     <%= select_tag(:reward_method, options_for_select(['reward/ticket','reward percentage %'])) %>

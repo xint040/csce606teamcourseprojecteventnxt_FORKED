@@ -40,7 +40,7 @@ class ReferralsController < ApplicationController
   # PATCH/PUT /referrals/1 or /referrals/1.json
     def update
     #  @referral = Referral.find(params[:id])
-      if @referral.reward_method == 'reward/ticket'
+      if params[:reward_method] == 'reward/ticket'
         #the_referral_parametrization = {
         #   email: @referral.email, 
         #   name: @referral.name, 
@@ -55,7 +55,8 @@ class ReferralsController < ApplicationController
         #   ref_code: @guest.id
         #  }
         @referral.update(referral_params)
-      elsif @referral.reward_method == 'reward percentage %'
+        @referral.update_attribute(:reward_value, referral_params[:reward_input].to_f * @referral.tickets)
+      elsif params[:reward_method] == 'reward percentage %'
         #the_referral_parametrization = {
         #   email: @referral.email, 
         #   name: @referral.name, 
@@ -70,6 +71,7 @@ class ReferralsController < ApplicationController
         #   ref_code: @guest.id
         #  }
         @referral.update(referral_params)
+        @referral.update_attribute(:reward_value, ((@referral.amount) * referral_params[:reward_input].to_f) / 100)
       end
     end
 
@@ -86,7 +88,7 @@ class ReferralsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def referral_params
-      params.require(:referral).permit(:event_id, :guest_id, :email, :name, :referred, :status, :tickets, :amount, :reward_method, :reward_input, :ref_code)
+      params.require(:referral).permit(:event_id, :guest_id, :email, :name, :referred, :status, :tickets, :amount, :reward_method, :reward_input, :ref_code, :reward_value)
     end
 end
 

@@ -25,6 +25,41 @@ class EventsController < ApplicationController
         row.each { |cell| row_data << cell.value }
         @event_box_office_data << row_data
     end
+
+
+
+
+
+
+
+
+
+    
+      @referral_data = Referral.where(event_id: @event.id)
+
+      l = event_box_office_xlsx.length
+      for k in 1...l do
+          @referral_data.each do |referraldatum|
+             if referraldatum.name == event_box_office_xlsx[k]['Name']
+                referraldatum.update(:status => true, :tickets => event_box_office_xlsx[k]['Tickets'], :amount => event_box_office_xlsx[k]['Amount'])                
+             end
+          end
+      end
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
     else
       flash[:notice] = "No box office spreadsheet uploaded for this event"
       @event_box_office_data = []
@@ -33,8 +68,7 @@ class EventsController < ApplicationController
     @guests = @event.guests
     @seats = Seat.where(event_id: @event.id)
     @seating_summary = calculate_seating_summary(@event.id)
-    @guest_details = Guest.where(event_id: @event.id)
-    @referral_data = Referral.where(event_id: @event.id)
+    @guest_details = Guest.where(event_id: @event.id)   
     # <!--===================-->
   end
 

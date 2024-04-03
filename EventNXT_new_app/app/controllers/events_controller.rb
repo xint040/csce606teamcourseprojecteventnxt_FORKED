@@ -47,7 +47,7 @@ class EventsController < ApplicationController
       @event_box_office_data.drop(1).each do |datum|
           @referral_data.each do |referraldatum|
              if referraldatum.referred == datum[email_index]
-                referraldatum.update(status: true, tickets: datum[tickets_index], amount: datum[amounts_index])                
+                referraldatum.update(status: true, tickets: datum[tickets_index], amount: datum[amount_index])                
              end
           end
       end

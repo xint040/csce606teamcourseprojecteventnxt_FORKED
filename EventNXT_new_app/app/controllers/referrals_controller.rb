@@ -1,5 +1,5 @@
 class ReferralsController < ApplicationController
-  before_action :set_event, only %i[ edit update ]
+  before_action :set_event, only: %i[ edit update ]
   before_action :set_referral, only: %i[ edit update ]
   
   
@@ -54,7 +54,7 @@ class ReferralsController < ApplicationController
         #   guest_id: @guest.id,
         #   ref_code: @guest.id
         #  }
-        @referral.update(:reward_value => (params[:reward_input].to_f * @referral.tickets))
+        @referral.update(referral_params)
       elsif @referral.reward_method == 'reward percentage %'
         #the_referral_parametrization = {
         #   email: @referral.email, 
@@ -69,7 +69,7 @@ class ReferralsController < ApplicationController
         #   guest_id: @guest.id,
         #   ref_code: @guest.id
         #  }
-        @referral.update(:reward_value => ((@referral.amount) * params[:reward_input].to_f) / 100)
+        @referral.update(referral_params)
       end
     end
 

@@ -34,14 +34,14 @@ class EventsController < ApplicationController
 
 
 
-    
+
       @referral_data = Referral.where(event_id: @event.id)
 
       l = event_box_office_xlsx.length
       for k in 1...l do
           @referral_data.each do |referraldatum|
              if referraldatum.name == event_box_office_xlsx[k]['Name']
-                referraldatum.update(:status => true, :tickets => event_box_office_xlsx[k]['Tickets'], :amount => event_box_office_xlsx[k]['Amount'])                
+                referraldatum.update(:status => true, :tickets => event_box_office_xlsx[k]['Tickets'].to_i, :amount => event_box_office_xlsx[k]['Amount'].to_f)                
              end
           end
       end

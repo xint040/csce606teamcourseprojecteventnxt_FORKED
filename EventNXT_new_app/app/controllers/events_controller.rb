@@ -27,21 +27,27 @@ class EventsController < ApplicationController
     end
 
 
-
-
-
-
-
-
-
-
       @referral_data = Referral.where(event_id: @event.id)
 
-      l = event_box_office_xlsx.length
-      for k in 1...l do
+
+      email_index = 0
+      tickets_index = 0
+      amount_index = 0
+      l = @event_box_office_data.first.length 
+      for k in 0...l 
+        if @event_box_office_data.first[k] == 'Email'
+             email_index = k
+        elsif @event_box_office_data.first[k] == 'Tickets'
+             tickets_index = k         
+        elsif @event_box_office_data.first[k] == 'Amount'
+             amount_index = k
+        end
+      end
+     
+      @event_box_office_data.drop(1).each do |datum|
           @referral_data.each do |referraldatum|
-             if referraldatum.name == event_box_office_xlsx[k]['Name']
-                referraldatum.update(:status => true, :tickets => event_box_office_xlsx[k]['Tickets'].to_i, :amount => event_box_office_xlsx[k]['Amount'].to_f)                
+             if referraldatum.referred == datum[email_index]
+                referraldatum.update(status: true, tickets: datum[tickets_index], amount: datum[amounts_index])                
              end
           end
       end
@@ -68,7 +74,8 @@ class EventsController < ApplicationController
     @guests = @event.guests
     @seats = Seat.where(event_id: @event.id)
     @seating_summary = calculate_seating_summary(@event.id)
-    @guest_details = Guest.where(event_id: @event.id)   
+    @guest_details = Guest.where(event_id: @event.id)
+    @referral_data = Referral.where(event_id: @event.id)   
     # <!--===================-->
   end
 

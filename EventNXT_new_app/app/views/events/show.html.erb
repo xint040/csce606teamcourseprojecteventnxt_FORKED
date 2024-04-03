@@ -225,6 +225,7 @@
         <th>Amount</th>
         <th>Input Reward</th>
         <th>Rewards</th>
+        <th>Calculation</th>
       </tr>
       <% @referral_data.each do |referraldatum| %>
        <tr>
@@ -236,6 +237,7 @@
         <td><%= referraldatum.amount %></td>
         <td><%= referraldatum.reward_input %></td>
         <td><%= referraldatum.reward_value %></td>
+        <td><%= link_to 'Calculate', edit_event_referral_path(@event, referraldatum) %></td>
        </tr>
       <% end %>
     </thead>

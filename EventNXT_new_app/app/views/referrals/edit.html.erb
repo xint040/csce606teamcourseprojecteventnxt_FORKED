@@ -1,0 +1,24 @@
+<h1>Editing referral</h1>
+
+<%= form_with(model: [@event, @referral], url: event_referral_path(@event, @referral), method: :put) do |form| %>
+
+  <div>
+    <%= select_tag(:reward_method, options_for_select(['reward/ticket','reward percentage %'])) %>
+  </div>
+
+  <div>
+    <%= form.label :reward_input, 'Input', style: "display: block" %>
+    <%= form.text_field :reward_input %>
+  </div>
+
+  <div>
+    <%= form.submit 'Submit' %>
+  </div>
+
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to 'Go to Event Page', event_path(@event) %>
+</div>

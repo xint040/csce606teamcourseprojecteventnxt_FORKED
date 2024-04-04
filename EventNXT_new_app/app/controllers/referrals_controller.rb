@@ -1,6 +1,6 @@
 class ReferralsController < ApplicationController
-  #before_action :set_event
-  #before_action :set_referral, only: %i[ edit update ]
+  before_action :set_event, only: %i[ edit update ]
+  before_action :set_referral, only: %i[ edit update ]
   
   
     def new
@@ -30,17 +30,17 @@ class ReferralsController < ApplicationController
       end      
     end
 
-  #  before_action :authenticate_user!
+    before_action :authenticate_user!
 
   # GET /referrals/1/edit
-  # def edit
+   def edit
 
-  #  end
+    end
 
   # PATCH/PUT /referrals/1 or /referrals/1.json
-  #  def update
-  #    @referral = Referral.find(params[:id])
-  #    if @referral.reward_method == 'reward/ticket'
+    def update
+    #  @referral = Referral.find(params[:id])
+      if params[:reward_method] == 'reward/ticket'
         #the_referral_parametrization = {
         #   email: @referral.email, 
         #   name: @referral.name, 
@@ -54,8 +54,9 @@ class ReferralsController < ApplicationController
         #   guest_id: @guest.id,
         #   ref_code: @guest.id
         #  }
-  #     @referral.update(:reward_value => (params[:reward_input] * @referral.tickets))
-  #    elsif @referral.reward_method == 'reward percentage %'
+        @referral.update(referral_params)
+        @referral.update_attribute(:reward_value, referral_params[:reward_input].to_f * @referral.tickets)
+      elsif params[:reward_method] == 'reward percentage %'
         #the_referral_parametrization = {
         #   email: @referral.email, 
         #   name: @referral.name, 
@@ -69,24 +70,25 @@ class ReferralsController < ApplicationController
         #   guest_id: @guest.id,
         #   ref_code: @guest.id
         #  }
-  #    end
-  #    @referral.update(:reward_value => ((@referral.amount) * params[:reward_input]) / 100)
-  #  end
+        @referral.update(referral_params)
+        @referral.update_attribute(:reward_value, ((@referral.amount) * referral_params[:reward_input].to_f) / 100)
+      end
+    end
 
     private
      
-    #def set_event
-    #  @event = Event.find(params[:event_id])
-    #end
+    def set_event
+      @event = Event.find(params[:event_id])
+    end
 
     # Use callbacks to share common setup or constraints between actions.
-    #def set_referral
-    #  @referral = @guest.referrals.find(params[:id])
-    #end
+    def set_referral
+      @referral = @event.referrals.find(params[:id])
+    end
 
     # Only allow a list of trusted parameters through.
     def referral_params
-      params.require(:referral).permit(:event_id, :guest_id, :email, :name, :referred, :status, :tickets, :amount, :reward_method, :reward_input, :ref_code)
+      params.require(:referral).permit(:event_id, :guest_id, :email, :name, :referred, :status, :tickets, :amount, :reward_method, :reward_input, :ref_code, :reward_value)
     end
 end
 

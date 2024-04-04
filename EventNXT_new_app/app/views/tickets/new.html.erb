@@ -1,12 +1,9 @@
-<%= form_with url: tickets_path, method: :post, id: "ticket-form" do |form| %>
-    <div>
-      <%= form.label :ticket_quantity, "Number of Tickets:" %>
-      <%= form.number_field :ticket_quantity, in: 1..10 %>
-    </div>
-  
-    <div>
-      <%= form.submit "Submit" %>
-    </div>
-  <% end %>
+<%# app/views/tickets/new.html.erb %>
+<div>
+  <h1>Purchase Tickets</h1>
+  <p>To buy tickets for the event, please visit the following link:</p>
+  <%= link_to 'Purchase Tickets', 'https://fashionxt.com/', class: 'btn btn-primary', target: '_blank' %>
+</div>
+
   
   

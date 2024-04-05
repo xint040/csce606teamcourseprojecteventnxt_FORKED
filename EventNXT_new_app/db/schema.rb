@@ -73,9 +73,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_25_163232) do
     t.string "referred", null: false
     t.string "status", default: "f"
     t.integer "tickets", default: 0
-    t.integer "amount", default: 0
+    t.float "amount", default: 0.0
     t.string "reward_method", default: "reward/ticket"
-    t.integer "reward_input", default: 0
+    t.float "reward_input", default: 0.0
     t.float "reward_value", default: 0.0
     t.integer "ref_code", null: false
     t.datetime "created_at", null: false

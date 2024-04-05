@@ -9,10 +9,10 @@ class CreateReferrals < ActiveRecord::Migration[7.0]
 
       t.string :status, default: false
       t.integer :tickets, default: 0 
-      t.integer :amount, default: 0
+      t.float :amount, default: 0
 
       t.string :reward_method, default: 'reward/ticket'
-      t.integer :reward_input, default: 0
+      t.float :reward_input, default: 0
       t.float :reward_value, default: 0
 
       t.integer :ref_code, null: false

@@ -29,6 +29,10 @@ class EventsController < ApplicationController
 
       @referral_data = Referral.where(event_id: @event.id)
 
+      @referral_data.each do |referraldatum|
+        referraldatum.update(status: false, tickets: 0, amount: 0)  
+      end
+
 
       email_index = 0
       tickets_index = 0
@@ -51,19 +55,6 @@ class EventsController < ApplicationController
              end
           end
       end
-
-
-
-    
-
-
-
-
-
-
-
-
-
 
 
     else

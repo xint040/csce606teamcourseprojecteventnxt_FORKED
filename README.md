@@ -14,6 +14,13 @@ https://github.com/CSCE-606-Event360/Spring2024EventNXT/tree/main/EventNXT_new_a
 
 Spring 2024 EventNXT code climate report: https://codeclimate.com/github/CSCE-606-Event360/Spring2024EventNXT
 
+**Warning: For deep issues, bugs and problems, see debugging_report.txt file for the new app. This file will be continuously updated
+whenever it is necessary to provide notifications/clarifications on any reported and found issues, bugs and the corresponding problems.**
+
+
+**Spring 2024 EventNXT Development Team**
+
+
 ------------------------------------------------------IMPORTANT------------------------------------------------------
 
 We strongly suggest the Team to go through the DOCUMENTATION and DEMO videos to understand the old and new application:

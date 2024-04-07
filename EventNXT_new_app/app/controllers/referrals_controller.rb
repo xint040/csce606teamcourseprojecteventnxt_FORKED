@@ -1,7 +1,7 @@
 class ReferralsController < ApplicationController
   before_action :set_event, only: %i[ edit update ]
   before_action :set_referral, only: %i[ edit update ]
-  
+  before_action :authenticate_user!, only: %i[ edit update ]
   
     def new
       random_code = params[:random_code]
@@ -17,7 +17,7 @@ class ReferralsController < ApplicationController
       random_code = params[:random_code]
       @guest = Guest.find_by(rsvp_link: random_code)
       if @guest
-        @referral = Referral.create(event_id: @guest.event_id, guest_id: @guest.id, email: @guest.email, name: @guest.first_name + ' ' + @guest.last_name, referred: friend_email, ref_code: @guest.id)          
+        @referral = Referral.find_or_create_by(event_id: @guest.event_id, guest_id: @guest.id, email: @guest.email, name: @guest.first_name + ' ' + @guest.last_name, referred: friend_email, ref_code: @guest.id)          
         @referral.save
         UserMailer.referral_confirmation(friend_email).deliver_now
       
@@ -30,7 +30,7 @@ class ReferralsController < ApplicationController
       end      
     end
 
-    before_action :authenticate_user!
+   
 
   # GET /referrals/1/edit
    def edit

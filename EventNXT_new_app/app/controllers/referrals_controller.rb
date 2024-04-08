@@ -1,7 +1,8 @@
 class ReferralsController < ApplicationController
+  before_action :authenticate_user!, only: %i[ edit update ]
   before_action :set_event, only: %i[ edit update ]
   before_action :set_referral, only: %i[ edit update ]
-  before_action :authenticate_user!, only: %i[ edit update ]
+  
   
     def new
       random_code = params[:random_code]

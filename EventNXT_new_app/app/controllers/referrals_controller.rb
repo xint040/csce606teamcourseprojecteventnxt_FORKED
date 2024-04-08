@@ -1,4 +1,5 @@
 class ReferralsController < ApplicationController
+  before_action :authenticate_user!, only: %i[ edit update ]
   before_action :set_event, only: %i[ edit update ]
   before_action :set_referral, only: %i[ edit update ]
   
@@ -30,7 +31,7 @@ class ReferralsController < ApplicationController
       end      
     end
 
-    before_action :authenticate_user!
+   
 
   # GET /referrals/1/edit
    def edit

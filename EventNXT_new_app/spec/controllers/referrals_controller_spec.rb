@@ -38,6 +38,7 @@ RSpec.describe ReferralsController, type: :controller do
     end
   end
 
+
   describe 'update method for referral after we have a referral' do
     let(:event) { create(:event, user: user) }
     let(:seat) { create(:seat, event: event) }
@@ -99,4 +100,5 @@ RSpec.describe ReferralsController, type: :controller do
         expect(@referral.reward_value).to eq(15) 
     end
   end
+
 end

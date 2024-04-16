@@ -107,6 +107,6 @@ class SeatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def seat_params
-      params.require(:seat).permit(:category, :total_count, :event_id)
+      params.require(:seat).permit(:category, :section, :total_count, :event_id)
     end
 end

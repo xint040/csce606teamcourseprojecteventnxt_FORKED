@@ -13,10 +13,11 @@ class Guest < ApplicationRecord
   # Removed the email validation
   validates :affiliation, presence: true
   validates :category, presence: true
+  validates :section, presence: true
   validates :event_id, presence: true
   validates :alloted_seats, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :commited_seats, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :guest_commited, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  #validates :guest_commited, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validate :allocated_seats_not_exceed_total
 
   def self.new_guest(attributes = {})

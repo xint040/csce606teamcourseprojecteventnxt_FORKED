@@ -20,7 +20,8 @@ class EmailServicesController < ApplicationController
     #we have the referral link takes the form of '/refer_a_friend?guest.id' to transfer the parameters.
     #random_code_generated = SecureRandom.hex(20)
 
-    referral_url = Rails.application.routes.url_helpers.new_referral_url(host: 'localhost:3000', random_code: guest.rsvp_link)
+    #referral_url = Rails.application.routes.url_helpers.new_referral_url(host: 'localhost:3000', random_code: guest.rsvp_link)
+    referral_url = Rails.application.routes.url_helpers.new_referral_url(host: 'https://eventnxt-0fcb166cb5ae.herokuapp.com/', random_code: guest.rsvp_link)
     
     #referral_url = ENV['localhost:3000'].to_s + new_referral_path(guest.id)
 

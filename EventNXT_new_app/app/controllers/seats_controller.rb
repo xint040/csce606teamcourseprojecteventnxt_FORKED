@@ -13,7 +13,8 @@ class SeatsController < ApplicationController
     
     # <!--===================-->
     # <!--to return all children instances associated with a particular parent instance-->
-    @seats = @event.seats
+    #@seats = @event.seats
+    @event = Event.find(params[:event_id])
     # <!--===================-->
   end
 

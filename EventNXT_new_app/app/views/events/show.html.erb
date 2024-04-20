@@ -64,7 +64,6 @@
 </div>
 <%= link_to 'Add New Seat', new_event_seat_path(@event), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;margin-left:25%;margin-bottom:30px', class: 'button' %>
 
-
 <h2 style="margin-left:20%;margin-bottom:20px;margin-top:40px; font-size: 56px; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Seating Summary</h2>
 <!--to add link for the nested children-->
 <div class="container">
@@ -72,6 +71,7 @@
     <thead>
       <tr class="highlight-heading">
         <th>Category</th>
+        <th>Section</th>
         <th>Number of Guests</th>
         <th>Total Seats</th>
         <th>Allocated Seats</th>
@@ -83,6 +83,7 @@
       <% @seating_summary.each do |category| %>
         <tr>
           <td><%= category[:category] %></td>
+          <td><%= category[:section] %></td>
           <td><%= category[:guests_count] %></td>
           <td><%= category[:total_seats] %></td>
           <td><%= category[:allocated_seats] %></td>
@@ -108,7 +109,6 @@
         <th>Section</th>
         <th>Allocated seat</th>
         <th>Committed seats</th>
-        <th>Guest committed</th>
         <th>Status</th>
         <th>Edit guest</th>
         <th>Destroy guest</th>
@@ -124,7 +124,6 @@
           <td><%= guest[:category] %></td>
           <td><%= guest[:section] %></td>
           <td><%= guest[:alloted_seats] %></td>
-          <td><%= guest[:commited_seats] %></td>
           <td><%= guest[:commited_seats] %></td>
           <td><%= guest[:status] %></td>
           <td><%= link_to 'Edit', edit_event_guest_path(@event, guest), style: 'display: inline-block; padding: 10px 20px; background-color: #4caf50; color: #fff; text-decoration: none; border: none; border-radius: 5px; cursor: pointer', class: 'button' %></td>

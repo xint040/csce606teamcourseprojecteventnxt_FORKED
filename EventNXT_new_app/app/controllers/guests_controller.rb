@@ -139,7 +139,7 @@ class GuestsController < ApplicationController
       category = row["Category"] # Ensure this column exists in your Excel file
       alloted_seats = row["Allotted Seats"].to_i # Adjust the key as per your Excel file
       commited_seats = row["Committed Seats"].to_i # Adjust the key as per your Excel file
-      guest_commited = row["Guest Committed"].to_i # Adjust the key as per your Excel file
+      #guest_commited = row["Guest Committed"].to_i # Adjust the key as per your Excel file
   
       # Since email is removed, you might want to use a different field to find or initialize guests
       # For example, using first_name and last_name (but ensure these combinations are unique per event)
@@ -153,7 +153,7 @@ class GuestsController < ApplicationController
           category: category,
           alloted_seats: alloted_seats,
           commited_seats: commited_seats,
-          guest_commited: guest_commited
+          #guest_commited: guest_commited
         })
         guest.save!
       end
@@ -196,6 +196,6 @@ class GuestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guest_params
-      params.require(:guest).permit(:first_name, :last_name, :email, :affiliation, :category, :alloted_seats, :commited_seats, :guest_commited, :status, :event_id)
+      params.require(:guest).permit(:first_name, :last_name, :email, :affiliation, :category, :section, :alloted_seats, :commited_seats, :status, :event_id)
     end
 end

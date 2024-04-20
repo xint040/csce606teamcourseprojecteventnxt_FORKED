@@ -13,7 +13,8 @@ class SeatsController < ApplicationController
     
     # <!--===================-->
     # <!--to return all children instances associated with a particular parent instance-->
-    @seats = @event.seats
+    #@seats = @event.seats
+    @event = Event.find(params[:event_id])
     # <!--===================-->
   end
 
@@ -107,6 +108,6 @@ class SeatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def seat_params
-      params.require(:seat).permit(:category, :total_count, :event_id)
+      params.require(:seat).permit(:category, :section, :total_count, :event_id)
     end
 end

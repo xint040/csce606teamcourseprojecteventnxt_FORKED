@@ -13,6 +13,7 @@ class EventsController < ApplicationController
     # <!--===================-->
     # <!--to show the uploaded spreadsheet-->
     @event = current_user.events.find(params[:id])
+    
     if @event.event_box_office.present?
       @event_box_office_data = []
       # Load the spreadsheet using the SpreadsheetUploader
@@ -119,16 +120,21 @@ class EventsController < ApplicationController
   private
     def calculate_seating_summary(event_id)
       seating_summary = []
-    
+      
+      #seats = Seat.where(event_id: event_id).order(:category, :section)
       Seat.where(event_id: event_id).each do |seat|
+      #seats.each do |seat|
         guests_in_category = Guest.where(event_id: event_id, category: seat.category)
-        committed_seats = guests_in_category.sum(:commited_seats)
-        allocated_seats = guests_in_category.sum(:alloted_seats)
+        guests_in_section = Guest.where(event_id: event_id, section: seat.section)
+        total_guests = guests_in_category.and(guests_in_section).distinct.count
+        committed_seats = guests_in_category.and(guests_in_section).sum(:commited_seats)
+        allocated_seats = guests_in_category.and(guests_in_section).sum(:alloted_seats)
         total_seats = seat.total_count
     
         seating_summary << {
           category: seat.category,
-          guests_count: guests_in_category.count,
+          section: seat.section,
+          guests_count: total_guests,
           committed_seats: committed_seats,
           allocated_seats: allocated_seats,
           total_seats: total_seats

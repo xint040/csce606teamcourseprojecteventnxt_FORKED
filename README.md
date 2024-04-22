@@ -89,11 +89,12 @@ NOTE: NXT_APP_URL, NXT_APP_ID, NXT_APP_SECRET are env variables used for oauth c
 
 Problems
 If Bundler complains that the wrong Ruby version is installed,
-    rvm: verify that rvm is installed (for example, rvm --version) and run rvm         list to see which Ruby versions are available and rvm use to make a particular     version active. If no versions satisfying the Gemfile dependency are               installed, you can run rvm install to install a new version, then rvm use to       use it.
-
-    rbenv: verify that rbenv is installed (for example, rbenv --version) and run       rbenv versions to see which Ruby versions are available and rbenv local to         make a particular version active. If no versions satisfying the Gemfile            dependency are installed, you can run rbenv install to install a new version,      then rbenv local to use it.
-
-    Then you can try bundle install again.
+    
+        rvm: verify that rvm is installed (for example, rvm --version) and run rvm         list to see which Ruby versions are available and rvm use to make a particular     version active. If no versions satisfying the Gemfile dependency are               installed, you can run rvm install to install a new version, then rvm use to       use it.
+        
+        rbenv: verify that rbenv is installed (for example, rbenv --version) and run       rbenv versions to see which Ruby versions are available and rbenv local to         make a particular version active. If no versions satisfying the Gemfile            dependency are installed, you can run rbenv install to install a new version,      then rbenv local to use it.
+        
+        Then you can try bundle install again.
 
 How to run Test cases
 

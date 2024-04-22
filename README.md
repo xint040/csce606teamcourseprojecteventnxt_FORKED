@@ -161,7 +161,7 @@ Note: If you notice that your app run into an Application Error.
 
 8. Now, try opening the app.
 
-- Contacts:
+**Contacts:**
 
           Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622
           Amalesh Arivanan: amalesh.arivanan-22@tamu.edu

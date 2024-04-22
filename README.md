@@ -109,15 +109,19 @@ It is highly recommended to push the app to heroku using the "Container Registry
 1. Download and install the Heroku CLI.
 
 2. Log in to your Heroku account and follow the prompts to create a new SSH public key.
+
         heroku login
 
 4. Log in to Container Registry. You must have Docker set up locally to continue. You should see output when you run this command.
+
         docker ps
 
 5. Push your Docker-based app. Build the Dockerfile in the current directory and push the Docker image
+
         heroku container:push web -a <your_image>
 
 6. Deploy the changes. Release the newly pushed images to deploy your app.
+
         heroku container:release web -a <your_image> 
    
 7. Use your app link to visit your app.
@@ -125,6 +129,7 @@ It is highly recommended to push the app to heroku using the "Container Registry
 Note: If you notice that your app run into an Application Error.
 
 1. Check your Gemfile.
+
         Check if your Gemfile has "gem "pg""
 
 2. Run "bundle install"
@@ -136,7 +141,8 @@ Note: If you notice that your app run into an Application Error.
 5. Click on "Run console"
 
 6. On the command prompt, run the command:
-        "rails db:migrate"
+
+        rails db:migrate
 
 8. Now, try opening the app.
 

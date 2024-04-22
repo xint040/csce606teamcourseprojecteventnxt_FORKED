@@ -1,16 +1,16 @@
 #EventNXT Home Page
-#CSCE 606 Project GitHub EventNXT Group Home Page - SPRING 2024
+**#CSCE 606 Project GitHub EventNXT Group Home Page - SPRING 2024**
 
 This is home page which has 2 apps: Old App & New App.
-We, the students of Spring 2024, continued to worked on the EventNXT_new_app. For all the verification purposes please use the new app.
+We, the students of Spring 2024, continued to worked on the **EventNXT_new_app**. For all the verification purposes please use the new app.
 
-New App Link:
+**New App Link:**
 
-Spring 2024 Heroku link: https://eventnxt-0fcb166cb5ae.herokuapp.com/
+**Spring 2024 Heroku link:** https://eventnxt-0fcb166cb5ae.herokuapp.com/
 
-Spring 2024 Github link: https://github.com/CSCE-606-Event360/Spring2024EventNXT/tree/main/EventNXT_new_app
+**Spring 2024 Github link:** https://github.com/CSCE-606-Event360/Spring2024EventNXT/tree/main/EventNXT_new_app
 
-Spring 2024 EventNXT code climate report: https://codeclimate.com/github/CSCE-606-Event360/Spring2024EventNXT
+**Spring 2024 EventNXT code climate report:** https://codeclimate.com/github/CSCE-606-Event360/Spring2024EventNXT
 
 **Warning: For deep issues, bugs and problems, see debugging_report.txt file for the new app. This file will be continuously updated
 whenever it is necessary to provide notifications/clarifications on any reported and found issues, bugs and the corresponding problems.**
@@ -27,7 +27,7 @@ Documentation is common for PlanNXT, CastNXT and EventNXT:
 
 Email the team if you have any questions:
 
-Install ruby and rails
+**Install ruby and rails**
 
 Please check whether you have the ruby and rails installed.
 
@@ -87,7 +87,7 @@ NOTE: NXT_APP_URL, NXT_APP_ID, NXT_APP_SECRET are env variables used for oauth c
         Start server in local development environment
                 rails s
 
-Problems
+**Problems**
 If Bundler complains that the wrong Ruby version is installed,
     
         rvm: verify that rvm is installed (for example, rvm --version) and run rvm         
@@ -104,7 +104,7 @@ If Bundler complains that the wrong Ruby version is installed,
         
         Then you can try bundle install again.
 
-How to run Test cases
+**How to run Test cases**
 
 *cucumber test cases:
 
@@ -115,7 +115,7 @@ How to run Test cases
         
         bundle exec rspec
 
-Heroku Deployment:
+**Heroku Deployment:**
 
 It is highly recommended to push the app to heroku using the "Container Registry" method:
 
@@ -139,7 +139,7 @@ It is highly recommended to push the app to heroku using the "Container Registry
    
 7. Use your app link to visit your app.
 
-Note: If you notice that your app run into an Application Error.
+**Note:** If you notice that your app run into an Application Error.
 
 1. Check your Gemfile.
 

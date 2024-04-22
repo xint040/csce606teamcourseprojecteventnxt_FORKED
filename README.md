@@ -78,14 +78,14 @@ If you don't have the ruby or rails. Please follow the below processes.
 
 NOTE: NXT_APP_URL, NXT_APP_ID, NXT_APP_SECRET are env variables used for oauth client registration with CRM event360 server. http://events360.herokuapp.com/ is customer production CRM server. You should not use this for development. For development you need to clone Event360 repo and run the app. This admin login details are present in db/seeds.rb file of Event360 repo. Then you can go to application management and create a new test client. once the new client is registered you can get NXT_APP_ID and NXT_APP_SECRET from the UI and set it in your development env as shown above. you need to save client callback in this new test client in event360 app. To get an Idea:
 
-    go to http://events360.herokuapp.com/, login as admin user, use same login details as mentioned above from seeds.rb file in Event360 repo.
-    go to EventNXT and look for the fields to get idea.
-
-    Migrate Database
-        rails db:migrate
-
-    Start server in local development environment
-        rails s
+        go to http://events360.herokuapp.com/, login as admin user, use same login details as mentioned above from seeds.rb file in Event360 repo.
+        go to EventNXT and look for the fields to get idea.
+        
+        Migrate Database
+                rails db:migrate
+        
+        Start server in local development environment
+                rails s
 
 Problems
 If Bundler complains that the wrong Ruby version is installed,
@@ -135,15 +135,17 @@ Note: If you notice that your app run into an Application Error.
 
         Check if your Gemfile has gem "pg"
 
-2. Run "bundle install"
+2. Run"
 
-3. Now, navigate to your app from the heroku dashboard
+        bundle install
 
-4. Click on "More" (Top-Right corner, next to 'Open App')
+4. Now, navigate to your app from the heroku dashboard
 
-5. Click on "Run console"
+5. Click on "More" (Top-Right corner, next to 'Open App')
 
-6. On the command prompt, run the command:
+6. Click on "Run console"
+
+7. On the command prompt, run the command:
 
         rails db:migrate
 

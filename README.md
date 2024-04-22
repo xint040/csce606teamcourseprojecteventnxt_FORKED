@@ -31,11 +31,11 @@ Install ruby and rails
 
 Please check whether you have the ruby and rails installed.
 
-ruby -v
+        ruby -v
 
 Ruby version is 3.2.2 as mentioned in Gemfile
 
-rails -v
+        rails -v
 
 The rails version is 7.0.4
 
@@ -98,10 +98,13 @@ If Bundler complains that the wrong Ruby version is installed,
 How to run Test cases
 
 *cucumber test cases:
-    RAILS_ENV=test rake cucumber
+
+        RAILS_ENV=test rake cucumber
+        rails cucumber
 
 *rspec test cases:
-    bundle exec rspec
+        
+        bundle exec rspec
 
 Heroku Deployment:
 It is highly recommended to push the app to heroku using the "Container Registry" method:
@@ -130,7 +133,7 @@ Note: If you notice that your app run into an Application Error.
 
 1. Check your Gemfile.
 
-        Check if your Gemfile has "gem "pg""
+        Check if your Gemfile has gem "pg"
 
 2. Run "bundle install"
 

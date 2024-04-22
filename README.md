@@ -41,13 +41,13 @@ The rails version is 7.0.4
 
 If you don't have the ruby or rails. Please follow the below processes.
 
--Install ruby-3.2.0 using Ruby version manager
+- Install ruby-3.2.0 using Ruby version manager
    
         rvm get stable
         rvm install "ruby-3.2.0" or try rvm install "ruby-3.2.2"
         rvm use 3.2.0 or try rvm use 3.2.2
 
--Install PostgreSQL
+- Install PostgreSQL
 
         sudo apt-get update
         sudo apt-get install postgresql postgresql-contrib libpq-dev
@@ -55,19 +55,19 @@ If you don't have the ruby or rails. Please follow the below processes.
         PostgreSQL may require to create a role to allow rails to connect to the Postgre database. In AWS cloud9 ubuntu system, we executed 
         sudo -u postgres createuser --interactive ubuntu
 
--Clone the latest git repo
+- Clone the latest git repo
 
         git clone https://github.com/CSCE-606-Event360/Spring2024EventNXT.git
 
--Change directory to the new app
+- Change directory to the new app
 
         cd Spring2024EventNXT/EventNXT_new_app
 
--Bundle install
+- Bundle install
 
         bundle install
 
--Set ENVIRONMENT VARIABLES
+- Set ENVIRONMENT VARIABLES
 
         NXT_APP_URL -> events360 website link
         NXT_APP_ID -> client ID (registered with events360)
@@ -75,7 +75,7 @@ If you don't have the ruby or rails. Please follow the below processes.
         EVENT_NXT_APP_URL -> eventNXT WEBSITE LINK.
         ALLOWED_HOST -> eventnxt url in heroku or local url
 
--To set environment variables, please follow below procedure: command:
+- To set environment variables, please follow below procedure: command:
 
         export NXT_APP_URL="http://events360.herokuapp.com/"
         export NXT_APP_ID="aCgXCUDxHSvkp12ZaLweRSVq0pmznGpFasldrE3EZpQ"

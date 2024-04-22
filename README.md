@@ -116,6 +116,7 @@ How to run Test cases
         bundle exec rspec
 
 Heroku Deployment:
+
 It is highly recommended to push the app to heroku using the "Container Registry" method:
 
 1. Download and install the Heroku CLI.
@@ -161,12 +162,12 @@ Note: If you notice that your app run into an Application Error.
 8. Now, try opening the app.
 
 - Contacts:
-                
-                        Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622
-                        Amalesh Arivanan: amalesh.arivanan-22@tamu.edu
-                        Louis Turrubiartes: louis.turrubiartes@tamu.edu
-                        Alex Wise: alex2by4@tamu.edu
-                        Tianchen Huang: th20@tamu.edu
-                        Tong Wu: syca.red@tamu.edu
-                        Xin Tong: xintong@tamu.edu
+
+          Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622
+          Amalesh Arivanan: amalesh.arivanan-22@tamu.edu
+          Louis Turrubiartes: louis.turrubiartes@tamu.edu
+          Alex Wise: alex2by4@tamu.edu
+          Tianchen Huang: th20@tamu.edu
+          Tong Wu: syca.red@tamu.edu
+          Xin Tong: xintong@tamu.edu
   

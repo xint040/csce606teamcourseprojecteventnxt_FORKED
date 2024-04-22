@@ -106,12 +106,12 @@ If Bundler complains that the wrong Ruby version is installed,
 
 **How to run Test cases**
 
-*cucumber test cases:
+- cucumber test cases:
 
         RAILS_ENV=test rake cucumber
         rails cucumber
 
-*rspec test cases:
+- rspec test cases:
         
         bundle exec rspec
 

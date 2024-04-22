@@ -21,7 +21,7 @@ whenever it is necessary to provide notifications/clarifications on any reported
 
 ------------------------------------------------------IMPORTANT------------------------------------------------------
 
-We strongly suggest the Team to go through the DOCUMENTATION and DEMO videos to understand the old and new application:
+We strongly suggest the Team to go through the DOCUMENTATION to understand the old and new application:
 
 Documentation is common for PlanNXT, CastNXT and EventNXT:
 
@@ -57,7 +57,7 @@ If you don't have the ruby or rails. Please follow the below processes.
         git clone https://github.com/CSCE-606-Event360/Spring2024EventNXT.git
 
     Change directory to the new app
-        cd EventNXT/EventNXT_new_app
+        cd Spring2024EventNXT/EventNXT_new_app
 
     Bundle install
         bundle install
@@ -103,7 +103,42 @@ How to run Test cases
 *rspec test cases:
     bundle exec rspec
 
-    
+Heroku Deployment:
+It is highly recommended to push the app to heroku using the "Container Registry" method:
+
+1. Download and install the Heroku CLI.
+
+2. Log in to your Heroku account and follow the prompts to create a new SSH public key.
+    heroku login
+
+3. Log in to Container Registry. You must have Docker set up locally to continue. You should see output when you run this command.
+    docker ps
+
+4. Push your Docker-based app. Build the Dockerfile in the current directory and push the Docker image
+    heroku container:push web -a <your_image>
+
+5. Deploy the changes. Release the newly pushed images to deploy your app.
+    heroku container:release web -a <your_image> 
+   
+6. Use your app link to visit your app.
+
+Note: If you notice that your app run into an Application Error.
+
+1. Check your Gemfile.
+   Check if your Gemfile has "gem "pg""
+
+2. Run "bundle install"
+
+3. Now, navigate to your app from the heroku dashboard
+
+4. Click on "More" (Top-Right corner, next to 'Open App')
+
+5. Click on "Run console"
+
+6. On the command prompt, run the command "rails db:migrate"
+
+7. Now, try opening the app.
+
 - Contacts:
                 
                         Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622

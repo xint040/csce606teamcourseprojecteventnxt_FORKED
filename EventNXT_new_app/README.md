@@ -27,10 +27,10 @@ If you don't have the ruby or rails. Please follow the below processes.
   * PostgreSQL may require to create a role to allow rails to connect to the Postgre database. In AWS cloud9 ubuntu system, we executed `sudo -u postgres createuser --interactive ubuntu`
 
 * Clone the latest git repo
-  * `git clone https://github.com/CSCE-606-Event360/EventNXT.git`
+  * `git clone https://github.com/CSCE-606-Event360/Spring2024EventNXT.git`
 
 * Change directory to the new app
-  * `cd EventNXT/EventNXT_new_app` 
+  * `cd Spring2024EventNXT/EventNXT_new_app` 
 
 * Bundle install
   * `bundle install`
@@ -52,6 +52,7 @@ command:
 
 NOTE: NXT_APP_URL, NXT_APP_ID, NXT_APP_SECRET are env variables used for oauth client registration with CRM event360 server.
 http://events360.herokuapp.com/ is customer production CRM server.
+
 You should not use this for development. For development you need to clone Event360 repo and run the app.
 This admin login details are present in db/seeds.rb file of Event360 repo.
 Then you can go to application management and create a new test client. once the new client is registered
@@ -137,9 +138,12 @@ https://devcenter.heroku.com/articles/heroku-cli
 ### Contacts:
  * Email the team if you have any questions:
   * Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622
-  * Pavan Kaushik Aduri: pkavu_1998@tamu.edu
-  * Rakesh Kumar Pothineni: rakeshpothineni@tamu.edu
-
+  * Amalesh Arivanan: amalesh.arivanan-22@tamu.edu
+  * Louis Turrubiartes: louis.turrubiartes@tamu.edu
+  * Alex Wise: alex2by4@tamu.edu
+  * Tianchen Huang: th20@tamu.edu
+  * Tong Wu: syca.red@tamu.edu
+  * Xin Tong: xintong@tamu.edu
 
 
 

@@ -1,6 +1,6 @@
 # README
 
-TEAM FALL 2023
+TEAM Spring 2024
 
 ### Install ruby and rails
 
@@ -47,7 +47,7 @@ command:
    - export NXT_APP_URL="http://events360.herokuapp.com/"
    - export NXT_APP_ID="aCgXCUDxHSvkp12ZaLweRSVq0pmznGpFasldrE3EZpQ"
    - export NXT_APP_SECRET="iN9O2qGyA9n3nauMXOl6x5SDh08i27Nb1gs-fIjI6g0"
-   - export EVENT_NXT_APP_URL="https://eventnxtprodfall2023-a37dec4f8dd9.herokuapp.com/" #your eventnxt app url in development heroku
+   - export EVENT_NXT_APP_URL="https://eventnxt-0fcb166cb5ae.herokuapp.com/" #your eventnxt app url in development heroku
    - export ALLOWED_HOST="your eventnxt app url in development heroku"
 
 NOTE: NXT_APP_URL, NXT_APP_ID, NXT_APP_SECRET are env variables used for oauth client registration with CRM event360 server.
@@ -143,7 +143,7 @@ https://devcenter.heroku.com/articles/heroku-cli
 
 
 
-### The content below is by - TEAM SPRING 2023
+### The content below is by - TEAM SPRING 2024
 
 ## Introduction
 

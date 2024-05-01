@@ -163,7 +163,7 @@ It is highly recommended to push the app to heroku using the "Container Registry
 
 **Contacts:**
 
-          Anirith Pampati: anirith@tamu.edu | text/call @ 9797210622
+          Anirith Pampati: anirith@tamu.edu
           Amalesh Arivanan: amalesh.arivanan-22@tamu.edu
           Louis Turrubiartes: louis.turrubiartes@tamu.edu
           Alex Wise: alex2by4@tamu.edu

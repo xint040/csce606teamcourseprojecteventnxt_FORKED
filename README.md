@@ -12,6 +12,12 @@ We, the students of Spring 2024, continued to worked on the **EventNXT_new_app**
 
 **Spring 2024 EventNXT code climate report:** https://codeclimate.com/github/CSCE-606-Event360/Spring2024EventNXT
 
+**The debugging_report.txt file will be used for significant debugging report, erratum report and other correction related reports.**
+
+**Spring 2024 EventNXT TEAM**
+
+
+
 **------------------------------------------------------IMPORTANT------------------------------------------------------**
 
 We strongly suggest the Team to go through the DOCUMENTATION to understand the old and new application:

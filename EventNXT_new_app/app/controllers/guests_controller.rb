@@ -139,7 +139,7 @@ class GuestsController < ApplicationController
       category = row["Category"] # Ensure this column exists in your Excel file
       alloted_seats = row["Allotted Seats"].to_i # Adjust the key as per your Excel file
       commited_seats = row["Committed Seats"].to_i # Adjust the key as per your Excel file
-      section = row["Section"].to_i
+      section = row["Section"]
       #guest_commited = row["Guest Committed"].to_i # Adjust the key as per your Excel file
   
       # Since email is removed, you might want to use a different field to find or initialize guests

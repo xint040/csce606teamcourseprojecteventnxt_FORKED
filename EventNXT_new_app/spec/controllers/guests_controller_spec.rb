@@ -95,7 +95,7 @@ RSpec.describe GuestsController, type: :controller do
 
   describe "PUT #update" do
     let(:event) { Event.create(title: "Test Event") }
-    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
+    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed", section: 1)}
     context "with valid parameters" do
       it "updates the requested guest" do
         #let(:event) { Event.create(title: "Test Event") }
@@ -133,7 +133,7 @@ RSpec.describe GuestsController, type: :controller do
     #   @guest = @event.guests.create(first_name: "John", last_name: "Doe", affiliation: "Friend", category: "Adult", alloted_seats: 1, commited_seats: 1, guest_commited: true, status: "Confirmed")
     # end
     let(:event) { Event.create(title: "Test Event") }
-    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
+    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed", section: 1)}
     #let(:guest1) { Guest.create(first_name: "Test1", last_name: "Guest", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
  
     
@@ -156,7 +156,7 @@ RSpec.describe GuestsController, type: :controller do
     #let(:event) { create(:event) }
     #let(:guest) { create(:guest, event: event) }
     let(:event) { Event.create(title: "Test Event") }
-    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed")}
+    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1, status: "Confirmed", section: 1)}
     
     
     context "when a valid guest id is provided" do
@@ -182,7 +182,7 @@ RSpec.describe GuestsController, type: :controller do
 
   describe "#book_seats" do
     #let(:guest) { create(:guest, rsvp_link: 'valid_rsvp_link') }
-    let(:guest1) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1,  status: "Confirmed")}
+    let(:guest1) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 10, guest_commited: 1,  status: "Confirmed", section: 1)}
     
 
     context "when a valid RSVP link is provided" do
@@ -223,7 +223,7 @@ RSpec.describe GuestsController, type: :controller do
 
   
   describe "#update_commited_seats" do
-    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 0, guest_commited: 0,  status: "Confirmed")}
+    let(:guest) { Guest.create(first_name: "Test", last_name: "Guest", email: "testguest@example.com", event: event, affiliation: "Friend", category: "Adult", alloted_seats: 10, commited_seats: 0, guest_commited: 0,  status: "Confirmed", section: 1)}
 
     context "when a valid RSVP link is provided" do
       it "updates committed seats within the allocated limit" do

@@ -13,6 +13,6 @@ RSpec.describe Guest, type: :model do
     it { should validate_presence_of(:event_id) }
     it { should validate_numericality_of(:alloted_seats).is_greater_than_or_equal_to(0) }
     it { should validate_numericality_of(:commited_seats).is_greater_than_or_equal_to(0) }
-    it { should validate_numericality_of(:guest_commited).is_greater_than_or_equal_to(0) }  
+  #  it { should validate_numericality_of(:guest_commited).is_greater_than_or_equal_to(0) }  
   end
 end

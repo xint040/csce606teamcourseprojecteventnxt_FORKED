@@ -74,7 +74,8 @@ Given('we have seats') do
   the_seats_parametrization = {
     category: 'category1',
     total_count: 80,
-    event_id: 1
+    event_id: 1,
+    section: 1
   }
   @seat=Seat.create(the_seats_parametrization)
   @seat.save
@@ -90,7 +91,8 @@ Given('we have guests') do
     alloted_seats: 1,
     commited_seats: 1,
     guest_commited: 1,
-    event_id: 1
+    event_id: 1,
+    section: 1
   }
     @guest=Guest.create(the_guest_parametrization)
     @guest.save
